@@ -7854,7 +7854,7 @@ div#power-star-title {
   border: var(--style-border);
   animation: barrageIn 0.6s cubic-bezier(0.42, 0, 0.3, 1.11);
 }
-
+/*
 #cookies-window.cw-hide {
   opacity: 0;
   animation: barrageOut 0.6s cubic-bezier(0.42, 0, 0.3, 1.11);
@@ -7873,7 +7873,7 @@ div#power-star-title {
   display: flex;
   justify-content: space-around;
   align-items: center;
-}
+} */
 
 .cookie-to {
   margin-right: 4px;
@@ -7889,11 +7889,11 @@ div#power-star-title {
   font-size: 16px;
 }
 
-@media screen and (max-width: 1300px) {
+/* @media screen and (max-width: 1300px) {
   #cookies-window {
     display: none;
   }
-}
+} */
 
 .heo-tag {
   padding: 1px 6px;
