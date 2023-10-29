@@ -50,7 +50,7 @@ var heo = {
             document.querySelector("#category-bar") && document.getElementById("category-bar-home").classList.add("select");
         else {
             if (/\/categories\/.*?\//.test(e)) {
-                var t = e.split("/")[2];
+                var t = e.split("/").slice(-2)[0];
                 document.querySelector("#category-bar") && document.getElementById(t).classList.add("select")
             }
         }
