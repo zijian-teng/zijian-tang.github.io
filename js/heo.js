@@ -101,7 +101,7 @@ var heo = {
         }
     },
     sayhi: function() {
-        document.querySelector("#author-info__sayhi") && (document.getElementById("author-info__sayhi").innerHTML = getTimeState() + "！我是")
+        document.querySelector("#author-info__sayhi") && (document.getElementById("author-info__sayhi").innerHTML = "👋 Hello, I'm Zijian!")
     },
     addTag: function() {
         document.querySelector(".heo-tag-new") && $(".heo-tag-new").append('<sup class="heo-tag heo-tag-new-view">N</sup>'),
@@ -213,15 +213,15 @@ var heo = {
         }
         ))
     },
-    showLoading: function() {
-        document.querySelector("#loading-box").classList.remove("loaded");
-        let e = getComputedStyle(document.documentElement).getPropertyValue("--heo-card-bg");
-        heo.changeThemeColor(e)
-    },
-    hideLoading: function() {
-        document.querySelector("#loading-box").classList.add("loaded")
-        // heoGPT.aiExplanation()
-    },
+    // showLoading: function() {
+    //     document.querySelector("#loading-box").classList.remove("loaded");
+    //     let e = getComputedStyle(document.documentElement).getPropertyValue("--heo-card-bg");
+    //     heo.changeThemeColor(e)
+    // },
+    // hideLoading: function() {
+    //     document.querySelector("#loading-box").classList.add("loaded")
+    //     // heoGPT.aiExplanation()
+    // },
     musicToggle: function() {
         heo_musicPlaying ? (document.querySelector("#nav-music").classList.remove("playing"),
         document.getElementById("menu-music-toggle").innerHTML = '<i class="heofont icon-play-fill"></i><span>播放音乐</span>',
@@ -305,7 +305,7 @@ var heo = {
         }
     },
     changeSayHelloText: function() {
-        const e = ["🤖️ 数码科技爱好者", "🔍 分享与热心帮助", "🏠 智能家居小能手", "🔨 设计开发一条龙", "🤝 专修交互与设计", "🏃 脚踏实地行动派", "🧱 团队小组发动机", "💢 壮汉人狠话不多"]
+        const e = ["♎️ 天秤座", "90 后", "🎵 喜欢听八九十年代的老歌", "🚴‍♀️ 喜欢骑行", "📷 喜欢摄影"]
           , t = document.getElementById("author-info__sayhi");
         let o = e[Math.floor(Math.random() * e.length)];
         for (; o === lastSayHello; )
