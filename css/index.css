@@ -983,7 +983,6 @@ a:hover {
   align-items: flex-start
 }
 
-
 .copy-true {
   user-select: all;
 }
@@ -9465,13 +9464,17 @@ span.recent-post-top-text {
 /* 主页卡片手机端美化 */
 @media screen and (max-width: 768px) {
   #recent-posts>.recent-post-item {
-    margin: .5rem 0.25rem;
+    margin: .5rem 1rem;
     border-radius: 12px;
     border: var(--style-border-always);
     box-shadow: var(--heo-shadow-border);
     display: block;
     position: relative;
     clip-path: inset(0 0 0 0 round 12px);
+  }
+
+  #recent-posts.category_ui>.recent-post-item {
+    margin: .5rem 0.25rem;
   }
 
   #recent-posts .recent-post-item .post_cover {
@@ -13776,7 +13779,7 @@ figure.gallery-group:hover .gallery-group-name::after {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  margin: 0 -0.75rem;
+  /* margin: 0 -0.75rem; */
   margin-bottom: 0.5rem;
 }
 
