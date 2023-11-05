@@ -16623,18 +16623,18 @@ span.hexo-douban-pagenum {
   }
 }
 
-@media screen and (max-height: 800px) {
+@media screen and (max-height: 500px) {
   #console .console-card-group {
     display: none;
   }
-
+/*
   #consoleMusic {
     display: none;
   }
 
   #consoleCommentBarrage {
     display: none;
-  }
+  }*/
 }
 
 #console .console-card {
