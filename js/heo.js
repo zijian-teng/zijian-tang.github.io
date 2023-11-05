@@ -39,6 +39,7 @@ var heo = {
         var e = window.location.pathname;
         if (/\/tags\/.*?\//.test(e = decodeURIComponent(e))) {
             var t = e.split("/")[2];
+            console.log(t)
             document.querySelector("#tag-page-tags") && ($("a").removeClass("select"),
             document.getElementById(t).classList.add("select"))
         }

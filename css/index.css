@@ -5895,7 +5895,8 @@ html {
 #nav-music {
   display: flex;
   align-items: center;
-  z-index: 1001;
+  /* footer is 1002, and will hide music */
+  z-index: 1003;
   position: fixed;
   bottom: 20px;
   left: 20px;
@@ -9410,15 +9411,15 @@ span.recent-post-top-text {
   align-items: center;
   transition: all 0.3s ease 0s;
   margin-bottom: 1rem;
+  /* 修复分类、tag页单列显示首个元素无圆角 */
+  overflow: hidden;
+  position: relative;
+  animation: slide-in 0.6s 0.4s backwards;
+  will-change: transform;
 }
 
 #recent-posts>.recent-post-item:not(:first-child) {
-  /* margin-top: 0.5rem; */
-  position: relative;
-  overflow: hidden;
   margin-top: 1rem;
-  animation: slide-in 0.6s 0.4s backwards;
-  will-change: transform;
 }
 
 @media screen and (min-width: 1300px) {
@@ -11299,11 +11300,12 @@ b, strong {
   font-weight: 400;
 }
 
-#article-container.post-content h1, #article-container.post-content h2, #article-container.post-content h3, #article-container.post-content h4 {
+/* fix h3 code issue */
+/* #article-container.post-content h1, #article-container.post-content h2, #article-container.post-content h3, #article-container.post-content h4 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-direction: row-reverse;
+  flex-direction: row-reverse; */
 }
 
 #article-container.post-content h1 {
@@ -11562,11 +11564,11 @@ blockquote p {
 
 #article-container .headerlink {
   float: right;
-  opacity: 0.08;
+  opacity: 0.5;
   border-bottom-style: none;
   border-bottom: none;
   position: relative;
-  padding: 0px;
+  padding-right: 10px;
   border: none;
   border-radius: 8px !important;
   line-height: 1;
