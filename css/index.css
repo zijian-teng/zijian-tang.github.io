@@ -2114,9 +2114,7 @@ blockquote footer cite::before {
   font-size: 1.57em;
 }
 
-#aside-content .card-info .author-info__description {
-  margin-top: -0.3rem;
-}
+
 
 #aside-content .card-info .card-info-data {
   display: table;
@@ -9991,31 +9989,7 @@ div#author-info__sayhi:hover {
   }
 }
 
-/* 作者卡片描述 */
-#aside-content>div.card-widget.card-info>div>div.card-info-avatar.is-center>div.author-info__description {
-  line-height: 1.38;
-  margin: .3rem 0;
-  text-align: justify;
-  color: rgba(255, 255, 255, 0.8);
-}
 
-#aside-content>div.card-widget.card-info>div>div.card-info-avatar.is-center>div.author-info__description b {
-  color: var(--heo-white);
-}
-
-/* 作者卡片描述2 */
-.author-info__description2 {
-  line-height: 1.38;
-  margin: .3rem 0;
-  text-align: justify;
-  width: 100%;
-  z-index: 2;
-  color: rgba(255, 255, 255, 0.8);
-}
-
-.author-info__description2 b {
-  color: var(--heo-white);
-}
 
 .card-widget.card-info .banner-button-group {
   position: absolute;
@@ -16526,7 +16500,7 @@ span.hexo-douban-pagenum {
 /* 即刻短文 */
 .author-content.author-content-item.essayPage {
   height: 10rem;
-  background: url(/img/bunny.png) no-repeat center;
+  background: url(/img/cool-background-trianglify_rotate.png) no-repeat center;
   background-size: cover;
   color: var(--heo-white);
   overflow: hidden;
@@ -16604,9 +16578,9 @@ span.hexo-douban-pagenum {
     margin: 0;
   }
 
-  #consoleMusic {
+  /* #consoleMusic {
     display: none;
-  }
+  } */
 
   #consoleCommentBarrage {
     display: none;
@@ -16618,9 +16592,9 @@ span.hexo-douban-pagenum {
     display: none;
   }
 
-  #consoleHideAside {
+  /* #consoleHideAside {
     display: none;
-  }
+  } */
 }
 
 @media screen and (max-height: 500px) {
@@ -17479,11 +17453,11 @@ div#author-info__sayhi:active {
   background: var(--heo-main);
   margin-top: 0
 }
+
 .author-info__description {
-  line-height: 1.38;
-  margin: .3rem 0;
-  text-align: justify;
+  text-align: center;
   color: var(--heo-white);
+  /* font-size: 3.5rem; */
   opacity: 1
 }
 
@@ -17514,21 +17488,6 @@ div#author-info__sayhi:active {
 .card-widget:hover .author-info__description_group {
   opacity: 1
 }
-
-.author-info__description2 {
-  line-height: 1.38;
-  margin: .3rem 0;
-  text-align: justify;
-  width: 100%;
-  z-index: 2;
-  color: rgba(255,255,255,.8)
-}
-
-.author-info__description2 b {
-  color: var(--heo-white)
-}
-
-
 
 #aside-content .card-info .card-info-data {
   display: none
