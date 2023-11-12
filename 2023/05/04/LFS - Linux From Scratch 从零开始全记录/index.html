@@ -1,0 +1,318 @@
+<!DOCTYPE html><html class="true" lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta http-equiv="content-language" content="zh-cn"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>LFS - Linux From Scratch 从零开始全记录 | Zijian's Blog</title><meta name="author" content="Zijian TENG"><meta name="copyright" content="Zijian TENG"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#425AEF"><meta name="description" content="汽车软件工程狮，C++ 程序猿，喜欢骑行、摄影"><meta name="apple-mobile-web-app-status-bar-style" content="#425AEF"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://jsd.onmicrosoft.cn/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/3.6.0/jquery.min.js"></script><script src="/js/heo.js"></script><script data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}" src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/pace/1.2.4/pace.min.js"></script><link rel="shortcut icon" href="/img/favicon.ico"><meta property="og:image" content="/img/cool-background-trianglify_rotate.png"><meta property="og:type" content="article"><meta property="og:title" content="Zijian TENG"><meta property="og:url" content="http://example.com/2023/05/04/LFS%20-%20Linux%20From%20Scratch%20%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%85%A8%E8%AE%B0%E5%BD%95/"><meta property="og:site_name" content="Zijian TENG"><meta property="og:description" content="汽车软件工程狮，C++ 程序猿，喜欢骑行、摄影"><meta property="og:locale" content="zh_CN"><link rel="canonical" href="http://example.com/2023/05/04/LFS%20-%20Linux%20From%20Scratch%20%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%85%A8%E8%AE%B0%E5%BD%95/"><link rel="preconnect" href="//bu.dusays.com"><script>const GLOBAL_CONFIG = {
+  author: `Zijian TENG`,
+  api: {"fcircle_random":"https://fcircle.acrylic.org.cn/randomfriend"},
+  root: '/',
+  post_root: "/:year/",
+  algolia: undefined,
+  twikoo: undefined,
+  localSearch: undefined,
+  translate: { "defaultEncoding": 2, "translateDelay": 0, "msgToTraditionalChinese": "简", "msgToSimplifiedChinese": "繁" },
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":400},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+  jQuery: 'https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/3.6.0/jquery.min.js',
+  justifiedGallery: {
+    js: 'https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js',
+    css: 'https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/justifiedGallery/3.8.1/css/justifiedGallery.min.css'
+  },
+  fancybox: {
+    js: 'https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/fancybox/3.5.7/jquery.fancybox.min.js',
+    css: 'https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/fancybox/3.5.7/jquery.fancybox.min.css'
+  }
+},
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isAnchor: false,
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'LFS - Linux From Scratch 从零开始全记录 | Zijian TENG',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-06-05 21:42:00',
+  tcolor_mode: 'undefined',
+  tcolor: 'undefined'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="https://cdn3.codesign.qq.com/icons/X2bzpZvRWkZkAaV/latest/iconfont.css"><link rel="stylesheet" href="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/Swiper/8.0.6/swiper-bundle.min.css"><script>var meting_api = "https://meting.qjqq.cn/?server=:server&type=:type&id=:id&auth=:auth&r=:r";</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="web_bg"></div><div id="console"><div class="close-btn" onclick="heo.hideConsole()" href="javascript:void(0);"><i class="fas fa-circle-xmark"></i></div><div class="console-card-group"><div class="console-card-group-right"><div class="console-card tags" onclick="heo.hideConsole()"><div class="card-content"><div class="author-content-item-tips">标签</div><span class="author-content-item-title">寻找感兴趣的领域</span></div><div class="card-tag-cloud"><a href="/tags/%E9%AA%91%E8%A1%8C/">骑行<sup>1</sup></a><a href="/tags/%E5%8D%83%E5%B2%9B%E6%B9%96/">千岛湖<sup>1</sup></a></div></div><div class="console-card history" onclick="heo.hideConsole()"></div></div></div><div class="button-group"><div class="console-btn-item" id="consoleHideAside" onclick="heo.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="fas fa-arrows-alt-h"></i></a></div><div class="console-btn-item" id="consoleMusic" onclick="heo.musicToggle()" title="音乐开关"><a class="music-switch"><i class="fas fa-music"></i></a></div></div><div class="console-mask" onclick="heo.hideConsole()" href="javascript:void(0);"></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">博客<div class="back-menu-list"><a class="back-menu-item" href="/" title="本站" target="_blank"><img class="back-menu-item-icon entered loading" src="/img/navicon.png" data-ll-status="loading"/><span class="back-menu-item-text">本站</span></a><a class="back-menu-item" href="https://www.cnblogs.com/tengzijian/" title="博客园" target="_blank"><img class="back-menu-item-icon entered loading" src="/img/navicon.png" data-ll-status="loading"/><span class="back-menu-item-text">博客园</span></a><a class="back-menu-item" href="https://500px.com/p/zi-jian" title="500px" target="_blank"><img class="back-menu-item-icon entered loading" src="/img/navicon.png" data-ll-status="loading"/><span class="back-menu-item-text">500px</span></a><a class="back-menu-item" href="https://github.com/zijian-teng" title="GitHub" target="_blank"><img class="back-menu-item-icon entered loading" src="/img/navicon.png" data-ll-status="loading"/><span class="back-menu-item-text">GitHub</span></a></div></div></div></div><div class="menus_items"><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 文库</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-box-archive"></i><span> 所有分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 所有标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-inbox"></i><span> 时间轴</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 珍爱生命</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/C/C-%E6%83%AF%E7%94%A8%E6%B3%95/"><i class="fa-fw fas fa-book"></i><span> C++ 惯用法</span></a></li><li><a class="site-page child" href="/categories/C/C-%E6%A0%B8%E5%BF%83%E6%8C%87%E5%8D%97/"><i class="fa-fw fas fa-book"></i><span> C++ 核心指南</span></a></li><li><a class="site-page child" href="/categories/C/%E7%8E%B0%E4%BB%A3-C/"><i class="fa-fw fas fa-book"></i><span> 现代 C++</span></a></li><li><a class="site-page child" href="/categories/C/"><i class="fa-fw fas fa-folder"></i><span> C++ 合集</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 代码工匠</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"><i class="fa-fw fas fa-compass-drafting"></i><span> 设计模式</span></a></li><li><a class="site-page child" href="/categories/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/"><i class="fa-fw fas fa-compass-drafting"></i><span> 设计原则</span></a></li><li><a class="site-page child" href="/categories/%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84/"><i class="fa-fw fas fa-compass-drafting"></i><span> 软件架构</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 汽车电子</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/SOA/"><i class="fa-fw fas fa-car"></i><span> SOA</span></a></li><li><a class="site-page child" href="/categories/Adaptive%20AUTOSAR/"><i class="fa-fw fa-solid fa-car-side"></i><span> AUTOSAR AP</span></a></li><li><a class="site-page child" href="/categories/DDS/"><i class="fa-fw fa-solid fa-sitemap"></i><span> DDS</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 计算机基础</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/Linux"><i class="fa-fw fas fa-laptop-code"></i><span> Linux</span></a></li><li><a class="site-page child" href="/categories/%E7%BC%96%E8%AF%91%E9%93%BE%E6%8E%A5"><i class="fa-fw fa-solid fa-gears"></i><span> 编译链接</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 我的</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-user-astronaut"></i><span> 关于</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/collect/"><i class="fa-fw fas fa-image"></i><span> 图片</span></a></li><li><a class="site-page child" href="/equipment/"><i class="fa-fw fa-solid fa-gamepad"></i><span> 装备</span></a></li></ul></div></div><span class="sidebar-menu-item-title">标签</span><div class="card-widget card-tags card-archives card-webinfo card-allinfo"><div class="item-headline"><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/%E9%AA%91%E8%A1%8C/">骑行<sup>1</sup></a><a href="/tags/%E5%8D%83%E5%B2%9B%E6%B9%96/">千岛湖<sup>1</sup></a></div></div></div></div><div id="nav-music" onclick="heo.musicToggle()"><div id="nav-music-hoverTips">播放音乐</div><meting-js id="7861823420" server="netease" type="playlist" mutex="true" preload="none" theme="var(--heo-main)" data-lrctype="0" order="random"></meting-js></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/cool-background-trianglify_rotate.png')"><nav class="show" id="nav"><div id="nav-group"><div id="blog_name"><div class="back-home-button" tabindex="-1"><i class="back-home-button-icon heofont icon-apps-fill"></i><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">博客<div class="back-menu-list"><a class="back-menu-item" href="/" title="本站" target="_blank"><img class="back-menu-item-icon entered loading" src="/img/navicon.png" data-ll-status="loading"/><span class="back-menu-item-text">本站</span></a><a class="back-menu-item" href="https://www.cnblogs.com/tengzijian/" title="博客园" target="_blank"><img class="back-menu-item-icon entered loading" src="/img/navicon.png" data-ll-status="loading"/><span class="back-menu-item-text">博客园</span></a><a class="back-menu-item" href="https://500px.com/p/zi-jian" title="500px" target="_blank"><img class="back-menu-item-icon entered loading" src="/img/navicon.png" data-ll-status="loading"/><span class="back-menu-item-text">500px</span></a><a class="back-menu-item" href="https://github.com/zijian-teng" title="GitHub" target="_blank"><img class="back-menu-item-icon entered loading" src="/img/navicon.png" data-ll-status="loading"/><span class="back-menu-item-text">GitHub</span></a></div></div></div></div></div><a id="site-name" href="/" title="返回博客主页"><i class="fas fa-home"></i></a></div><div id="page-name-mask"><div id="page-name"><a id="page-name-text" onclick="acy.scrollToDest(0, 500)"><span>Zijian's Blog</span></a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 文库</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-box-archive"></i><span> 所有分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 所有标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-inbox"></i><span> 时间轴</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 珍爱生命</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/C/C-%E6%83%AF%E7%94%A8%E6%B3%95/"><i class="fa-fw fas fa-book"></i><span> C++ 惯用法</span></a></li><li><a class="site-page child" href="/categories/C/C-%E6%A0%B8%E5%BF%83%E6%8C%87%E5%8D%97/"><i class="fa-fw fas fa-book"></i><span> C++ 核心指南</span></a></li><li><a class="site-page child" href="/categories/C/%E7%8E%B0%E4%BB%A3-C/"><i class="fa-fw fas fa-book"></i><span> 现代 C++</span></a></li><li><a class="site-page child" href="/categories/C/"><i class="fa-fw fas fa-folder"></i><span> C++ 合集</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 代码工匠</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"><i class="fa-fw fas fa-compass-drafting"></i><span> 设计模式</span></a></li><li><a class="site-page child" href="/categories/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/"><i class="fa-fw fas fa-compass-drafting"></i><span> 设计原则</span></a></li><li><a class="site-page child" href="/categories/%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84/"><i class="fa-fw fas fa-compass-drafting"></i><span> 软件架构</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 汽车电子</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/SOA/"><i class="fa-fw fas fa-car"></i><span> SOA</span></a></li><li><a class="site-page child" href="/categories/Adaptive%20AUTOSAR/"><i class="fa-fw fa-solid fa-car-side"></i><span> AUTOSAR AP</span></a></li><li><a class="site-page child" href="/categories/DDS/"><i class="fa-fw fa-solid fa-sitemap"></i><span> DDS</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 计算机基础</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/Linux"><i class="fa-fw fas fa-laptop-code"></i><span> Linux</span></a></li><li><a class="site-page child" href="/categories/%E7%BC%96%E8%AF%91%E9%93%BE%E6%8E%A5"><i class="fa-fw fa-solid fa-gears"></i><span> 编译链接</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 我的</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-user-astronaut"></i><span> 关于</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/collect/"><i class="fa-fw fas fa-image"></i><span> 图片</span></a></li><li><a class="site-page child" href="/equipment/"><i class="fa-fw fa-solid fa-gamepad"></i><span> 装备</span></a></li></ul></div></div></div><div id="nav-right"><div class="nav-button" id="nav-console"><a class="console_switchbutton" onclick="heo.showConsole()" title="显示中控台" href="javascript:void(0);" rel="external nofollow" data-pjax-state="data-pjax-state"><i class="fa-brands fa-ubuntu"></i></a></div><div class="nav-button" id="nav-totop" onclick="acy.scrollToDest(0, 500)"><a class="totopbtn" data-pjax-state="data-pjax-state"><i class="heofont icon-arrow-up-line"></i><span id="percent"></span></a></div><div id="toggle-menu"><a class="site-page" data-pjax-state="data-pjax-state"><i class="heofont icon-menu-fill"></i></a></div></div></div></nav><div class="coverdiv" id="coverdiv"><img class="nolazyload entered loaded" id="post-cover" src="/img/cool-background-trianglify_rotate.png" alt="cover" data-ll-status="loaded"></div><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original" title="该文章为原创文章，注意版权协议" href="undefined" data-pjax-state>原创</a><span class="post-meta-categories"><a class="post-meta-categories" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" data-pjax-state>计算机基础</a></span><span class="post-meta-categories"><a class="post-meta-categories" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/Linux/" data-pjax-state>Linux</a></span><div class="tag_share"><div class="post-meta__tag-list"></div></div></div></div><h1 class="post-title">LFS - Linux From Scratch 从零开始全记录</h1><div id="post-meta"><div class="meta-secondline"><span class="post-meta-date"><i class="fa-fw post-meta-icon fas fa-calendar"></i><time class="post-meta-date-created" datetime="2023-05-04T10:26:00.000Z" title="发表于 2023-05-04 18:26:00">2023-05-04</time><span class="post-meta-separator"></span><i class="fas fa-history fa-fw post-meta-icon"></i><time class="post-meta-date-updated" datetime="2023-06-05T13:42:00.000Z" title="更新于 2023-06-05 21:42:00">2023-06-05</time></span><span class="post-meta-wechat" title="该文章在博客首发"><i class="fas fa-user post-meta-icon"></i>滕子健</span><span class="post-meta-position" title="作者IP属地为上海"><i class="fas fa-location-dot post-meta-icon"></i>上海</span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section></header><main class="layout" id="content-inner"><div id="post"><div><article class="post-content" id="article-container"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>LFS 的精华在于过程，而不是结果。<br>如果只是追求最终的结果，那完全可以直接运行脚本，一键 LFS，整个过程就会变得索然无味，没有任何收获，毫无成就感。</p>
+<p>要去理解每一步是在做什么，为什么要这么做。这个过程中，我收获了：</p>
+<ul>
+<li>编译、交叉编译</li>
+<li>Linux 发行版由哪些软件包组成，各个软件包的作用</li>
+<li>Linux 的目录结构是如何组织的</li>
+<li>硬盘分区、格式化</li>
+<li>Linux 启动过程</li>
+<li>shell 脚本的编写技巧<br>…</li>
+</ul>
+<h1 id="背景知识-Linux-启动过程"><a href="#背景知识-Linux-启动过程" class="headerlink" title="背景知识 - Linux 启动过程"></a>背景知识 - Linux 启动过程</h1><p>以传统的 BIOS+MBR 为例，现代的 UEFI+GPT 过程类似</p>
+<h2 id="BIOS"><a href="#BIOS" class="headerlink" title="BIOS"></a>BIOS</h2><ol>
+<li>上电后运行 BIOS（EEPROM）中的 Firmware</li>
+<li>BIOS Firmware 可直接在 EEPROM 中运行或者拷贝到内存（内存 RAM 可以看作是一个巨大的字节数组）</li>
+<li>BIOS 让 CPU 和硬盘通信，把磁盘的第一个扇区（MBR）拷贝到内存（如拷贝到 BIOS Firmware 之后）<blockquote>
+<p>MBR：Master Boot Record，主引导记录，磁盘的第一个扇区，512 字节，存有 BootLoader 程序</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="BootLoader"><a href="#BootLoader" class="headerlink" title="BootLoader"></a>BootLoader</h2><ol start="4">
+<li>BIOS 设置指令指针，让 CPU 执行 MBR 的 BootLoader（如 GRUB、Uboot）</li>
+<li>BootLoader 知道分区表、文件系统，BootLoader 根据配置去找内核文件（如  &#x2F;boot&#x2F;vmlinuz-6.1.11）</li>
+<li>BootLoader 把内核文件也拷贝到内存，然后设置指令指针，让 CPU 执行内核代码</li>
+</ol>
+<h2 id="Kernel"><a href="#Kernel" class="headerlink" title="Kernel"></a>Kernel</h2><ol start="7">
+<li>内核启动第一个进程 init（sysV）或者 systemd<blockquote>
+<p>Kernel 权限高，容易出安全漏洞，应尽量小。一般程序不应该在内核中运行。一般只用于进程间通信，包括驱动进程、服务&#x2F;deamon进程之间的进程间通信。关于 Kernel 的范围如何界定（要不要包含网络协议、硬件驱动等）尚有争议。Linus 尝试过把 FileSystem 从 Kernel 中移到 Kernel Module。做到了，但是更复杂，更慢。</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="init"><a href="#init" class="headerlink" title="init"></a>init</h2><ol start="8">
+<li>init 根据配置启动服务、驱动，网络配置、<strong>根据&#x2F;etc&#x2F;fstab 挂在根目录&#x2F;、&#x2F;boot</strong></li>
+</ol>
+<h1 id="准备-U-盘或者虚拟磁盘文件"><a href="#准备-U-盘或者虚拟磁盘文件" class="headerlink" title="准备 U 盘或者虚拟磁盘文件"></a>准备 U 盘或者虚拟磁盘文件</h1><p>原本打算直接用一个单独的 U 盘来做 LFS，引导物理机，但是发现直接在 U 上编译、安装实在是太慢了，于是放弃。在 VirtualBox 中新创建了一个 vdi 磁盘文件，然后添加挂到虚拟机里。</p>
+<p><img src="https://img2023.cnblogs.com/blog/197073/202306/197073-20230605213710435-433672806.png" alt="image"></p>
+<p>用一个单独的 vdi 磁盘文件，可以和现有的 Linux 系统解耦得更彻底，LFS 完成后，可以把这个磁盘镜像单独挂载到一个新的虚拟机上，完全脱离现有 Linux 启动 LFS 系统。</p>
+<h2 id="分区"><a href="#分区" class="headerlink" title="分区"></a>分区</h2><p>用 fdisk 创建分区表，创建 ext2 的 &#x2F;、&#x2F;boot 分区并填充<br>然后用 grub2 把 Bootloader 放到 MBR</p>
+<table>
+<thead>
+<tr>
+<th>MBR</th>
+<th>&#x2F;boot</th>
+<th>&#x2F;</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>512字节</td>
+<td>100M</td>
+<td>30G</td>
+</tr>
+</tbody></table>
+<p>【编译3阶段】</p>
+<p>A.build — B.host — C.target</p>
+<ol>
+<li>用PC的gcc-run_on_a-for_a 本地（非交叉）编 gcc-run_on_a-for_b（编译交叉编译工具链cc1）【配置了什么？for_b 如何体现的？】</li>
+<li>用gcc-run_on_a-for_b(cc1) 在a上 <strong>交叉编译</strong>很多其他东西，但不是所有：gcc_run_on_b_for_c(cc-lfs)、coreutils、bison、autoconf、m4…这些产物可以在B上运行（B可以是另一台机器，不一定是A）</li>
+<li>用gcc_run_on_b_for_c(cc-lfs) 交叉编译，存到 $LFS&#x2F;usr ，**<u>交叉编译</u>**所有的的东西，包括gcc_run_on_c_for_c（由gcc_run_on_b_for_c交叉编译得到）</li>
+</ol>
+<p>上述3阶段完成了 &#x2F; 分区</p>
+<p>然后编 linux、grub，放到 &#x2F;boot</p>
+<p>再用 grub 创建 MBR</p>
+<p>写配置文件</p>
+<p>coreutils：操作底层文件、目录的：mkdir、cd、mv、rm</p>
+<p>Chroot 之后完全和A隔离了，不会用到A的任何东西了。</p>
+<p>【三元组】</p>
+<p>gnu</p>
+<p>gnueabi：raspberrypi</p>
+<p>【LFS】</p>
+<p>好习惯：保存成脚本</p>
+<p>【fdisk】</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">sudo fdisk  /dev/sdb &lt;&lt; <span class="string">EOF</span></span><br><span class="line"><span class="string"># m：帮助</span></span><br><span class="line"><span class="string">o # 创建分区表</span></span><br><span class="line"><span class="string">n # 创建分区</span></span><br><span class="line"><span class="string">p # 创建主分区</span></span><br><span class="line"><span class="string">1 # 分区号，从1开始</span></span><br><span class="line"><span class="string"># 空一行，回车，默认值，从头开始</span></span><br><span class="line"><span class="string">+100M</span></span><br><span class="line"><span class="string">a # 可引导</span></span><br><span class="line"><span class="string">n</span></span><br><span class="line"><span class="string">p</span></span><br><span class="line"><span class="string">2</span></span><br><span class="line"><span class="string"># 从分区1之后开始 </span></span><br><span class="line"><span class="string"># 到磁盘结束end of the disk</span></span><br><span class="line"><span class="string">p # 打印</span></span><br><span class="line"><span class="string">w # 保存</span></span><br><span class="line"><span class="string">q # 退出</span></span><br><span class="line"><span class="string">EOF</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>上述代码不能有注释，如果想要保留注释，可以用 set 命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo mkfs -t ext2 -F <span class="string">&quot;<span class="variable">$&#123;LFS_DISK&#125;</span>1&quot;</span></span><br><span class="line">sudo mkfs -t ext2 -F <span class="string">&quot;<span class="variable">$&#123;LFS_DISK&#125;</span>2&quot;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>【FHS】</p>
+<p>File System Hierarchy</p>
+<p>sudo umount &#x2F;mnt&#x2F;lfs</p>
+<p>【下载脚本】</p>
+<p>download.sh</p>
+<p>cut、sed、read</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> package.csv | <span class="keyword">while</span> <span class="built_in">read</span> line; <span class="keyword">do</span></span><br><span class="line">	<span class="comment"># csv 文件用 ;  分割，前面加 \ 转义</span></span><br><span class="line">	NAME = <span class="string">&quot;`echo <span class="variable">$line</span> | cut -d \; -f1`&quot;</span></span><br><span class="line">    VERSION = <span class="string">&quot;`echo <span class="variable">$line</span> | cut -d \; -f2`&quot;</span></span><br><span class="line">    URL = <span class="string">&quot;`echo <span class="variable">$line</span> | cut -d \; -f3 | sed &quot;</span>s/@/<span class="variable">$VERSION</span>/g<span class="string">&quot; `&quot;</span></span><br><span class="line">    MD5SUM = <span class="string">&quot;`echo <span class="variable">$line</span> | cut -d \; -f4`&quot;</span></span><br><span class="line">	CACHEFILE=<span class="string">&quot;<span class="subst">$(basename <span class="string">&quot;<span class="variable">$URL</span>&quot;</span>)</span>&quot;</span></span><br><span class="line">	</span><br><span class="line">	<span class="keyword">if</span> [ ! -f <span class="string">&quot;<span class="variable">$CACHEFILE</span>&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">		<span class="built_in">echo</span> <span class="string">&quot;Downloading <span class="variable">$URL</span>&quot;</span></span><br><span class="line">		wget <span class="string">&quot;<span class="variable">$URL</span>&quot;</span></span><br><span class="line">		</span><br><span class="line">	<span class="keyword">fi</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+<p>先要自己用 fdisk&#x2F;cfdisk 来分区</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/mnt/lfs sudo umount /mnt/lfs</span><br><span class="line">umount: /mnt/lfs: target is busy.</span><br><span class="line">/mnt/lfs <span class="built_in">cd</span> ..</span><br><span class="line">/mnt sudo umount /mnt/lfs</span><br></pre></td></tr></table></figure>
+<p>在这个目录下，无法 unmount<br>如果 &#x2F;mnt&#x2F;lfs&#x2F;home 挂载了其他分区，也无法 unmount &#x2F;mnt&#x2F;lfs</p>
+<p>交叉编译：在 A上，先用 ccA 编 cc1，再用 cc1 编交叉编译工具链 cc2。（cc1 的作用是什么？为什么不直接用 ccA 编 cc2???）；在 B上用 cc2 编 ccC。ccC 运行于C。</p>
+<p>Ⅴ：用 gcc 7.5(cc-pc) 编 gcc12(cc1)<br>Ⅵ：用 gcc12(cc1) 编 cc-lfs</p>
+<h1 id="Ⅴ-编译交叉工具链"><a href="#Ⅴ-编译交叉工具链" class="headerlink" title="Ⅴ 编译交叉工具链"></a>Ⅴ 编译交叉工具链</h1><p>第一次编译，用 cc-pc 编交叉编译工具链 cc1（$LFS_TGT: x86_64-lfs-linux-gnu）<br>只有 binutils 和 gcc 安装到 tools 下，后续所有编译都依赖于此</p>
+<ol>
+<li>binutils：</li>
+<li>gcc:<br> –prefix&#x3D;$LFS&#x2F;tools<br> –target&#x3D;$LFS_TGT<br> –with-sysroot&#x3D;$LFS</li>
+</ol>
+<p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;<br>用上述两个工具，交叉编译 C、C++库以及第Ⅵ章中所有的工具</p>
+<ol start="3">
+<li><p>Linux API 头文件：cp -r usr&#x2F;include $LFS&#x2F;usr</p>
+</li>
+<li><p>glibc: –prefix&#x3D;&#x2F;usr –host&#x3D;$LFS_TGT –build&#x3D;$(..&#x2F;scripts&#x2F;config.guess) 后期安装时，通过 <code>make DESTDIR=$LFS install</code> 安装到 $LFS</p>
+</li>
+<li><p>libstdc++: –prefix&#x3D;&#x2F;usr，–host&#x3D;$LFS_TGT –build&#x3D;$(..&#x2F;config.guess) 后期安装时，通过 <code>make DESTDIR=$LFS install</code> 安装到 $LFS</p>
+</li>
+</ol>
+<h1 id="Ⅵ-交叉编译临时工具"><a href="#Ⅵ-交叉编译临时工具" class="headerlink" title="Ⅵ 交叉编译临时工具"></a>Ⅵ 交叉编译临时工具</h1><p>M4<br>Ncurses<br>Bash</p>
+<p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
+<h2 id="configure-选项"><a href="#configure-选项" class="headerlink" title="configure 选项"></a>configure 选项</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">prefix=$LFS/tools：安装到哪里</span><br><span class="line">target=$LFS_TGT: x86_64-lfs-linux-gnu 不同于  config.guess 的 x86_64-pc-linux-gnu，使得 configure 脚本进行交叉编译</span><br><span class="line">with-sysroot=$LFS：在哪里找目标系统的库</span><br><span class="line"></span><br><span class="line"># glibc, libstdc++</span><br><span class="line">--host=$LFS_TGT: 使用刚刚编译的 x86_64-lfs-linux-gnu 交叉编译器，而非 /usr/bin 中的编译器</span><br><span class="line">--host=$LFS_TGT --build=$(../config.guess)：glibc 将自身配置为使用 $LFS/tools 中的工具进行交叉编译</span><br></pre></td></tr></table></figure>
+
+<h1 id="Ⅵ"><a href="#Ⅵ" class="headerlink" title="Ⅵ"></a>Ⅵ</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">--prefix=/usr</span><br><span class="line">--host=<span class="variable">$LFS_TGT</span></span><br><span class="line">--build=$(./config.guess)</span><br></pre></td></tr></table></figure>
+<p>用 x86_64-lfs-linux-gnu-gcc 去编译<br>第二遍编译 binutils</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">../configure                   \</span><br><span class="line">    --prefix=/usr              \</span><br><span class="line">    --build=$(../config.guess) \</span><br><span class="line">    --host=<span class="variable">$LFS_TGT</span></span><br></pre></td></tr></table></figure>
+<p>第二遍 编译 gcc</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">../configure                                       \</span><br><span class="line">    --build=$(../config.guess)                     \</span><br><span class="line">    --host=<span class="variable">$LFS_TGT</span>                                \ <span class="comment"># 通常，指定 --host 即可保证使用交叉编译器，在 $LFS 中查找头文件和库</span></span><br><span class="line">    --target=<span class="variable">$LFS_TGT</span>                              \ <span class="comment"># 使用第一遍构建的 GCC 编译运行库</span></span><br><span class="line">    --prefix=/usr                                  \</span><br><span class="line">    --with-build-sysroot=<span class="variable">$LFS</span>                      \ <span class="comment">#</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="Ⅶ-chroot"><a href="#Ⅶ-chroot" class="headerlink" title="Ⅶ chroot"></a>Ⅶ chroot</h1><p>chroot，把 $LFS 作为 &#x2F;，和宿主机完全脱离，用第Ⅵ章编译出来的工具，进行本地编译。make &amp;&amp; make install</p>
+<h1 id="8-5-Glibc-2-37-第三次编译-glibc"><a href="#8-5-Glibc-2-37-第三次编译-glibc" class="headerlink" title="8.5. Glibc-2.37 第三次编译 glibc"></a>8.5. Glibc-2.37 第三次编译 glibc</h1><h1 id="8-18-第三次编译-binutils"><a href="#8-18-第三次编译-binutils" class="headerlink" title="8.18 第三次编译 binutils"></a>8.18 第三次编译 binutils</h1><h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://www.linuxfromscratch.org/index.html">https://www.linuxfromscratch.org/index.html</a></li>
+<li><a target="_blank" rel="noopener" href="https://lfs.xry111.site/zh_CN/11.3/LFS-BOOK.html">https://lfs.xry111.site/zh_CN/11.3/LFS-BOOK.html</a></li>
+<li><a target="_blank" rel="noopener" href="https://moi.vonos.net/linux/beginners-installing-from-source/">https://moi.vonos.net/linux/beginners-installing-from-source/</a></li>
+<li><a target="_blank" rel="noopener" href="https://tldp.org/HOWTO/Software-Building-HOWTO.html">https://tldp.org/HOWTO/Software-Building-HOWTO.html</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.youtube.com/playlist?list=PLHh55M_Kq4OAPznDEcgnkQsbjgvG-QFBR">https://www.youtube.com/playlist?list=PLHh55M_Kq4OAPznDEcgnkQsbjgvG-QFBR</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1K44y1n7Xn/">https://www.bilibili.com/video/BV1K44y1n7Xn/</a></li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author_group"><a class="post-copyright__author_img" href="/about/"><img class="post-copyright__author_img_back entered loading" src="/img/avatar.jpg" data-ll-status="loading"></a><div class="post-copyright__author_name">Zijian TENG</div><div class="post-copyright__author_desc">汽车软件工程狮，C++ 程序猿，喜欢骑行、摄影</div></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div class="post-reward" onclick="AddRewardMask()"><div class="reward-button button--animated" title="赞赏作者"><i class="heofont icon-hand-heart-fill"></i> 打赏作者</div><div class="reward-main"><ul class="reward-all"><span class="reward-title">感谢你赐予我前进的力量</span><ul class="reward-group"><li class="reward-item"><a href="https://img01.anheyu.com/useruploads/8/2023/08/09/64d36090eeae9.png" target="_blank"><img class="post-qr-code-img" src="https://img01.anheyu.com/useruploads/8/2023/08/09/64d36090eeae9.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://img01.anheyu.com/useruploads/8/2023/08/09/64d36090ee66e.png" target="_blank"><img class="post-qr-code-img" src="https://img01.anheyu.com/useruploads/8/2023/08/09/64d36090ee66e.png" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul><a class="reward-main-btn" href="/about/" target="_blank"><div class="reward-text">赞赏者名单</div><div class="reward-dec">因为你们的支持让我意识到写文章的价值🙏</div></a></ul></div></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">本文是原创文章，采用 <a href="undefined" target="_blank">CC BY-NC-SA 4.0</a>协议，完整转载请注明来自<a href="/" target="_blank">Zijian TENG</a></span></div></div><nav class="pagination-post needEndHide" id="pagination"><div class="prev-post pull-left"><a href="/2023/05/25/VSCode%20%E7%BB%88%E7%AB%AF%E9%80%89%E6%8B%A9%E6%96%87%E6%9C%AC%E8%87%AA%E5%8A%A8%E5%A4%8D%E5%88%B6/"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">VSCode 终端选择文本自动复制</div></div></a></div><div class="next-post pull-right"><a href="/2023/04/05/shared_ptr%20%E8%87%AA%E5%AE%9A%E4%B9%89%20deleter%20%E5%88%A0%E9%99%A4%E5%99%A8/"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">shared_ptr 自定义 deleter 删除器</div></div></a></div></nav></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><div class="author-info__top-group"><div class="author-info__sayhi" id="author-info__sayhi" onclick="heo.changeSayHelloText()"></div></div></div><div class="avatar-img-group"><div class="avatar-img" id="lottie_avatar"><img src="/img/avatar.jpg"/></div><div class="avatar-sticker"><img class="avatar-sticker-img entered loading" src="/img/avatar_sticker.png" ait="status"/></div></div><div class="author-info__description_group"><div class="author-info__description">有一个绘画筑起的城堡</div><div class="author-info__description">城堡里藏着单纯安静</div><div class="author-info__description">藏着一群人的生活和梦想</div><div class="author-info__description">——『苹果树下』</div></div><div class="author-info__bottom-group"><a class="author-info__bottom-group-left" href="/about"><div class="author-info__name">Zijian</div><div class="author-info__desc">好记性如烂笔头</div></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/zijian-teng" rel="external nofollow" target="_blank" title="GitHub"><i class="fab fa-github"></i></a><a class="social-icon" href="https://500px.com/p/zi-jian" rel="external nofollow" target="_blank" title="500px"><i class="fab fa-500px"></i></a></div></div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%83%8C%E6%99%AF%E7%9F%A5%E8%AF%86-Linux-%E5%90%AF%E5%8A%A8%E8%BF%87%E7%A8%8B"><span class="toc-text">背景知识 - Linux 启动过程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#BIOS"><span class="toc-text">BIOS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BootLoader"><span class="toc-text">BootLoader</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Kernel"><span class="toc-text">Kernel</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#init"><span class="toc-text">init</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%87%86%E5%A4%87-U-%E7%9B%98%E6%88%96%E8%80%85%E8%99%9A%E6%8B%9F%E7%A3%81%E7%9B%98%E6%96%87%E4%BB%B6"><span class="toc-text">准备 U 盘或者虚拟磁盘文件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E5%8C%BA"><span class="toc-text">分区</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E2%85%A4-%E7%BC%96%E8%AF%91%E4%BA%A4%E5%8F%89%E5%B7%A5%E5%85%B7%E9%93%BE"><span class="toc-text">Ⅴ 编译交叉工具链</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E2%85%A5-%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E4%B8%B4%E6%97%B6%E5%B7%A5%E5%85%B7"><span class="toc-text">Ⅵ 交叉编译临时工具</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#configure-%E9%80%89%E9%A1%B9"><span class="toc-text">configure 选项</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E2%85%A5"><span class="toc-text">Ⅵ</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E2%85%A6-chroot"><span class="toc-text">Ⅶ chroot</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#8-5-Glibc-2-37-%E7%AC%AC%E4%B8%89%E6%AC%A1%E7%BC%96%E8%AF%91-glibc"><span class="toc-text">8.5. Glibc-2.37 第三次编译 glibc</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#8-18-%E7%AC%AC%E4%B8%89%E6%AC%A1%E7%BC%96%E8%AF%91-binutils"><span class="toc-text">8.18 第三次编译 binutils</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="toc-text">参考链接</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/11/04/hello-world/" title="Hello World"><img src="/img/cool-background-trianglify_rotate.png" onerror="this.onerror=null;this.src='/img/cool-background-trianglify_rotate.png'" alt="Hello World"/></a><div class="content"><a class="title" href="/2023/11/04/hello-world/" title="Hello World">Hello World</a><time datetime="2023-11-03T23:04:59.901Z" title="发表于 2023-11-04 07:04:59">2023-11-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/30/qiandaolake2/" title="千岛湖骑行记"><img src="/img/cool-background-trianglify_rotate.png" onerror="this.onerror=null;this.src='/img/cool-background-trianglify_rotate.png'" alt="千岛湖骑行记"/></a><div class="content"><a class="title" href="/2023/10/30/qiandaolake2/" title="千岛湖骑行记">千岛湖骑行记</a><time datetime="2023-10-30T13:56:20.000Z" title="发表于 2023-10-30 21:56:20">2023-10-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/23/node.js%20%E5%91%BD%E4%BB%A4%E5%BF%85%E9%A1%BB%E5%8A%A0%20npx%20%E6%89%8D%E8%83%BD%E6%89%A7%E8%A1%8C/" title="node.js 命令必须加 npx 才能执行"><img src="/img/cool-background-trianglify_rotate.png" onerror="this.onerror=null;this.src='/img/cool-background-trianglify_rotate.png'" alt="node.js 命令必须加 npx 才能执行"/></a><div class="content"><a class="title" href="/2023/10/23/node.js%20%E5%91%BD%E4%BB%A4%E5%BF%85%E9%A1%BB%E5%8A%A0%20npx%20%E6%89%8D%E8%83%BD%E6%89%A7%E8%A1%8C/" title="node.js 命令必须加 npx 才能执行">node.js 命令必须加 npx 才能执行</a><time datetime="2023-10-23T14:48:00.000Z" title="发表于 2023-10-23 22:48:00">2023-10-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/14/macOS%20%E5%AE%89%E8%A3%85%20clang-tidy/" title="macOS 安装 clang-tidy"><img src="/img/cool-background-trianglify_rotate.png" onerror="this.onerror=null;this.src='/img/cool-background-trianglify_rotate.png'" alt="macOS 安装 clang-tidy"/></a><div class="content"><a class="title" href="/2023/10/14/macOS%20%E5%AE%89%E8%A3%85%20clang-tidy/" title="macOS 安装 clang-tidy">macOS 安装 clang-tidy</a><time datetime="2023-10-14T03:22:00.000Z" title="发表于 2023-10-14 11:22:00">2023-10-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/10/QNX%20%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90%E5%B7%A5%E5%85%B7/" title="QNX 性能分析工具"><img src="/img/cool-background-trianglify_rotate.png" onerror="this.onerror=null;this.src='/img/cool-background-trianglify_rotate.png'" alt="QNX 性能分析工具"/></a><div class="content"><a class="title" href="/2023/10/10/QNX%20%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90%E5%B7%A5%E5%85%B7/" title="QNX 性能分析工具">QNX 性能分析工具</a><time datetime="2023-10-10T07:04:00.000Z" title="发表于 2023-10-10 15:04:00">2023-10-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/06/CSS%20%E5%9F%BA%E7%A1%80%205%20-%20CSS%20%E9%80%89%E6%8B%A9%E5%99%A8/" title="CSS 基础 5 - CSS 选择器"><img src="/img/cool-background-trianglify_rotate.png" onerror="this.onerror=null;this.src='/img/cool-background-trianglify_rotate.png'" alt="CSS 基础 5 - CSS 选择器"/></a><div class="content"><a class="title" href="/2023/10/06/CSS%20%E5%9F%BA%E7%A1%80%205%20-%20CSS%20%E9%80%89%E6%8B%A9%E5%99%A8/" title="CSS 基础 5 - CSS 选择器">CSS 基础 5 - CSS 选择器</a><time datetime="2023-10-06T02:26:00.000Z" title="发表于 2023-10-06 10:26:00">2023-10-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/09/28/CSS%20%E5%9F%BA%E7%A1%80%204%20-%20CSS%20%E5%B8%B8%E7%94%A8%E5%8D%95%E4%BD%8D/" title="CSS 基础 4 - CSS 常用单位"><img src="/img/cool-background-trianglify_rotate.png" onerror="this.onerror=null;this.src='/img/cool-background-trianglify_rotate.png'" alt="CSS 基础 4 - CSS 常用单位"/></a><div class="content"><a class="title" href="/2023/09/28/CSS%20%E5%9F%BA%E7%A1%80%204%20-%20CSS%20%E5%B8%B8%E7%94%A8%E5%8D%95%E4%BD%8D/" title="CSS 基础 4 - CSS 常用单位">CSS 基础 4 - CSS 常用单位</a><time datetime="2023-09-28T12:52:00.000Z" title="发表于 2023-09-28 20:52:00">2023-09-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/09/28/CSS%20%E5%9F%BA%E7%A1%80%203%20-%20%E5%AE%9A%E4%BD%8D%20Postion%20%E5%B1%9E%E6%80%A7/" title="CSS 基础 3 - 定位 Postion 属性"><img src="/img/cool-background-trianglify_rotate.png" onerror="this.onerror=null;this.src='/img/cool-background-trianglify_rotate.png'" alt="CSS 基础 3 - 定位 Postion 属性"/></a><div class="content"><a class="title" href="/2023/09/28/CSS%20%E5%9F%BA%E7%A1%80%203%20-%20%E5%AE%9A%E4%BD%8D%20Postion%20%E5%B1%9E%E6%80%A7/" title="CSS 基础 3 - 定位 Postion 属性">CSS 基础 3 - 定位 Postion 属性</a><time datetime="2023-09-28T12:49:00.000Z" title="发表于 2023-09-28 20:49:00">2023-09-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/09/27/CSS%20%E5%9F%BA%E7%A1%80%202%20-%20Box%20Model%20%E7%9B%92%E6%A8%A1%E5%9E%8B/" title="CSS 基础 2 - Box Model 盒模型"><img src="/img/cool-background-trianglify_rotate.png" onerror="this.onerror=null;this.src='/img/cool-background-trianglify_rotate.png'" alt="CSS 基础 2 - Box Model 盒模型"/></a><div class="content"><a class="title" href="/2023/09/27/CSS%20%E5%9F%BA%E7%A1%80%202%20-%20Box%20Model%20%E7%9B%92%E6%A8%A1%E5%9E%8B/" title="CSS 基础 2 - Box Model 盒模型">CSS 基础 2 - Box Model 盒模型</a><time datetime="2023-09-27T12:40:00.000Z" title="发表于 2023-09-27 20:40:00">2023-09-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/09/27/CSS%20%E5%9F%BA%E7%A1%80%201%20-%20Block%20&amp;%20Inline/" title="CSS 基础 1 - Block &amp; Inline"><img src="/img/cool-background-trianglify_rotate.png" onerror="this.onerror=null;this.src='/img/cool-background-trianglify_rotate.png'" alt="CSS 基础 1 - Block &amp; Inline"/></a><div class="content"><a class="title" href="/2023/09/27/CSS%20%E5%9F%BA%E7%A1%80%201%20-%20Block%20&amp;%20Inline/" title="CSS 基础 1 - Block &amp; Inline">CSS 基础 1 - Block &amp; Inline</a><time datetime="2023-09-27T12:38:00.000Z" title="发表于 2023-09-27 20:38:00">2023-09-27</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer_deal"></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div id="footer-bar-tips"></div><a class="footer-bar-link" href="/">Zijian's Blog</a></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" href="https://hexo.io" rel="noopener external nofollow noreferrer">Powered by Hexo & Butterfly</a><a class="footer-bar-link cc" href="/" title="Copyright"><i class="fa-regular fa-copyright"></i><i class="fa-brands fa-creative-commons-by"></i><i class="fa-brands fa-creative-commons-nc"></i><i class="fa-brands fa-creative-commons-nd"></i></a></div></div></div><div id="quit-box" onclick="RemoveRewardMask()" style="display: none"></div><div class="comment-barrage"></div></footer></div><div id="rightside" style="opacity: 1; transform: translateX(-38px);"><div id="rightside-config-hide"><button id="hide-aside-btn" type="button" title="侧栏显隐"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><!-- 右键菜单--><div class="js-pjax"><div id="rightMenu" style="top: 116px; left: 485px;"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="heofont icon-arrow-left-line"></i></div><div class="rightMenu-item" id="menu-forward"><i class="heofont icon-arrow-right-line"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="heofont icon-restart-line" style="font-size: 19px;"></i></div><div class="rightMenu-item" id="menu-top"><i class="heofont icon-arrow-up-line"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-newwindow"><i class="heofont icon-window-fill"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="heofont icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="heofont icon-file-copy-fill"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="heofont icon-play-fill"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="heofont icon-skip-back-fill"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="heofont icon-skip-forward-fill"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open('https://music.163.com/#/playlist?app_version=8.8.36&amp;id=7861823420', '_blank');"><i class="heofont icon-play-list-2-line"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="heofont icon-file-copy-fill"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-Link" id="menu-randomPost" data-pjax-state="data-pjax-state"><i class="heofont icon-signal-tower-fill"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="heofont icon-checkbox-multiple-blank-fill"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="heofont icon-price-tag-3-fill"></i><span>文章标签</span></a></div></div><div id="rightmenu-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script charset="utf-8" data-pjax src="/js/blogex.js"></script><div class="js-pjax"></div><link rel="stylesheet" href="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.js"></script><script src="https://jsd.onmicrosoft.cn/gh/hexo-theme-Acrylic/JS-Acrylic@main/Meting.js"></script><script src="https://jsd.onmicrosoft.cn/npm/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script src="/js/rightmenu.js"></script><script data-pjax src="/zhheo/random.js"></script></div></body></html>

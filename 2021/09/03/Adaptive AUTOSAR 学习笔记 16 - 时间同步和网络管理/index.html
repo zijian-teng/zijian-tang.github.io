@@ -1,0 +1,246 @@
+<!DOCTYPE html><html class="true" lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta http-equiv="content-language" content="zh-cn"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Adaptive AUTOSAR 学习笔记 16 - 时间同步和网络管理 | Zijian's Blog</title><meta name="author" content="Zijian TENG"><meta name="copyright" content="Zijian TENG"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#425AEF"><meta name="description" content="汽车软件工程狮，C++ 程序猿，喜欢骑行、摄影"><meta name="apple-mobile-web-app-status-bar-style" content="#425AEF"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://jsd.onmicrosoft.cn/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/3.6.0/jquery.min.js"></script><script src="/js/heo.js"></script><script data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}" src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/pace/1.2.4/pace.min.js"></script><link rel="shortcut icon" href="/img/favicon.ico"><meta property="og:image" content="/img/cool-background-trianglify_rotate.png"><meta property="og:type" content="article"><meta property="og:title" content="Zijian TENG"><meta property="og:url" content="http://example.com/2021/09/03/Adaptive%20AUTOSAR%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%2016%20-%20%E6%97%B6%E9%97%B4%E5%90%8C%E6%AD%A5%E5%92%8C%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86/"><meta property="og:site_name" content="Zijian TENG"><meta property="og:description" content="汽车软件工程狮，C++ 程序猿，喜欢骑行、摄影"><meta property="og:locale" content="zh_CN"><link rel="canonical" href="http://example.com/2021/09/03/Adaptive%20AUTOSAR%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%2016%20-%20%E6%97%B6%E9%97%B4%E5%90%8C%E6%AD%A5%E5%92%8C%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86/"><link rel="preconnect" href="//bu.dusays.com"><script>const GLOBAL_CONFIG = {
+  author: `Zijian TENG`,
+  api: {"fcircle_random":"https://fcircle.acrylic.org.cn/randomfriend"},
+  root: '/',
+  post_root: "/:year/",
+  algolia: undefined,
+  twikoo: undefined,
+  localSearch: undefined,
+  translate: { "defaultEncoding": 2, "translateDelay": 0, "msgToTraditionalChinese": "简", "msgToSimplifiedChinese": "繁" },
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":400},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+  jQuery: 'https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/3.6.0/jquery.min.js',
+  justifiedGallery: {
+    js: 'https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js',
+    css: 'https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/justifiedGallery/3.8.1/css/justifiedGallery.min.css'
+  },
+  fancybox: {
+    js: 'https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/fancybox/3.5.7/jquery.fancybox.min.js',
+    css: 'https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/fancybox/3.5.7/jquery.fancybox.min.css'
+  }
+},
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isAnchor: false,
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Adaptive AUTOSAR 学习笔记 16 - 时间同步和网络管理 | Zijian TENG',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-09-05 10:52:00',
+  tcolor_mode: 'undefined',
+  tcolor: 'undefined'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="https://cdn3.codesign.qq.com/icons/X2bzpZvRWkZkAaV/latest/iconfont.css"><link rel="stylesheet" href="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/Swiper/8.0.6/swiper-bundle.min.css"><script>var meting_api = "https://meting.qjqq.cn/?server=:server&type=:type&id=:id&auth=:auth&r=:r";</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="web_bg"></div><div id="console"><div class="close-btn" onclick="heo.hideConsole()" href="javascript:void(0);"><i class="fas fa-circle-xmark"></i></div><div class="console-card-group"><div class="console-card-group-right"><div class="console-card tags" onclick="heo.hideConsole()"><div class="card-content"><div class="author-content-item-tips">标签</div><span class="author-content-item-title">寻找感兴趣的领域</span></div><div class="card-tag-cloud"><a href="/tags/%E9%AA%91%E8%A1%8C/">骑行<sup>1</sup></a><a href="/tags/%E5%8D%83%E5%B2%9B%E6%B9%96/">千岛湖<sup>1</sup></a></div></div><div class="console-card history" onclick="heo.hideConsole()"></div></div></div><div class="button-group"><div class="console-btn-item" id="consoleHideAside" onclick="heo.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="fas fa-arrows-alt-h"></i></a></div><div class="console-btn-item" id="consoleMusic" onclick="heo.musicToggle()" title="音乐开关"><a class="music-switch"><i class="fas fa-music"></i></a></div></div><div class="console-mask" onclick="heo.hideConsole()" href="javascript:void(0);"></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">博客<div class="back-menu-list"><a class="back-menu-item" href="/" title="本站" target="_blank"><img class="back-menu-item-icon entered loading" src="/img/navicon.png" data-ll-status="loading"/><span class="back-menu-item-text">本站</span></a><a class="back-menu-item" href="https://www.cnblogs.com/tengzijian/" title="博客园" target="_blank"><img class="back-menu-item-icon entered loading" src="/img/navicon.png" data-ll-status="loading"/><span class="back-menu-item-text">博客园</span></a><a class="back-menu-item" href="https://500px.com/p/zi-jian" title="500px" target="_blank"><img class="back-menu-item-icon entered loading" src="/img/navicon.png" data-ll-status="loading"/><span class="back-menu-item-text">500px</span></a><a class="back-menu-item" href="https://github.com/zijian-teng" title="GitHub" target="_blank"><img class="back-menu-item-icon entered loading" src="/img/navicon.png" data-ll-status="loading"/><span class="back-menu-item-text">GitHub</span></a></div></div></div></div><div class="menus_items"><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 文库</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-box-archive"></i><span> 所有分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 所有标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-inbox"></i><span> 时间轴</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 珍爱生命</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/C/C-%E6%83%AF%E7%94%A8%E6%B3%95/"><i class="fa-fw fas fa-book"></i><span> C++ 惯用法</span></a></li><li><a class="site-page child" href="/categories/C/C-%E6%A0%B8%E5%BF%83%E6%8C%87%E5%8D%97/"><i class="fa-fw fas fa-book"></i><span> C++ 核心指南</span></a></li><li><a class="site-page child" href="/categories/C/%E7%8E%B0%E4%BB%A3-C/"><i class="fa-fw fas fa-book"></i><span> 现代 C++</span></a></li><li><a class="site-page child" href="/categories/C/"><i class="fa-fw fas fa-folder"></i><span> C++ 合集</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 代码工匠</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"><i class="fa-fw fas fa-compass-drafting"></i><span> 设计模式</span></a></li><li><a class="site-page child" href="/categories/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/"><i class="fa-fw fas fa-compass-drafting"></i><span> 设计原则</span></a></li><li><a class="site-page child" href="/categories/%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84/"><i class="fa-fw fas fa-compass-drafting"></i><span> 软件架构</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 汽车电子</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/SOA/"><i class="fa-fw fas fa-car"></i><span> SOA</span></a></li><li><a class="site-page child" href="/categories/Adaptive%20AUTOSAR/"><i class="fa-fw fa-solid fa-car-side"></i><span> AUTOSAR AP</span></a></li><li><a class="site-page child" href="/categories/DDS/"><i class="fa-fw fa-solid fa-sitemap"></i><span> DDS</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 计算机基础</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/Linux"><i class="fa-fw fas fa-laptop-code"></i><span> Linux</span></a></li><li><a class="site-page child" href="/categories/%E7%BC%96%E8%AF%91%E9%93%BE%E6%8E%A5"><i class="fa-fw fa-solid fa-gears"></i><span> 编译链接</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 我的</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-user-astronaut"></i><span> 关于</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/collect/"><i class="fa-fw fas fa-image"></i><span> 图片</span></a></li><li><a class="site-page child" href="/equipment/"><i class="fa-fw fa-solid fa-gamepad"></i><span> 装备</span></a></li></ul></div></div><span class="sidebar-menu-item-title">标签</span><div class="card-widget card-tags card-archives card-webinfo card-allinfo"><div class="item-headline"><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/%E9%AA%91%E8%A1%8C/">骑行<sup>1</sup></a><a href="/tags/%E5%8D%83%E5%B2%9B%E6%B9%96/">千岛湖<sup>1</sup></a></div></div></div></div><div id="nav-music" onclick="heo.musicToggle()"><div id="nav-music-hoverTips">播放音乐</div><meting-js id="7861823420" server="netease" type="playlist" mutex="true" preload="none" theme="var(--heo-main)" data-lrctype="0" order="random"></meting-js></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/cool-background-trianglify_rotate.png')"><nav class="show" id="nav"><div id="nav-group"><div id="blog_name"><div class="back-home-button" tabindex="-1"><i class="back-home-button-icon heofont icon-apps-fill"></i><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">博客<div class="back-menu-list"><a class="back-menu-item" href="/" title="本站" target="_blank"><img class="back-menu-item-icon entered loading" src="/img/navicon.png" data-ll-status="loading"/><span class="back-menu-item-text">本站</span></a><a class="back-menu-item" href="https://www.cnblogs.com/tengzijian/" title="博客园" target="_blank"><img class="back-menu-item-icon entered loading" src="/img/navicon.png" data-ll-status="loading"/><span class="back-menu-item-text">博客园</span></a><a class="back-menu-item" href="https://500px.com/p/zi-jian" title="500px" target="_blank"><img class="back-menu-item-icon entered loading" src="/img/navicon.png" data-ll-status="loading"/><span class="back-menu-item-text">500px</span></a><a class="back-menu-item" href="https://github.com/zijian-teng" title="GitHub" target="_blank"><img class="back-menu-item-icon entered loading" src="/img/navicon.png" data-ll-status="loading"/><span class="back-menu-item-text">GitHub</span></a></div></div></div></div></div><a id="site-name" href="/" title="返回博客主页"><i class="fas fa-home"></i></a></div><div id="page-name-mask"><div id="page-name"><a id="page-name-text" onclick="acy.scrollToDest(0, 500)"><span>Zijian's Blog</span></a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 文库</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-box-archive"></i><span> 所有分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 所有标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-inbox"></i><span> 时间轴</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 珍爱生命</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/C/C-%E6%83%AF%E7%94%A8%E6%B3%95/"><i class="fa-fw fas fa-book"></i><span> C++ 惯用法</span></a></li><li><a class="site-page child" href="/categories/C/C-%E6%A0%B8%E5%BF%83%E6%8C%87%E5%8D%97/"><i class="fa-fw fas fa-book"></i><span> C++ 核心指南</span></a></li><li><a class="site-page child" href="/categories/C/%E7%8E%B0%E4%BB%A3-C/"><i class="fa-fw fas fa-book"></i><span> 现代 C++</span></a></li><li><a class="site-page child" href="/categories/C/"><i class="fa-fw fas fa-folder"></i><span> C++ 合集</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 代码工匠</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"><i class="fa-fw fas fa-compass-drafting"></i><span> 设计模式</span></a></li><li><a class="site-page child" href="/categories/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/"><i class="fa-fw fas fa-compass-drafting"></i><span> 设计原则</span></a></li><li><a class="site-page child" href="/categories/%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84/"><i class="fa-fw fas fa-compass-drafting"></i><span> 软件架构</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 汽车电子</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/SOA/"><i class="fa-fw fas fa-car"></i><span> SOA</span></a></li><li><a class="site-page child" href="/categories/Adaptive%20AUTOSAR/"><i class="fa-fw fa-solid fa-car-side"></i><span> AUTOSAR AP</span></a></li><li><a class="site-page child" href="/categories/DDS/"><i class="fa-fw fa-solid fa-sitemap"></i><span> DDS</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 计算机基础</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/Linux"><i class="fa-fw fas fa-laptop-code"></i><span> Linux</span></a></li><li><a class="site-page child" href="/categories/%E7%BC%96%E8%AF%91%E9%93%BE%E6%8E%A5"><i class="fa-fw fa-solid fa-gears"></i><span> 编译链接</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 我的</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-user-astronaut"></i><span> 关于</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/collect/"><i class="fa-fw fas fa-image"></i><span> 图片</span></a></li><li><a class="site-page child" href="/equipment/"><i class="fa-fw fa-solid fa-gamepad"></i><span> 装备</span></a></li></ul></div></div></div><div id="nav-right"><div class="nav-button" id="nav-console"><a class="console_switchbutton" onclick="heo.showConsole()" title="显示中控台" href="javascript:void(0);" rel="external nofollow" data-pjax-state="data-pjax-state"><i class="fa-brands fa-ubuntu"></i></a></div><div class="nav-button" id="nav-totop" onclick="acy.scrollToDest(0, 500)"><a class="totopbtn" data-pjax-state="data-pjax-state"><i class="heofont icon-arrow-up-line"></i><span id="percent"></span></a></div><div id="toggle-menu"><a class="site-page" data-pjax-state="data-pjax-state"><i class="heofont icon-menu-fill"></i></a></div></div></div></nav><div class="coverdiv" id="coverdiv"><img class="nolazyload entered loaded" id="post-cover" src="/img/cool-background-trianglify_rotate.png" alt="cover" data-ll-status="loaded"></div><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original" title="该文章为原创文章，注意版权协议" href="undefined" data-pjax-state>原创</a><span class="post-meta-categories"><a class="post-meta-categories" href="/categories/%E6%B1%BD%E8%BD%A6%E7%94%B5%E5%AD%90/" data-pjax-state>汽车电子</a></span><span class="post-meta-categories"><a class="post-meta-categories" href="/categories/%E6%B1%BD%E8%BD%A6%E7%94%B5%E5%AD%90/AUTOSAR-AP/" data-pjax-state>AUTOSAR AP</a></span><div class="tag_share"><div class="post-meta__tag-list"></div></div></div></div><h1 class="post-title">Adaptive AUTOSAR 学习笔记 16 - 时间同步和网络管理</h1><div id="post-meta"><div class="meta-secondline"><span class="post-meta-date"><i class="fa-fw post-meta-icon fas fa-calendar"></i><time class="post-meta-date-created" datetime="2021-09-03T15:07:00.000Z" title="发表于 2021-09-03 23:07:00">2021-09-03</time><span class="post-meta-separator"></span><i class="fas fa-history fa-fw post-meta-icon"></i><time class="post-meta-date-updated" datetime="2021-09-05T02:52:00.000Z" title="更新于 2021-09-05 10:52:00">2021-09-05</time></span><span class="post-meta-wechat" title="该文章在博客首发"><i class="fas fa-user post-meta-icon"></i>滕子健</span><span class="post-meta-position" title="作者IP属地为上海"><i class="fas fa-location-dot post-meta-icon"></i>上海</span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section></header><main class="layout" id="content-inner"><div id="post"><div><article class="post-content" id="article-container"><p>本系列学习笔记基于 AUTOSAR Adaptive Platform 官方文档 R20-11 版本 AUTOSAR_EXP_PlatformDesign.pdf。作者：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/tengzijian/">Zijian&#x2F;TENG</a><br>原文地址（获取最新更新）：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/tengzijian/p/15221138.html">https://www.cnblogs.com/tengzijian/p/15221138.html</a></p>
+<h1 id="缩写"><a href="#缩写" class="headerlink" title="缩写"></a>缩写</h1><ul>
+<li>TS：Time Synchronization</li>
+<li>TBR：Time Base Resources</li>
+<li>StbM：Synchronized Time-base Manager</li>
+<li>NM：Network Management</li>
+<li>SM：State Management</li>
+<li>PN：Partial Network</li>
+</ul>
+<h1 id="11-时间同步"><a href="#11-时间同步" class="headerlink" title="11 时间同步"></a>11 时间同步</h1><blockquote>
+<p>各个模块之间的时间同步非常重要，需要统一控制时间，于是有了全局时间管理模块 StbM。其主要功能：</p>
+<ol>
+<li>同步各软件模块</li>
+<li>提供绝对时间</li>
+</ol>
+<p>补充阅读：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/41602815" title="基于 AUTOSAR 的时间同步">基于 AUTOSAR 的时间同步</a></p>
+</blockquote>
+<h2 id="11-1-概览"><a href="#11-1-概览" class="headerlink" title="11.1 概览"></a>11.1 概览</h2><p><strong>不同应用&#x2F;ECU之间的时间同步（TS）非常重要，尤其是在分布式系统中，需要确定不同事件的相关性时</strong>：要么能及时追踪这些事件，要么能在精确的时间点触发这些事件。</p>
+<p>因此，AP 向应用提供了时间同步 API，用于取得和其他实体、ECU 同步的时间信息。</p>
+<p>时间同步功能由不同的时基资源（TBR，Time Base Resources）提供，时基资源在系统中以预编译配置的形式呈现。</p>
+<h2 id="11-2-设计"><a href="#11-2-设计" class="headerlink" title="11.2 设计"></a>11.2 设计</h2><p>AP 中用到下列三种技术来满足时间同步需求：</p>
+<ul>
+<li>CP 中的 StbM</li>
+<li>chrono 库 - C++11 的 <code>std::chrono</code> 或 <code>boost::chrono</code></li>
+<li>POSIX 时间接口</li>
+</ul>
+<p>经过对这些模块的接口和其所覆盖需求的分析，AP 决定设计一套包含 CP StbM 功能，但遵循 std::chrono 风格的时间同步 API。</p>
+<p>时间同步模块考虑了以下功能：</p>
+<ul>
+<li>启动行为</li>
+<li>构造行为（初始化）</li>
+<li>正常操作</li>
+<li>错误处理</li>
+</ul>
+<p>今后的 release 中还会考虑：</p>
+<ul>
+<li>关闭行为</li>
+<li>错误分类</li>
+<li>版本检查</li>
+</ul>
+<h2 id="11-3-架构"><a href="#11-3-架构" class="headerlink" title="11.3 架构"></a>11.3 架构</h2><p>对每个时基资源 TBR，应用都可以访问其特定的类实现。</p>
+<p>通过该句柄，应用可以查询提供的时基类型（上述五种类型之一），然后获取该时基类型的特定类实现。应用还可以通过该句柄直接创建 timer。</p>
+<p>TS 模块不提供将 TBR 和其他节点&#x2F;ECU 时基同步（如 network time protocol 或 time agreement protocol）的方法。</p>
+<p>时基资源 TBR 的实现可能有一个专门的周期性的功能，从时间同步以太网等模块取得时间信息，来同步 TBR。</p>
+<p>应用程序使用由 TBR 提供和管理的时间信息。TBR 充当时基代理，提供对同步时基的访问。这样 TS 模块从“真实”时基提供者中抽象出来。</p>
+<h1 id="12-网络管理"><a href="#12-网络管理" class="headerlink" title="12 网络管理"></a>12 网络管理</h1><h2 id="12-1-网络管理算法概览"><a href="#12-1-网络管理算法概览" class="headerlink" title="12.1 网络管理算法概览"></a>12.1 网络管理算法概览</h2><p>AUTOSAR NM 基于<strong>去中心化</strong>的网络管理策略，即每个网络节点仅依据接收&#x2F;传输的 NM 报文，独立地执行活动。</p>
+<p>AUTOSAR NM 算法基于周期性的 NM 报文。NM 报文通过多播消息发送，集群中所有的节点都会接收。</p>
+<p>收到 NM 报文意味着发送节点想要保持网络集群处于唤醒状态。如果某个节点想要进入睡眠模式，它会停止发送 NM 报文，但如果仍然收到来自其他节点的 NM 消息，则暂缓进入睡眠模式。最终如果所有的节点都不再发送 NM 报文（意味着所有节点都想进入睡眠模式），则经过一定时间（定时器超时），所有的节点都将进入睡眠模式。</p>
+<p>如果 NM 集群中的任意节点需要总线通信，可以开始发送 NM 报文，唤醒整个 NM 集群。</p>
+<h2 id="12-2-架构"><a href="#12-2-架构" class="headerlink" title="12.2 架构"></a>12.2 架构</h2><p>AP 规范描述了 AP 网络管理的功能、API 设计和配置，无关底层通信媒介。目前只考虑了以太网，但该架构独立于总线技术。</p>
+<p>网络管理 NM 旨在由状态管理 SM 控制，因为部分网络 PN 的控制需要协调相关应用集（通过 SM 控制的 Functional Group State）。本章内容尚未反映该设计。</p>
+<p><img src="https://img2020.cnblogs.com/blog/197073/202109/197073-20210903230549848-1709771944.png" alt="image"></p>
+<p>其主要目的是协调底层网络（局部网络 PN，VLAN 或物理通道）在内部协调状态机的正常模式和总线睡眠模式的转换。</p>
+<p>它向状态管理 SM 提供了服务接口，用于请求&#x2F;释放网络及查询状态。它协调不同实例（网络句柄）的请求，并通过网络提供聚合的机器请求。</p>
+<p>如果使用了局部网络 PN 功能，则 NM 消息可以包含 PN 请求，ECU 可以忽略请求其他 PN 的 NM 报文。在这种情况下，即使其他 PN 仍有通信，ECU 依然可以关闭或部分关闭。</p>
+<h1 id="更多关于-Adaptive-AUTOSAR-文章"><a href="#更多关于-Adaptive-AUTOSAR-文章" class="headerlink" title="更多关于 Adaptive AUTOSAR 文章"></a>更多关于 Adaptive AUTOSAR 文章</h1><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/tengzijian/category/1995263.html">AUTOSAR AP 学习笔记总目录</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author_group"><a class="post-copyright__author_img" href="/about/"><img class="post-copyright__author_img_back entered loading" src="/img/avatar.jpg" data-ll-status="loading"></a><div class="post-copyright__author_name">Zijian TENG</div><div class="post-copyright__author_desc">汽车软件工程狮，C++ 程序猿，喜欢骑行、摄影</div></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div class="post-reward" onclick="AddRewardMask()"><div class="reward-button button--animated" title="赞赏作者"><i class="heofont icon-hand-heart-fill"></i> 打赏作者</div><div class="reward-main"><ul class="reward-all"><span class="reward-title">感谢你赐予我前进的力量</span><ul class="reward-group"><li class="reward-item"><a href="https://img01.anheyu.com/useruploads/8/2023/08/09/64d36090eeae9.png" target="_blank"><img class="post-qr-code-img" src="https://img01.anheyu.com/useruploads/8/2023/08/09/64d36090eeae9.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://img01.anheyu.com/useruploads/8/2023/08/09/64d36090ee66e.png" target="_blank"><img class="post-qr-code-img" src="https://img01.anheyu.com/useruploads/8/2023/08/09/64d36090ee66e.png" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul><a class="reward-main-btn" href="/about/" target="_blank"><div class="reward-text">赞赏者名单</div><div class="reward-dec">因为你们的支持让我意识到写文章的价值🙏</div></a></ul></div></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">本文是原创文章，采用 <a href="undefined" target="_blank">CC BY-NC-SA 4.0</a>协议，完整转载请注明来自<a href="/" target="_blank">Zijian TENG</a></span></div></div><nav class="pagination-post needEndHide" id="pagination"><div class="prev-post pull-left"><a href="/2021/09/04/Adaptive%20AUTOSAR%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%2017%20-%20%E5%8D%87%E7%BA%A7%E5%92%8C%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86%20UCM/"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Adaptive AUTOSAR 学习笔记 17 - 升级和配置管理 UCM</div></div></a></div><div class="next-post pull-right"><a href="/2021/08/30/4%20%E8%A1%8C%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0%E5%B0%86%E6%96%87%E4%BB%B6%E8%AF%BB%E5%88%B0%20C++%20string/"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">4 行代码实现将文件读到 C++ string</div></div></a></div></nav></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><div class="author-info__top-group"><div class="author-info__sayhi" id="author-info__sayhi" onclick="heo.changeSayHelloText()"></div></div></div><div class="avatar-img-group"><div class="avatar-img" id="lottie_avatar"><img src="/img/avatar.jpg"/></div><div class="avatar-sticker"><img class="avatar-sticker-img entered loading" src="/img/avatar_sticker.png" ait="status"/></div></div><div class="author-info__description_group"><div class="author-info__description">有一个绘画筑起的城堡</div><div class="author-info__description">城堡里藏着单纯安静</div><div class="author-info__description">藏着一群人的生活和梦想</div><div class="author-info__description">——『苹果树下』</div></div><div class="author-info__bottom-group"><a class="author-info__bottom-group-left" href="/about"><div class="author-info__name">Zijian</div><div class="author-info__desc">好记性如烂笔头</div></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/zijian-teng" rel="external nofollow" target="_blank" title="GitHub"><i class="fab fa-github"></i></a><a class="social-icon" href="https://500px.com/p/zi-jian" rel="external nofollow" target="_blank" title="500px"><i class="fab fa-500px"></i></a></div></div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BC%A9%E5%86%99"><span class="toc-text">缩写</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#11-%E6%97%B6%E9%97%B4%E5%90%8C%E6%AD%A5"><span class="toc-text">11 时间同步</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#11-1-%E6%A6%82%E8%A7%88"><span class="toc-text">11.1 概览</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-2-%E8%AE%BE%E8%AE%A1"><span class="toc-text">11.2 设计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-3-%E6%9E%B6%E6%9E%84"><span class="toc-text">11.3 架构</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#12-%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86"><span class="toc-text">12 网络管理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#12-1-%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86%E7%AE%97%E6%B3%95%E6%A6%82%E8%A7%88"><span class="toc-text">12.1 网络管理算法概览</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-2-%E6%9E%B6%E6%9E%84"><span class="toc-text">12.2 架构</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9B%B4%E5%A4%9A%E5%85%B3%E4%BA%8E-Adaptive-AUTOSAR-%E6%96%87%E7%AB%A0"><span class="toc-text">更多关于 Adaptive AUTOSAR 文章</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/11/04/hello-world/" title="Hello World"><img src="/img/cool-background-trianglify_rotate.png" onerror="this.onerror=null;this.src='/img/cool-background-trianglify_rotate.png'" alt="Hello World"/></a><div class="content"><a class="title" href="/2023/11/04/hello-world/" title="Hello World">Hello World</a><time datetime="2023-11-03T23:04:59.901Z" title="发表于 2023-11-04 07:04:59">2023-11-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/30/qiandaolake2/" title="千岛湖骑行记"><img src="/img/cool-background-trianglify_rotate.png" onerror="this.onerror=null;this.src='/img/cool-background-trianglify_rotate.png'" alt="千岛湖骑行记"/></a><div class="content"><a class="title" href="/2023/10/30/qiandaolake2/" title="千岛湖骑行记">千岛湖骑行记</a><time datetime="2023-10-30T13:56:20.000Z" title="发表于 2023-10-30 21:56:20">2023-10-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/23/node.js%20%E5%91%BD%E4%BB%A4%E5%BF%85%E9%A1%BB%E5%8A%A0%20npx%20%E6%89%8D%E8%83%BD%E6%89%A7%E8%A1%8C/" title="node.js 命令必须加 npx 才能执行"><img src="/img/cool-background-trianglify_rotate.png" onerror="this.onerror=null;this.src='/img/cool-background-trianglify_rotate.png'" alt="node.js 命令必须加 npx 才能执行"/></a><div class="content"><a class="title" href="/2023/10/23/node.js%20%E5%91%BD%E4%BB%A4%E5%BF%85%E9%A1%BB%E5%8A%A0%20npx%20%E6%89%8D%E8%83%BD%E6%89%A7%E8%A1%8C/" title="node.js 命令必须加 npx 才能执行">node.js 命令必须加 npx 才能执行</a><time datetime="2023-10-23T14:48:00.000Z" title="发表于 2023-10-23 22:48:00">2023-10-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/14/macOS%20%E5%AE%89%E8%A3%85%20clang-tidy/" title="macOS 安装 clang-tidy"><img src="/img/cool-background-trianglify_rotate.png" onerror="this.onerror=null;this.src='/img/cool-background-trianglify_rotate.png'" alt="macOS 安装 clang-tidy"/></a><div class="content"><a class="title" href="/2023/10/14/macOS%20%E5%AE%89%E8%A3%85%20clang-tidy/" title="macOS 安装 clang-tidy">macOS 安装 clang-tidy</a><time datetime="2023-10-14T03:22:00.000Z" title="发表于 2023-10-14 11:22:00">2023-10-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/10/QNX%20%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90%E5%B7%A5%E5%85%B7/" title="QNX 性能分析工具"><img src="/img/cool-background-trianglify_rotate.png" onerror="this.onerror=null;this.src='/img/cool-background-trianglify_rotate.png'" alt="QNX 性能分析工具"/></a><div class="content"><a class="title" href="/2023/10/10/QNX%20%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90%E5%B7%A5%E5%85%B7/" title="QNX 性能分析工具">QNX 性能分析工具</a><time datetime="2023-10-10T07:04:00.000Z" title="发表于 2023-10-10 15:04:00">2023-10-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/06/CSS%20%E5%9F%BA%E7%A1%80%205%20-%20CSS%20%E9%80%89%E6%8B%A9%E5%99%A8/" title="CSS 基础 5 - CSS 选择器"><img src="/img/cool-background-trianglify_rotate.png" onerror="this.onerror=null;this.src='/img/cool-background-trianglify_rotate.png'" alt="CSS 基础 5 - CSS 选择器"/></a><div class="content"><a class="title" href="/2023/10/06/CSS%20%E5%9F%BA%E7%A1%80%205%20-%20CSS%20%E9%80%89%E6%8B%A9%E5%99%A8/" title="CSS 基础 5 - CSS 选择器">CSS 基础 5 - CSS 选择器</a><time datetime="2023-10-06T02:26:00.000Z" title="发表于 2023-10-06 10:26:00">2023-10-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/09/28/CSS%20%E5%9F%BA%E7%A1%80%204%20-%20CSS%20%E5%B8%B8%E7%94%A8%E5%8D%95%E4%BD%8D/" title="CSS 基础 4 - CSS 常用单位"><img src="/img/cool-background-trianglify_rotate.png" onerror="this.onerror=null;this.src='/img/cool-background-trianglify_rotate.png'" alt="CSS 基础 4 - CSS 常用单位"/></a><div class="content"><a class="title" href="/2023/09/28/CSS%20%E5%9F%BA%E7%A1%80%204%20-%20CSS%20%E5%B8%B8%E7%94%A8%E5%8D%95%E4%BD%8D/" title="CSS 基础 4 - CSS 常用单位">CSS 基础 4 - CSS 常用单位</a><time datetime="2023-09-28T12:52:00.000Z" title="发表于 2023-09-28 20:52:00">2023-09-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/09/28/CSS%20%E5%9F%BA%E7%A1%80%203%20-%20%E5%AE%9A%E4%BD%8D%20Postion%20%E5%B1%9E%E6%80%A7/" title="CSS 基础 3 - 定位 Postion 属性"><img src="/img/cool-background-trianglify_rotate.png" onerror="this.onerror=null;this.src='/img/cool-background-trianglify_rotate.png'" alt="CSS 基础 3 - 定位 Postion 属性"/></a><div class="content"><a class="title" href="/2023/09/28/CSS%20%E5%9F%BA%E7%A1%80%203%20-%20%E5%AE%9A%E4%BD%8D%20Postion%20%E5%B1%9E%E6%80%A7/" title="CSS 基础 3 - 定位 Postion 属性">CSS 基础 3 - 定位 Postion 属性</a><time datetime="2023-09-28T12:49:00.000Z" title="发表于 2023-09-28 20:49:00">2023-09-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/09/27/CSS%20%E5%9F%BA%E7%A1%80%202%20-%20Box%20Model%20%E7%9B%92%E6%A8%A1%E5%9E%8B/" title="CSS 基础 2 - Box Model 盒模型"><img src="/img/cool-background-trianglify_rotate.png" onerror="this.onerror=null;this.src='/img/cool-background-trianglify_rotate.png'" alt="CSS 基础 2 - Box Model 盒模型"/></a><div class="content"><a class="title" href="/2023/09/27/CSS%20%E5%9F%BA%E7%A1%80%202%20-%20Box%20Model%20%E7%9B%92%E6%A8%A1%E5%9E%8B/" title="CSS 基础 2 - Box Model 盒模型">CSS 基础 2 - Box Model 盒模型</a><time datetime="2023-09-27T12:40:00.000Z" title="发表于 2023-09-27 20:40:00">2023-09-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/09/27/CSS%20%E5%9F%BA%E7%A1%80%201%20-%20Block%20&amp;%20Inline/" title="CSS 基础 1 - Block &amp; Inline"><img src="/img/cool-background-trianglify_rotate.png" onerror="this.onerror=null;this.src='/img/cool-background-trianglify_rotate.png'" alt="CSS 基础 1 - Block &amp; Inline"/></a><div class="content"><a class="title" href="/2023/09/27/CSS%20%E5%9F%BA%E7%A1%80%201%20-%20Block%20&amp;%20Inline/" title="CSS 基础 1 - Block &amp; Inline">CSS 基础 1 - Block &amp; Inline</a><time datetime="2023-09-27T12:38:00.000Z" title="发表于 2023-09-27 20:38:00">2023-09-27</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer_deal"></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div id="footer-bar-tips"></div><a class="footer-bar-link" href="/">Zijian's Blog</a></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" href="https://hexo.io" rel="noopener external nofollow noreferrer">Powered by Hexo & Butterfly</a><a class="footer-bar-link cc" href="/" title="Copyright"><i class="fa-regular fa-copyright"></i><i class="fa-brands fa-creative-commons-by"></i><i class="fa-brands fa-creative-commons-nc"></i><i class="fa-brands fa-creative-commons-nd"></i></a></div></div></div><div id="quit-box" onclick="RemoveRewardMask()" style="display: none"></div><div class="comment-barrage"></div></footer></div><div id="rightside" style="opacity: 1; transform: translateX(-38px);"><div id="rightside-config-hide"><button id="hide-aside-btn" type="button" title="侧栏显隐"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><!-- 右键菜单--><div class="js-pjax"><div id="rightMenu" style="top: 116px; left: 485px;"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="heofont icon-arrow-left-line"></i></div><div class="rightMenu-item" id="menu-forward"><i class="heofont icon-arrow-right-line"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="heofont icon-restart-line" style="font-size: 19px;"></i></div><div class="rightMenu-item" id="menu-top"><i class="heofont icon-arrow-up-line"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-newwindow"><i class="heofont icon-window-fill"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="heofont icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="heofont icon-file-copy-fill"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="heofont icon-play-fill"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="heofont icon-skip-back-fill"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="heofont icon-skip-forward-fill"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open('https://music.163.com/#/playlist?app_version=8.8.36&amp;id=7861823420', '_blank');"><i class="heofont icon-play-list-2-line"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="heofont icon-file-copy-fill"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-Link" id="menu-randomPost" data-pjax-state="data-pjax-state"><i class="heofont icon-signal-tower-fill"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="heofont icon-checkbox-multiple-blank-fill"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="heofont icon-price-tag-3-fill"></i><span>文章标签</span></a></div></div><div id="rightmenu-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script charset="utf-8" data-pjax src="/js/blogex.js"></script><div class="js-pjax"></div><link rel="stylesheet" href="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.js"></script><script src="https://jsd.onmicrosoft.cn/gh/hexo-theme-Acrylic/JS-Acrylic@main/Meting.js"></script><script src="https://jsd.onmicrosoft.cn/npm/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script src="/js/rightmenu.js"></script><script data-pjax src="/zhheo/random.js"></script></div></body></html>

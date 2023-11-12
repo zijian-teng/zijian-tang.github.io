@@ -1,0 +1,246 @@
+<!DOCTYPE html><html class="true" lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta http-equiv="content-language" content="zh-cn"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Adaptive AUTOSAR 学习笔记 3 - AP 背景、技术及特征（中文翻译） | Zijian's Blog</title><meta name="author" content="Zijian TENG"><meta name="copyright" content="Zijian TENG"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#425AEF"><meta name="description" content="汽车软件工程狮，C++ 程序猿，喜欢骑行、摄影"><meta name="apple-mobile-web-app-status-bar-style" content="#425AEF"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://jsd.onmicrosoft.cn/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/3.6.0/jquery.min.js"></script><script src="/js/heo.js"></script><script data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}" src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/pace/1.2.4/pace.min.js"></script><link rel="shortcut icon" href="/img/favicon.ico"><meta property="og:image" content="/img/cool-background-trianglify_rotate.png"><meta property="og:type" content="article"><meta property="og:title" content="Zijian TENG"><meta property="og:url" content="http://example.com/2021/07/11/Adaptive%20AUTOSAR%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%203%20-%20AP%20%E8%83%8C%E6%99%AF%E3%80%81%E6%8A%80%E6%9C%AF%E5%8F%8A%E7%89%B9%E5%BE%81%EF%BC%88%E4%B8%AD%E6%96%87%E7%BF%BB%E8%AF%91%EF%BC%89/"><meta property="og:site_name" content="Zijian TENG"><meta property="og:description" content="汽车软件工程狮，C++ 程序猿，喜欢骑行、摄影"><meta property="og:locale" content="zh_CN"><link rel="canonical" href="http://example.com/2021/07/11/Adaptive%20AUTOSAR%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%203%20-%20AP%20%E8%83%8C%E6%99%AF%E3%80%81%E6%8A%80%E6%9C%AF%E5%8F%8A%E7%89%B9%E5%BE%81%EF%BC%88%E4%B8%AD%E6%96%87%E7%BF%BB%E8%AF%91%EF%BC%89/"><link rel="preconnect" href="//bu.dusays.com"><script>const GLOBAL_CONFIG = {
+  author: `Zijian TENG`,
+  api: {"fcircle_random":"https://fcircle.acrylic.org.cn/randomfriend"},
+  root: '/',
+  post_root: "/:year/",
+  algolia: undefined,
+  twikoo: undefined,
+  localSearch: undefined,
+  translate: { "defaultEncoding": 2, "translateDelay": 0, "msgToTraditionalChinese": "简", "msgToSimplifiedChinese": "繁" },
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":400},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+  jQuery: 'https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/3.6.0/jquery.min.js',
+  justifiedGallery: {
+    js: 'https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js',
+    css: 'https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/justifiedGallery/3.8.1/css/justifiedGallery.min.css'
+  },
+  fancybox: {
+    js: 'https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/fancybox/3.5.7/jquery.fancybox.min.js',
+    css: 'https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/fancybox/3.5.7/jquery.fancybox.min.css'
+  }
+},
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isAnchor: false,
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Adaptive AUTOSAR 学习笔记 3 - AP 背景、技术及特征（中文翻译） | Zijian TENG',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-09-04 21:59:00',
+  tcolor_mode: 'undefined',
+  tcolor: 'undefined'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="https://cdn3.codesign.qq.com/icons/X2bzpZvRWkZkAaV/latest/iconfont.css"><link rel="stylesheet" href="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/Swiper/8.0.6/swiper-bundle.min.css"><script>var meting_api = "https://meting.qjqq.cn/?server=:server&type=:type&id=:id&auth=:auth&r=:r";</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="web_bg"></div><div id="console"><div class="close-btn" onclick="heo.hideConsole()" href="javascript:void(0);"><i class="fas fa-circle-xmark"></i></div><div class="console-card-group"><div class="console-card-group-right"><div class="console-card tags" onclick="heo.hideConsole()"><div class="card-content"><div class="author-content-item-tips">标签</div><span class="author-content-item-title">寻找感兴趣的领域</span></div><div class="card-tag-cloud"><a href="/tags/%E9%AA%91%E8%A1%8C/">骑行<sup>1</sup></a><a href="/tags/%E5%8D%83%E5%B2%9B%E6%B9%96/">千岛湖<sup>1</sup></a></div></div><div class="console-card history" onclick="heo.hideConsole()"></div></div></div><div class="button-group"><div class="console-btn-item" id="consoleHideAside" onclick="heo.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="fas fa-arrows-alt-h"></i></a></div><div class="console-btn-item" id="consoleMusic" onclick="heo.musicToggle()" title="音乐开关"><a class="music-switch"><i class="fas fa-music"></i></a></div></div><div class="console-mask" onclick="heo.hideConsole()" href="javascript:void(0);"></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">博客<div class="back-menu-list"><a class="back-menu-item" href="/" title="本站" target="_blank"><img class="back-menu-item-icon entered loading" src="/img/navicon.png" data-ll-status="loading"/><span class="back-menu-item-text">本站</span></a><a class="back-menu-item" href="https://www.cnblogs.com/tengzijian/" title="博客园" target="_blank"><img class="back-menu-item-icon entered loading" src="/img/navicon.png" data-ll-status="loading"/><span class="back-menu-item-text">博客园</span></a><a class="back-menu-item" href="https://500px.com/p/zi-jian" title="500px" target="_blank"><img class="back-menu-item-icon entered loading" src="/img/navicon.png" data-ll-status="loading"/><span class="back-menu-item-text">500px</span></a><a class="back-menu-item" href="https://github.com/zijian-teng" title="GitHub" target="_blank"><img class="back-menu-item-icon entered loading" src="/img/navicon.png" data-ll-status="loading"/><span class="back-menu-item-text">GitHub</span></a></div></div></div></div><div class="menus_items"><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 文库</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-box-archive"></i><span> 所有分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 所有标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-inbox"></i><span> 时间轴</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 珍爱生命</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/C/C-%E6%83%AF%E7%94%A8%E6%B3%95/"><i class="fa-fw fas fa-book"></i><span> C++ 惯用法</span></a></li><li><a class="site-page child" href="/categories/C/C-%E6%A0%B8%E5%BF%83%E6%8C%87%E5%8D%97/"><i class="fa-fw fas fa-book"></i><span> C++ 核心指南</span></a></li><li><a class="site-page child" href="/categories/C/%E7%8E%B0%E4%BB%A3-C/"><i class="fa-fw fas fa-book"></i><span> 现代 C++</span></a></li><li><a class="site-page child" href="/categories/C/"><i class="fa-fw fas fa-folder"></i><span> C++ 合集</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 代码工匠</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"><i class="fa-fw fas fa-compass-drafting"></i><span> 设计模式</span></a></li><li><a class="site-page child" href="/categories/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/"><i class="fa-fw fas fa-compass-drafting"></i><span> 设计原则</span></a></li><li><a class="site-page child" href="/categories/%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84/"><i class="fa-fw fas fa-compass-drafting"></i><span> 软件架构</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 汽车电子</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/SOA/"><i class="fa-fw fas fa-car"></i><span> SOA</span></a></li><li><a class="site-page child" href="/categories/Adaptive%20AUTOSAR/"><i class="fa-fw fa-solid fa-car-side"></i><span> AUTOSAR AP</span></a></li><li><a class="site-page child" href="/categories/DDS/"><i class="fa-fw fa-solid fa-sitemap"></i><span> DDS</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 计算机基础</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/Linux"><i class="fa-fw fas fa-laptop-code"></i><span> Linux</span></a></li><li><a class="site-page child" href="/categories/%E7%BC%96%E8%AF%91%E9%93%BE%E6%8E%A5"><i class="fa-fw fa-solid fa-gears"></i><span> 编译链接</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 我的</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-user-astronaut"></i><span> 关于</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/collect/"><i class="fa-fw fas fa-image"></i><span> 图片</span></a></li><li><a class="site-page child" href="/equipment/"><i class="fa-fw fa-solid fa-gamepad"></i><span> 装备</span></a></li></ul></div></div><span class="sidebar-menu-item-title">标签</span><div class="card-widget card-tags card-archives card-webinfo card-allinfo"><div class="item-headline"><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/%E9%AA%91%E8%A1%8C/">骑行<sup>1</sup></a><a href="/tags/%E5%8D%83%E5%B2%9B%E6%B9%96/">千岛湖<sup>1</sup></a></div></div></div></div><div id="nav-music" onclick="heo.musicToggle()"><div id="nav-music-hoverTips">播放音乐</div><meting-js id="7861823420" server="netease" type="playlist" mutex="true" preload="none" theme="var(--heo-main)" data-lrctype="0" order="random"></meting-js></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/cool-background-trianglify_rotate.png')"><nav class="show" id="nav"><div id="nav-group"><div id="blog_name"><div class="back-home-button" tabindex="-1"><i class="back-home-button-icon heofont icon-apps-fill"></i><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">博客<div class="back-menu-list"><a class="back-menu-item" href="/" title="本站" target="_blank"><img class="back-menu-item-icon entered loading" src="/img/navicon.png" data-ll-status="loading"/><span class="back-menu-item-text">本站</span></a><a class="back-menu-item" href="https://www.cnblogs.com/tengzijian/" title="博客园" target="_blank"><img class="back-menu-item-icon entered loading" src="/img/navicon.png" data-ll-status="loading"/><span class="back-menu-item-text">博客园</span></a><a class="back-menu-item" href="https://500px.com/p/zi-jian" title="500px" target="_blank"><img class="back-menu-item-icon entered loading" src="/img/navicon.png" data-ll-status="loading"/><span class="back-menu-item-text">500px</span></a><a class="back-menu-item" href="https://github.com/zijian-teng" title="GitHub" target="_blank"><img class="back-menu-item-icon entered loading" src="/img/navicon.png" data-ll-status="loading"/><span class="back-menu-item-text">GitHub</span></a></div></div></div></div></div><a id="site-name" href="/" title="返回博客主页"><i class="fas fa-home"></i></a></div><div id="page-name-mask"><div id="page-name"><a id="page-name-text" onclick="acy.scrollToDest(0, 500)"><span>Zijian's Blog</span></a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 文库</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-box-archive"></i><span> 所有分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 所有标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-inbox"></i><span> 时间轴</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 珍爱生命</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/C/C-%E6%83%AF%E7%94%A8%E6%B3%95/"><i class="fa-fw fas fa-book"></i><span> C++ 惯用法</span></a></li><li><a class="site-page child" href="/categories/C/C-%E6%A0%B8%E5%BF%83%E6%8C%87%E5%8D%97/"><i class="fa-fw fas fa-book"></i><span> C++ 核心指南</span></a></li><li><a class="site-page child" href="/categories/C/%E7%8E%B0%E4%BB%A3-C/"><i class="fa-fw fas fa-book"></i><span> 现代 C++</span></a></li><li><a class="site-page child" href="/categories/C/"><i class="fa-fw fas fa-folder"></i><span> C++ 合集</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 代码工匠</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"><i class="fa-fw fas fa-compass-drafting"></i><span> 设计模式</span></a></li><li><a class="site-page child" href="/categories/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/"><i class="fa-fw fas fa-compass-drafting"></i><span> 设计原则</span></a></li><li><a class="site-page child" href="/categories/%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84/"><i class="fa-fw fas fa-compass-drafting"></i><span> 软件架构</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 汽车电子</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/SOA/"><i class="fa-fw fas fa-car"></i><span> SOA</span></a></li><li><a class="site-page child" href="/categories/Adaptive%20AUTOSAR/"><i class="fa-fw fa-solid fa-car-side"></i><span> AUTOSAR AP</span></a></li><li><a class="site-page child" href="/categories/DDS/"><i class="fa-fw fa-solid fa-sitemap"></i><span> DDS</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 计算机基础</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/Linux"><i class="fa-fw fas fa-laptop-code"></i><span> Linux</span></a></li><li><a class="site-page child" href="/categories/%E7%BC%96%E8%AF%91%E9%93%BE%E6%8E%A5"><i class="fa-fw fa-solid fa-gears"></i><span> 编译链接</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 我的</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-user-astronaut"></i><span> 关于</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/collect/"><i class="fa-fw fas fa-image"></i><span> 图片</span></a></li><li><a class="site-page child" href="/equipment/"><i class="fa-fw fa-solid fa-gamepad"></i><span> 装备</span></a></li></ul></div></div></div><div id="nav-right"><div class="nav-button" id="nav-console"><a class="console_switchbutton" onclick="heo.showConsole()" title="显示中控台" href="javascript:void(0);" rel="external nofollow" data-pjax-state="data-pjax-state"><i class="fa-brands fa-ubuntu"></i></a></div><div class="nav-button" id="nav-totop" onclick="acy.scrollToDest(0, 500)"><a class="totopbtn" data-pjax-state="data-pjax-state"><i class="heofont icon-arrow-up-line"></i><span id="percent"></span></a></div><div id="toggle-menu"><a class="site-page" data-pjax-state="data-pjax-state"><i class="heofont icon-menu-fill"></i></a></div></div></div></nav><div class="coverdiv" id="coverdiv"><img class="nolazyload entered loaded" id="post-cover" src="/img/cool-background-trianglify_rotate.png" alt="cover" data-ll-status="loaded"></div><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original" title="该文章为原创文章，注意版权协议" href="undefined" data-pjax-state>原创</a><span class="post-meta-categories"><a class="post-meta-categories" href="/categories/%E6%B1%BD%E8%BD%A6%E7%94%B5%E5%AD%90/" data-pjax-state>汽车电子</a></span><span class="post-meta-categories"><a class="post-meta-categories" href="/categories/%E6%B1%BD%E8%BD%A6%E7%94%B5%E5%AD%90/AUTOSAR-AP/" data-pjax-state>AUTOSAR AP</a></span><div class="tag_share"><div class="post-meta__tag-list"></div></div></div></div><h1 class="post-title">Adaptive AUTOSAR 学习笔记 3 - AP 背景、技术及特征（中文翻译）</h1><div id="post-meta"><div class="meta-secondline"><span class="post-meta-date"><i class="fa-fw post-meta-icon fas fa-calendar"></i><time class="post-meta-date-created" datetime="2021-07-11T08:15:00.000Z" title="发表于 2021-07-11 16:15:00">2021-07-11</time><span class="post-meta-separator"></span><i class="fas fa-history fa-fw post-meta-icon"></i><time class="post-meta-date-updated" datetime="2021-09-04T13:59:00.000Z" title="更新于 2021-09-04 21:59:00">2021-09-04</time></span><span class="post-meta-wechat" title="该文章在博客首发"><i class="fas fa-user post-meta-icon"></i>滕子健</span><span class="post-meta-position" title="作者IP属地为上海"><i class="fas fa-location-dot post-meta-icon"></i>上海</span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section></header><main class="layout" id="content-inner"><div id="post"><div><article class="post-content" id="article-container"><p>本系列学习笔记基于 AUTOSAR Adaptive Platform 官方文档 R20-11 版本。本文从<code>AUTOSAR_EXP_PlatformDesign.pdf</code>开始，一边学习，一边顺带着翻译一下。尽力而为，不保证精确。你若愿意，也可以当作 AUTOSAR Adaptive Platform （AP）中文版来阅读 :)</p>
+<h1 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1 介绍"></a>1 介绍</h1><h2 id="1-1-内容"><a href="#1-1-内容" class="headerlink" title="1.1 内容"></a>1.1 内容</h2><p>本规范（AUTOSAR_EXP_PlatformDesign.pdf）描述 AP 设计。目的在于提供概述，但不涉及所有的设计细节。为<code>AP 用户</code>和<code>AP 实现者</code>提供 AP 的<strong>设计概述</strong>和<strong>关键概念</strong>。</p>
+<p>第二章“技术范围和方法”介绍了 AP 的背景。第三章“架构”分别从<em>逻辑</em>和<em>物理视角</em>介绍了 AP，然后介绍了<em>方法论和 Manifest</em><br>之后各个章节分别介绍了每个<em>功能模块</em> （FC，Functional Clusters）</p>
+<p>详细的规范和讨论参见相应的 RS、SWS、TR 和 EXP 文档。</p>
+<blockquote>
+<p>译注：各类文档介绍及下载方式参考上一篇 AP 学习笔记</p>
+</blockquote>
+<h2 id="1-2-预读"><a href="#1-2-预读" class="headerlink" title="1.2 预读"></a>1.2 预读</h2><p>本文档（AUTOSAR_EXP_PlatformDesign.pdf）是 AUTOSAR high level 概念文档之一。在此之前，可以阅读[1][2][3]。</p>
+<h2 id="1-3-和其他-AUTOSAR-规范的关系"><a href="#1-3-和其他-AUTOSAR-规范的关系" class="headerlink" title="1.3 和其他 AUTOSAR 规范的关系"></a>1.3 和其他 AUTOSAR 规范的关系</h2><p>参考 1.1 和 1.2 节。</p>
+<h1 id="2-技术范围和方法"><a href="#2-技术范围和方法" class="headerlink" title="2 技术范围和方法"></a>2 技术范围和方法</h1><h2 id="2-1-概述-智能-ECU-前景"><a href="#2-1-概述-智能-ECU-前景" class="headerlink" title="2.1 概述 - 智能 ECU 前景"></a>2.1 概述 - 智能 ECU 前景</h2><p>传统 ECU 主要功能是替代&#x2F;增强机电系统。软件主要根据总线的输入信号控制输出信号。很多控制软件在车辆的生命周期内不会有大的变化。</p>
+<p>但新的技术如自动驾驶，引入了高度复杂、对计算资源要求很高的软件，且必须严格遵守完整性、安全性要求。这些软件实现了环境感知、行为规划、和后端&#x2F;基建系统集成等功能。在车辆的生命周期内，软件要不断更新以适配外部系统的更新以及改进功能。</p>
+<p>CP 标准是针对传统 ECU 需求而提出的，无法满足上述新型 ECU 的需求，于是 AUTOSAR 推出了新的软件平台 AP。<br>AP 主要提供了：</p>
+<ul>
+<li>高性能<strong>计算和通信</strong>机制</li>
+<li>灵活的软件<strong>配置</strong>以支持 OTA 软件升级</li>
+</ul>
+<p>AP 也可以支持传统的汽车总线的信号，但不是 AP 标准的重点。</p>
+<h2 id="2-2-技术驱动"><a href="#2-2-技术驱动" class="headerlink" title="2.2 技术驱动"></a>2.2 技术驱动</h2><p>AP 背后的技术驱动主要是<strong>以太网</strong>和<strong>处理器</strong>。</p>
+<h3 id="以太网"><a href="#以太网" class="headerlink" title="以太网"></a>以太网</h3><p>不断增长的带宽需求引入了以太网。和传统车身通信技术（如 CAN）相比，以太网提供了更高的带宽和<strong>交换网络</strong>，传输长报文效率更高，支持点对点通信。CP 虽然也支持以太网，但 CP 主要为传统通信技术设计、优化，无法充分利用、发挥以太网的优势。</p>
+<blockquote>
+<p>译注：长报文有效载荷比更大；交换网络不同于总线式广播，点对点传输，减少总线冲突，提高传输效率。</p>
+</blockquote>
+<h3 id="处理器"><a href="#处理器" class="headerlink" title="处理器"></a>处理器</h3><p>随着汽车越来越智能，对处理器性能的要求增长巨大，出现了众核（manycore，十核到百核）处理器、通用目的GPU、FPGA、专用硬件加速器，较传统 MCU 可以大幅提升性能。CP 原本为单核 MCU 设计，虽然支持多核（multicore），但对新型处理器的支持大大超出了 CP 的设计。此外，<strong>电源效率</strong>也日渐重要，尤其是这些智能 ECU。受限于 <em>Pollack 法则</em>，处理器的频率不可能无限增长，要想提升性能，只能增加核心数并行计算。为了取得最佳的电源效率<code>性能/瓦</code>，需要混合用到众核、协处理器、GPU、FPGA 及硬件加速器。这被称为<strong>异构计算</strong>，已被用于 HPC（High-Performance Computing），当然远超 CP 的范围。</p>
+<blockquote>
+<p>Pollack Rule：处理器性能的提升与其复杂性的平方根成正比。 如果一个处理器的硬件逻辑提高一倍，至多能提高性能40%，而如果采用两个简单的处理器构成一个相同硬件规模的双核处理器，则可以获得70%～80%的性能提升。同时在面积上也同比缩小。</p>
+</blockquote>
+<p>值得一提的是，处理器被集成到一块芯片上，通过新的处理器互联技术（如 NoC，Network-on-Chip），处理器之间的通信效率比传统 ECU 间通信提高了几个数量级。处理器性能和通信的提升也促进了对新平台（AP）的需求。</p>
+<h2 id="2-3-AP-特征"><a href="#2-3-AP-特征" class="headerlink" title="2.3 AP 特征"></a>2.3 AP 特征</h2><p>2.1 和 2.2 节决定了 AP 的特征。</p>
+<h3 id="2-3-1-C"><a href="#2-3-1-C" class="headerlink" title="2.3.1 C++"></a>2.3.1 C++</h3><blockquote>
+<p>译注：C++ 比其他语言性能更好。和 C 相比，C++ 标准库提供 STL及标准库算法，可以快速适配新算法，提高开发效率。</p>
+</blockquote>
+<h3 id="2-3-2-SOA"><a href="#2-3-2-SOA" class="headerlink" title="2.3.2 SOA"></a>2.3.2 SOA</h3><p>为了支持复杂的应用，同时在分布式处理和计算资源分配时，保证最大灵活性和可扩展性，AP 遵循面向服务的架构（SOA）。SOA 基于如下概念：系统由一些列的服务组成，服务之间可以相互调用，应用可以根据需要使用一个或多个服务。一个服务可以运行在本地 ECU，也可以运行在远程 ECU 上。不论哪种情况，应用程序的代码都一样（译注：通过代理模式实现）。通信服务负责处理具体通信细节，应用程序无需关心。从另一个角度来看这个架构：分布式计算，通过消息传递的形式来通信。这种消息传递、基于通信的架构也受益于快速、高带宽的通信（如以太网）的兴起。</p>
+<h3 id="2-3-3-并行处理"><a href="#2-3-3-并行处理" class="headerlink" title="2.3.3 并行处理"></a>2.3.3 并行处理</h3><p>分布式计算本来就是并行的。SOA 中，不同的应用使用不同的服务。<strong>众核以及异构计算所带来的并行计算能力</strong>，使得实现内在并行性在技术上成为可能。因此，随着众核-异构计算技术的发展，AP 在架构具有了扩展功能和性能的能力。硬件和平台接口规范只是一部分，OS&#x2F;hypervisor 技术和开发工具（如自动并行化工具）的发展也非常重要。这部分将有 AP 供应商以及行业&#x2F;学术生态系统实现。AP 也旨在适应此类技术。</p>
+<h3 id="2-3-4-利用现有标准"><a href="#2-3-4-利用现有标准" class="headerlink" title="2.3.4 利用现有标准"></a>2.3.4 利用现有标准</h3><p>没理由重新发明轮子，对于规范（相比于实现）尤其如此。AP 采取了<strong>复用、适配现有开放标准的策略</strong>，以促进 AP 发展，并从现有标准的生态中获益。因此，AP 规范的一个关键就是：<strong>不要随意引入一个现有标准已有功能的替代</strong>。例如，不要因为现有接口表面上不容易理解，就随意引入新的接口。</p>
+<h3 id="2-3-5-功能安全（Safety）和网络安全（Security）"><a href="#2-3-5-功能安全（Safety）和网络安全（Security）" class="headerlink" title="2.3.5 功能安全（Safety）和网络安全（Security）"></a>2.3.5 功能安全（Safety）和网络安全（Security）</h3><p>AP的目标系统通常要求一定的功能&#x2F;网络安全等级（可上至最高等级）。虽然有些困难，新引入的概念和技术不应降低安全方面的要求。<br>为应对挑战，AP  集合了架构、功能、流程方法：</p>
+<ul>
+<li>该架构基于基于 SOA 的分布式计算，本质上使每个组件更加独立，且不受意外干扰</li>
+<li>帮助取得 Safety 和 Security 的专门功能</li>
+<li>C++ 编码规范，帮助开发者更安全地使用 C++ 这样的复杂语言</li>
+</ul>
+<h3 id="2-3-6-规划动态"><a href="#2-3-6-规划动态" class="headerlink" title="2.3.6 规划动态"></a>2.3.6 规划动态</h3><p>AP 支持应用的增量部署：动态管理资源和通信，以减少软件开发、集成的工作量，从而实现较短的迭代周期。增量部署还支持探索性软件开发阶段。</p>
+<p>对于产品交付，AP 允许系统集成限制一些行为，以降低不利影响带来的风险，保证功能安全。应用的动态行为可以通过 Execution Manifest 来限制。在执行时，资源和通信路径的动态分配只能以预先定义的方式进行（例如在配置的范围内）。</p>
+<p>特定的 AP 实现可能从软件配置中移除动态能力。计划动态的例子：</p>
+<ul>
+<li>预先决定服务发现</li>
+<li>限制启动阶段的动态内存配分</li>
+<li>基于优先级的调度策略之外的公平调度策略</li>
+<li>把进程分配到固定的 CPU 核</li>
+<li>仅访问文件系统中预先存在的文件</li>
+<li>限制应用使用的 AP API</li>
+<li>仅执行验证过的代码</li>
+</ul>
+<h3 id="2-3-7-敏捷"><a href="#2-3-7-敏捷" class="headerlink" title="2.3.7 敏捷"></a>2.3.7 敏捷</h3><p>尽管不直接反映在平台的功能上，AP 以适应不同的开发流程为目标，尤其是基于敏捷的开发流程。对于敏捷开发，<strong>增量、可扩展</strong>的潜在架构至关重要：提供了先开发，再更新的可能性。AP 架构应当支持敏开发：作为概念验证，AP 的规范和示例代码都是基于 Scrum 开发的。</p>
+<h2 id="2-4-CP、AP-以及和非-AUTOSAR-ECU-集成"><a href="#2-4-CP、AP-以及和非-AUTOSAR-ECU-集成" class="headerlink" title="2.4 CP、AP 以及和非 AUTOSAR ECU 集成"></a>2.4 CP、AP 以及和非 AUTOSAR ECU 集成</h2><p>AP 不会取代 CP 或非 AUTOSAR 平台。相反，AP 和后端系统以及路边基础设施共同协作，形成一个完整的系统（如图）。例如 CP 也支持 SOME&#x2F;IP。<br><img src="https://img2020.cnblogs.com/blog/197073/202107/197073-20210711185015860-1035948135.png" alt="image"><br><img src="https://img2020.cnblogs.com/blog/197073/202107/197073-20210711185034527-1767044094.png" alt="image"></p>
+<h2 id="2-5-规范范围"><a href="#2-5-规范范围" class="headerlink" title="2.5 规范范围"></a>2.5 规范范围</h2><p>AP 定义了运行时系统架构：平台组成、提供的<strong>功能</strong>和<strong>接口</strong>。还定义了开发过程中使用的<strong>机器可读模型</strong>。规范应当提供<strong>使用平台</strong>的必要信息以及<strong>实现平台</strong>的需求。</p>
+<h1 id="19-参考文档"><a href="#19-参考文档" class="headerlink" title="19 参考文档"></a>19 参考文档</h1><p>[1] Glossary, AUTOSAR_TR_Glossary.pdf.<br>[2] Main Requirement, AUTOSAR_RS_Main.pdf.<br>[3] Methodology for Adaptive Platform, AUTOSAR_TR_AdaptiveMethodology.pdf.<br>[4] Design guidelines for using parallel processing technologies on Adaptive Platform, AUTOSAR_EXP_ParallelProcessingGuidelines.pdf.<br>[5] FCDesign IAM, AUTOSAR_EXP_FCDesignIdentityAndAccessManagement.pdf.<br>[6] P. Kruchten, “Architectural Blueprints—The “4+ 1” View Model of Software Architecture,” IEEE Software, vol. 12, no. 6, pp. 42-50, November 1995.</p>
+</article><div class="post-copyright"><div class="post-copyright__author_group"><a class="post-copyright__author_img" href="/about/"><img class="post-copyright__author_img_back entered loading" src="/img/avatar.jpg" data-ll-status="loading"></a><div class="post-copyright__author_name">Zijian TENG</div><div class="post-copyright__author_desc">汽车软件工程狮，C++ 程序猿，喜欢骑行、摄影</div></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div class="post-reward" onclick="AddRewardMask()"><div class="reward-button button--animated" title="赞赏作者"><i class="heofont icon-hand-heart-fill"></i> 打赏作者</div><div class="reward-main"><ul class="reward-all"><span class="reward-title">感谢你赐予我前进的力量</span><ul class="reward-group"><li class="reward-item"><a href="https://img01.anheyu.com/useruploads/8/2023/08/09/64d36090eeae9.png" target="_blank"><img class="post-qr-code-img" src="https://img01.anheyu.com/useruploads/8/2023/08/09/64d36090eeae9.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://img01.anheyu.com/useruploads/8/2023/08/09/64d36090ee66e.png" target="_blank"><img class="post-qr-code-img" src="https://img01.anheyu.com/useruploads/8/2023/08/09/64d36090ee66e.png" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul><a class="reward-main-btn" href="/about/" target="_blank"><div class="reward-text">赞赏者名单</div><div class="reward-dec">因为你们的支持让我意识到写文章的价值🙏</div></a></ul></div></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">本文是原创文章，采用 <a href="undefined" target="_blank">CC BY-NC-SA 4.0</a>协议，完整转载请注明来自<a href="/" target="_blank">Zijian TENG</a></span></div></div><nav class="pagination-post needEndHide" id="pagination"><div class="prev-post pull-left"><a href="/2021/07/14/Adaptive%20AUTOSAR%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%204%20-%20%E6%9E%B6%E6%9E%84%20-%20%E9%80%BB%E8%BE%91%E8%A7%86%E5%9B%BE/"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Adaptive AUTOSAR 学习笔记 4 - 架构 - 逻辑视图</div></div></a></div><div class="next-post pull-right"><a href="/2021/07/10/%E6%88%91%E7%9A%84%E4%B9%A6%E5%8D%95/"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">我的书单</div></div></a></div></nav></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><div class="author-info__top-group"><div class="author-info__sayhi" id="author-info__sayhi" onclick="heo.changeSayHelloText()"></div></div></div><div class="avatar-img-group"><div class="avatar-img" id="lottie_avatar"><img src="/img/avatar.jpg"/></div><div class="avatar-sticker"><img class="avatar-sticker-img entered loading" src="/img/avatar_sticker.png" ait="status"/></div></div><div class="author-info__description_group"><div class="author-info__description">有一个绘画筑起的城堡</div><div class="author-info__description">城堡里藏着单纯安静</div><div class="author-info__description">藏着一群人的生活和梦想</div><div class="author-info__description">——『苹果树下』</div></div><div class="author-info__bottom-group"><a class="author-info__bottom-group-left" href="/about"><div class="author-info__name">Zijian</div><div class="author-info__desc">好记性如烂笔头</div></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/zijian-teng" rel="external nofollow" target="_blank" title="GitHub"><i class="fab fa-github"></i></a><a class="social-icon" href="https://500px.com/p/zi-jian" rel="external nofollow" target="_blank" title="500px"><i class="fab fa-500px"></i></a></div></div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E4%BB%8B%E7%BB%8D"><span class="toc-text">1 介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-%E5%86%85%E5%AE%B9"><span class="toc-text">1.1 内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-%E9%A2%84%E8%AF%BB"><span class="toc-text">1.2 预读</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-%E5%92%8C%E5%85%B6%E4%BB%96-AUTOSAR-%E8%A7%84%E8%8C%83%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-text">1.3 和其他 AUTOSAR 规范的关系</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E6%8A%80%E6%9C%AF%E8%8C%83%E5%9B%B4%E5%92%8C%E6%96%B9%E6%B3%95"><span class="toc-text">2 技术范围和方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-%E6%A6%82%E8%BF%B0-%E6%99%BA%E8%83%BD-ECU-%E5%89%8D%E6%99%AF"><span class="toc-text">2.1 概述 - 智能 ECU 前景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-%E6%8A%80%E6%9C%AF%E9%A9%B1%E5%8A%A8"><span class="toc-text">2.2 技术驱动</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A5%E5%A4%AA%E7%BD%91"><span class="toc-text">以太网</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%84%E7%90%86%E5%99%A8"><span class="toc-text">处理器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-AP-%E7%89%B9%E5%BE%81"><span class="toc-text">2.3 AP 特征</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-1-C"><span class="toc-text">2.3.1 C++</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-2-SOA"><span class="toc-text">2.3.2 SOA</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-3-%E5%B9%B6%E8%A1%8C%E5%A4%84%E7%90%86"><span class="toc-text">2.3.3 并行处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-4-%E5%88%A9%E7%94%A8%E7%8E%B0%E6%9C%89%E6%A0%87%E5%87%86"><span class="toc-text">2.3.4 利用现有标准</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-5-%E5%8A%9F%E8%83%BD%E5%AE%89%E5%85%A8%EF%BC%88Safety%EF%BC%89%E5%92%8C%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%EF%BC%88Security%EF%BC%89"><span class="toc-text">2.3.5 功能安全（Safety）和网络安全（Security）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-6-%E8%A7%84%E5%88%92%E5%8A%A8%E6%80%81"><span class="toc-text">2.3.6 规划动态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-7-%E6%95%8F%E6%8D%B7"><span class="toc-text">2.3.7 敏捷</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-CP%E3%80%81AP-%E4%BB%A5%E5%8F%8A%E5%92%8C%E9%9D%9E-AUTOSAR-ECU-%E9%9B%86%E6%88%90"><span class="toc-text">2.4 CP、AP 以及和非 AUTOSAR ECU 集成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-5-%E8%A7%84%E8%8C%83%E8%8C%83%E5%9B%B4"><span class="toc-text">2.5 规范范围</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#19-%E5%8F%82%E8%80%83%E6%96%87%E6%A1%A3"><span class="toc-text">19 参考文档</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/11/04/hello-world/" title="Hello World"><img src="/img/cool-background-trianglify_rotate.png" onerror="this.onerror=null;this.src='/img/cool-background-trianglify_rotate.png'" alt="Hello World"/></a><div class="content"><a class="title" href="/2023/11/04/hello-world/" title="Hello World">Hello World</a><time datetime="2023-11-03T23:04:59.901Z" title="发表于 2023-11-04 07:04:59">2023-11-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/30/qiandaolake2/" title="千岛湖骑行记"><img src="/img/cool-background-trianglify_rotate.png" onerror="this.onerror=null;this.src='/img/cool-background-trianglify_rotate.png'" alt="千岛湖骑行记"/></a><div class="content"><a class="title" href="/2023/10/30/qiandaolake2/" title="千岛湖骑行记">千岛湖骑行记</a><time datetime="2023-10-30T13:56:20.000Z" title="发表于 2023-10-30 21:56:20">2023-10-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/23/node.js%20%E5%91%BD%E4%BB%A4%E5%BF%85%E9%A1%BB%E5%8A%A0%20npx%20%E6%89%8D%E8%83%BD%E6%89%A7%E8%A1%8C/" title="node.js 命令必须加 npx 才能执行"><img src="/img/cool-background-trianglify_rotate.png" onerror="this.onerror=null;this.src='/img/cool-background-trianglify_rotate.png'" alt="node.js 命令必须加 npx 才能执行"/></a><div class="content"><a class="title" href="/2023/10/23/node.js%20%E5%91%BD%E4%BB%A4%E5%BF%85%E9%A1%BB%E5%8A%A0%20npx%20%E6%89%8D%E8%83%BD%E6%89%A7%E8%A1%8C/" title="node.js 命令必须加 npx 才能执行">node.js 命令必须加 npx 才能执行</a><time datetime="2023-10-23T14:48:00.000Z" title="发表于 2023-10-23 22:48:00">2023-10-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/14/macOS%20%E5%AE%89%E8%A3%85%20clang-tidy/" title="macOS 安装 clang-tidy"><img src="/img/cool-background-trianglify_rotate.png" onerror="this.onerror=null;this.src='/img/cool-background-trianglify_rotate.png'" alt="macOS 安装 clang-tidy"/></a><div class="content"><a class="title" href="/2023/10/14/macOS%20%E5%AE%89%E8%A3%85%20clang-tidy/" title="macOS 安装 clang-tidy">macOS 安装 clang-tidy</a><time datetime="2023-10-14T03:22:00.000Z" title="发表于 2023-10-14 11:22:00">2023-10-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/10/QNX%20%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90%E5%B7%A5%E5%85%B7/" title="QNX 性能分析工具"><img src="/img/cool-background-trianglify_rotate.png" onerror="this.onerror=null;this.src='/img/cool-background-trianglify_rotate.png'" alt="QNX 性能分析工具"/></a><div class="content"><a class="title" href="/2023/10/10/QNX%20%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90%E5%B7%A5%E5%85%B7/" title="QNX 性能分析工具">QNX 性能分析工具</a><time datetime="2023-10-10T07:04:00.000Z" title="发表于 2023-10-10 15:04:00">2023-10-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/06/CSS%20%E5%9F%BA%E7%A1%80%205%20-%20CSS%20%E9%80%89%E6%8B%A9%E5%99%A8/" title="CSS 基础 5 - CSS 选择器"><img src="/img/cool-background-trianglify_rotate.png" onerror="this.onerror=null;this.src='/img/cool-background-trianglify_rotate.png'" alt="CSS 基础 5 - CSS 选择器"/></a><div class="content"><a class="title" href="/2023/10/06/CSS%20%E5%9F%BA%E7%A1%80%205%20-%20CSS%20%E9%80%89%E6%8B%A9%E5%99%A8/" title="CSS 基础 5 - CSS 选择器">CSS 基础 5 - CSS 选择器</a><time datetime="2023-10-06T02:26:00.000Z" title="发表于 2023-10-06 10:26:00">2023-10-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/09/28/CSS%20%E5%9F%BA%E7%A1%80%204%20-%20CSS%20%E5%B8%B8%E7%94%A8%E5%8D%95%E4%BD%8D/" title="CSS 基础 4 - CSS 常用单位"><img src="/img/cool-background-trianglify_rotate.png" onerror="this.onerror=null;this.src='/img/cool-background-trianglify_rotate.png'" alt="CSS 基础 4 - CSS 常用单位"/></a><div class="content"><a class="title" href="/2023/09/28/CSS%20%E5%9F%BA%E7%A1%80%204%20-%20CSS%20%E5%B8%B8%E7%94%A8%E5%8D%95%E4%BD%8D/" title="CSS 基础 4 - CSS 常用单位">CSS 基础 4 - CSS 常用单位</a><time datetime="2023-09-28T12:52:00.000Z" title="发表于 2023-09-28 20:52:00">2023-09-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/09/28/CSS%20%E5%9F%BA%E7%A1%80%203%20-%20%E5%AE%9A%E4%BD%8D%20Postion%20%E5%B1%9E%E6%80%A7/" title="CSS 基础 3 - 定位 Postion 属性"><img src="/img/cool-background-trianglify_rotate.png" onerror="this.onerror=null;this.src='/img/cool-background-trianglify_rotate.png'" alt="CSS 基础 3 - 定位 Postion 属性"/></a><div class="content"><a class="title" href="/2023/09/28/CSS%20%E5%9F%BA%E7%A1%80%203%20-%20%E5%AE%9A%E4%BD%8D%20Postion%20%E5%B1%9E%E6%80%A7/" title="CSS 基础 3 - 定位 Postion 属性">CSS 基础 3 - 定位 Postion 属性</a><time datetime="2023-09-28T12:49:00.000Z" title="发表于 2023-09-28 20:49:00">2023-09-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/09/27/CSS%20%E5%9F%BA%E7%A1%80%202%20-%20Box%20Model%20%E7%9B%92%E6%A8%A1%E5%9E%8B/" title="CSS 基础 2 - Box Model 盒模型"><img src="/img/cool-background-trianglify_rotate.png" onerror="this.onerror=null;this.src='/img/cool-background-trianglify_rotate.png'" alt="CSS 基础 2 - Box Model 盒模型"/></a><div class="content"><a class="title" href="/2023/09/27/CSS%20%E5%9F%BA%E7%A1%80%202%20-%20Box%20Model%20%E7%9B%92%E6%A8%A1%E5%9E%8B/" title="CSS 基础 2 - Box Model 盒模型">CSS 基础 2 - Box Model 盒模型</a><time datetime="2023-09-27T12:40:00.000Z" title="发表于 2023-09-27 20:40:00">2023-09-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/09/27/CSS%20%E5%9F%BA%E7%A1%80%201%20-%20Block%20&amp;%20Inline/" title="CSS 基础 1 - Block &amp; Inline"><img src="/img/cool-background-trianglify_rotate.png" onerror="this.onerror=null;this.src='/img/cool-background-trianglify_rotate.png'" alt="CSS 基础 1 - Block &amp; Inline"/></a><div class="content"><a class="title" href="/2023/09/27/CSS%20%E5%9F%BA%E7%A1%80%201%20-%20Block%20&amp;%20Inline/" title="CSS 基础 1 - Block &amp; Inline">CSS 基础 1 - Block &amp; Inline</a><time datetime="2023-09-27T12:38:00.000Z" title="发表于 2023-09-27 20:38:00">2023-09-27</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer_deal"></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div id="footer-bar-tips"></div><a class="footer-bar-link" href="/">Zijian's Blog</a></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" href="https://hexo.io" rel="noopener external nofollow noreferrer">Powered by Hexo & Butterfly</a><a class="footer-bar-link cc" href="/" title="Copyright"><i class="fa-regular fa-copyright"></i><i class="fa-brands fa-creative-commons-by"></i><i class="fa-brands fa-creative-commons-nc"></i><i class="fa-brands fa-creative-commons-nd"></i></a></div></div></div><div id="quit-box" onclick="RemoveRewardMask()" style="display: none"></div><div class="comment-barrage"></div></footer></div><div id="rightside" style="opacity: 1; transform: translateX(-38px);"><div id="rightside-config-hide"><button id="hide-aside-btn" type="button" title="侧栏显隐"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><!-- 右键菜单--><div class="js-pjax"><div id="rightMenu" style="top: 116px; left: 485px;"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="heofont icon-arrow-left-line"></i></div><div class="rightMenu-item" id="menu-forward"><i class="heofont icon-arrow-right-line"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="heofont icon-restart-line" style="font-size: 19px;"></i></div><div class="rightMenu-item" id="menu-top"><i class="heofont icon-arrow-up-line"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-newwindow"><i class="heofont icon-window-fill"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="heofont icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="heofont icon-file-copy-fill"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="heofont icon-play-fill"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="heofont icon-skip-back-fill"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="heofont icon-skip-forward-fill"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open('https://music.163.com/#/playlist?app_version=8.8.36&amp;id=7861823420', '_blank');"><i class="heofont icon-play-list-2-line"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="heofont icon-file-copy-fill"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-Link" id="menu-randomPost" data-pjax-state="data-pjax-state"><i class="heofont icon-signal-tower-fill"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="heofont icon-checkbox-multiple-blank-fill"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="heofont icon-price-tag-3-fill"></i><span>文章标签</span></a></div></div><div id="rightmenu-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script charset="utf-8" data-pjax src="/js/blogex.js"></script><div class="js-pjax"></div><link rel="stylesheet" href="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.js"></script><script src="https://jsd.onmicrosoft.cn/gh/hexo-theme-Acrylic/JS-Acrylic@main/Meting.js"></script><script src="https://jsd.onmicrosoft.cn/npm/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script src="/js/rightmenu.js"></script><script data-pjax src="/zhheo/random.js"></script></div></body></html>

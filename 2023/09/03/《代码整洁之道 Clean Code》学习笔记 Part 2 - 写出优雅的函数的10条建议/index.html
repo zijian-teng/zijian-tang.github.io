@@ -1,0 +1,313 @@
+<!DOCTYPE html><html class="true" lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta http-equiv="content-language" content="zh-cn"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>《代码整洁之道 Clean Code》学习笔记 Part 2 - 写出优雅的函数的10条建议 | Zijian's Blog</title><meta name="author" content="Zijian TENG"><meta name="copyright" content="Zijian TENG"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#425AEF"><meta name="description" content="汽车软件工程狮，C++ 程序猿，喜欢骑行、摄影"><meta name="apple-mobile-web-app-status-bar-style" content="#425AEF"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://jsd.onmicrosoft.cn/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/3.6.0/jquery.min.js"></script><script src="/js/heo.js"></script><script data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}" src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/pace/1.2.4/pace.min.js"></script><link rel="shortcut icon" href="/img/favicon.ico"><meta property="og:image" content="/img/cool-background-trianglify_rotate.png"><meta property="og:type" content="article"><meta property="og:title" content="Zijian TENG"><meta property="og:url" content="http://example.com/2023/09/03/%E3%80%8A%E4%BB%A3%E7%A0%81%E6%95%B4%E6%B4%81%E4%B9%8B%E9%81%93%20Clean%20Code%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%20Part%202%20-%20%E5%86%99%E5%87%BA%E4%BC%98%E9%9B%85%E7%9A%84%E5%87%BD%E6%95%B0%E7%9A%8410%E6%9D%A1%E5%BB%BA%E8%AE%AE/"><meta property="og:site_name" content="Zijian TENG"><meta property="og:description" content="汽车软件工程狮，C++ 程序猿，喜欢骑行、摄影"><meta property="og:locale" content="zh_CN"><link rel="canonical" href="http://example.com/2023/09/03/%E3%80%8A%E4%BB%A3%E7%A0%81%E6%95%B4%E6%B4%81%E4%B9%8B%E9%81%93%20Clean%20Code%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%20Part%202%20-%20%E5%86%99%E5%87%BA%E4%BC%98%E9%9B%85%E7%9A%84%E5%87%BD%E6%95%B0%E7%9A%8410%E6%9D%A1%E5%BB%BA%E8%AE%AE/"><link rel="preconnect" href="//bu.dusays.com"><script>const GLOBAL_CONFIG = {
+  author: `Zijian TENG`,
+  api: {"fcircle_random":"https://fcircle.acrylic.org.cn/randomfriend"},
+  root: '/',
+  post_root: "/:year/",
+  algolia: undefined,
+  twikoo: undefined,
+  localSearch: undefined,
+  translate: { "defaultEncoding": 2, "translateDelay": 0, "msgToTraditionalChinese": "简", "msgToSimplifiedChinese": "繁" },
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":400},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+  jQuery: 'https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/3.6.0/jquery.min.js',
+  justifiedGallery: {
+    js: 'https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js',
+    css: 'https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/justifiedGallery/3.8.1/css/justifiedGallery.min.css'
+  },
+  fancybox: {
+    js: 'https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/fancybox/3.5.7/jquery.fancybox.min.js',
+    css: 'https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/fancybox/3.5.7/jquery.fancybox.min.css'
+  }
+},
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isAnchor: false,
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '《代码整洁之道 Clean Code》学习笔记 Part 2 - 写出优雅的函数的10条建议 | Zijian TENG',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-09-04 20:54:00',
+  tcolor_mode: 'undefined',
+  tcolor: 'undefined'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="https://cdn3.codesign.qq.com/icons/X2bzpZvRWkZkAaV/latest/iconfont.css"><link rel="stylesheet" href="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/Swiper/8.0.6/swiper-bundle.min.css"><script>var meting_api = "https://meting.qjqq.cn/?server=:server&type=:type&id=:id&auth=:auth&r=:r";</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="web_bg"></div><div id="console"><div class="close-btn" onclick="heo.hideConsole()" href="javascript:void(0);"><i class="fas fa-circle-xmark"></i></div><div class="console-card-group"><div class="console-card-group-right"><div class="console-card tags" onclick="heo.hideConsole()"><div class="card-content"><div class="author-content-item-tips">标签</div><span class="author-content-item-title">寻找感兴趣的领域</span></div><div class="card-tag-cloud"><a href="/tags/%E9%AA%91%E8%A1%8C/">骑行<sup>1</sup></a><a href="/tags/%E5%8D%83%E5%B2%9B%E6%B9%96/">千岛湖<sup>1</sup></a></div></div><div class="console-card history" onclick="heo.hideConsole()"></div></div></div><div class="button-group"><div class="console-btn-item" id="consoleHideAside" onclick="heo.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="fas fa-arrows-alt-h"></i></a></div><div class="console-btn-item" id="consoleMusic" onclick="heo.musicToggle()" title="音乐开关"><a class="music-switch"><i class="fas fa-music"></i></a></div></div><div class="console-mask" onclick="heo.hideConsole()" href="javascript:void(0);"></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">博客<div class="back-menu-list"><a class="back-menu-item" href="/" title="本站" target="_blank"><img class="back-menu-item-icon entered loading" src="/img/navicon.png" data-ll-status="loading"/><span class="back-menu-item-text">本站</span></a><a class="back-menu-item" href="https://www.cnblogs.com/tengzijian/" title="博客园" target="_blank"><img class="back-menu-item-icon entered loading" src="/img/navicon.png" data-ll-status="loading"/><span class="back-menu-item-text">博客园</span></a><a class="back-menu-item" href="https://500px.com/p/zi-jian" title="500px" target="_blank"><img class="back-menu-item-icon entered loading" src="/img/navicon.png" data-ll-status="loading"/><span class="back-menu-item-text">500px</span></a><a class="back-menu-item" href="https://github.com/zijian-teng" title="GitHub" target="_blank"><img class="back-menu-item-icon entered loading" src="/img/navicon.png" data-ll-status="loading"/><span class="back-menu-item-text">GitHub</span></a></div></div></div></div><div class="menus_items"><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 文库</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-box-archive"></i><span> 所有分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 所有标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-inbox"></i><span> 时间轴</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 珍爱生命</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/C/C-%E6%83%AF%E7%94%A8%E6%B3%95/"><i class="fa-fw fas fa-book"></i><span> C++ 惯用法</span></a></li><li><a class="site-page child" href="/categories/C/C-%E6%A0%B8%E5%BF%83%E6%8C%87%E5%8D%97/"><i class="fa-fw fas fa-book"></i><span> C++ 核心指南</span></a></li><li><a class="site-page child" href="/categories/C/%E7%8E%B0%E4%BB%A3-C/"><i class="fa-fw fas fa-book"></i><span> 现代 C++</span></a></li><li><a class="site-page child" href="/categories/C/"><i class="fa-fw fas fa-folder"></i><span> C++ 合集</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 代码工匠</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"><i class="fa-fw fas fa-compass-drafting"></i><span> 设计模式</span></a></li><li><a class="site-page child" href="/categories/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/"><i class="fa-fw fas fa-compass-drafting"></i><span> 设计原则</span></a></li><li><a class="site-page child" href="/categories/%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84/"><i class="fa-fw fas fa-compass-drafting"></i><span> 软件架构</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 汽车电子</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/SOA/"><i class="fa-fw fas fa-car"></i><span> SOA</span></a></li><li><a class="site-page child" href="/categories/Adaptive%20AUTOSAR/"><i class="fa-fw fa-solid fa-car-side"></i><span> AUTOSAR AP</span></a></li><li><a class="site-page child" href="/categories/DDS/"><i class="fa-fw fa-solid fa-sitemap"></i><span> DDS</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 计算机基础</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/Linux"><i class="fa-fw fas fa-laptop-code"></i><span> Linux</span></a></li><li><a class="site-page child" href="/categories/%E7%BC%96%E8%AF%91%E9%93%BE%E6%8E%A5"><i class="fa-fw fa-solid fa-gears"></i><span> 编译链接</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 我的</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-user-astronaut"></i><span> 关于</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/collect/"><i class="fa-fw fas fa-image"></i><span> 图片</span></a></li><li><a class="site-page child" href="/equipment/"><i class="fa-fw fa-solid fa-gamepad"></i><span> 装备</span></a></li></ul></div></div><span class="sidebar-menu-item-title">标签</span><div class="card-widget card-tags card-archives card-webinfo card-allinfo"><div class="item-headline"><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/%E9%AA%91%E8%A1%8C/">骑行<sup>1</sup></a><a href="/tags/%E5%8D%83%E5%B2%9B%E6%B9%96/">千岛湖<sup>1</sup></a></div></div></div></div><div id="nav-music" onclick="heo.musicToggle()"><div id="nav-music-hoverTips">播放音乐</div><meting-js id="7861823420" server="netease" type="playlist" mutex="true" preload="none" theme="var(--heo-main)" data-lrctype="0" order="random"></meting-js></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/cool-background-trianglify_rotate.png')"><nav class="show" id="nav"><div id="nav-group"><div id="blog_name"><div class="back-home-button" tabindex="-1"><i class="back-home-button-icon heofont icon-apps-fill"></i><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">博客<div class="back-menu-list"><a class="back-menu-item" href="/" title="本站" target="_blank"><img class="back-menu-item-icon entered loading" src="/img/navicon.png" data-ll-status="loading"/><span class="back-menu-item-text">本站</span></a><a class="back-menu-item" href="https://www.cnblogs.com/tengzijian/" title="博客园" target="_blank"><img class="back-menu-item-icon entered loading" src="/img/navicon.png" data-ll-status="loading"/><span class="back-menu-item-text">博客园</span></a><a class="back-menu-item" href="https://500px.com/p/zi-jian" title="500px" target="_blank"><img class="back-menu-item-icon entered loading" src="/img/navicon.png" data-ll-status="loading"/><span class="back-menu-item-text">500px</span></a><a class="back-menu-item" href="https://github.com/zijian-teng" title="GitHub" target="_blank"><img class="back-menu-item-icon entered loading" src="/img/navicon.png" data-ll-status="loading"/><span class="back-menu-item-text">GitHub</span></a></div></div></div></div></div><a id="site-name" href="/" title="返回博客主页"><i class="fas fa-home"></i></a></div><div id="page-name-mask"><div id="page-name"><a id="page-name-text" onclick="acy.scrollToDest(0, 500)"><span>Zijian's Blog</span></a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 文库</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-box-archive"></i><span> 所有分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 所有标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-inbox"></i><span> 时间轴</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 珍爱生命</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/C/C-%E6%83%AF%E7%94%A8%E6%B3%95/"><i class="fa-fw fas fa-book"></i><span> C++ 惯用法</span></a></li><li><a class="site-page child" href="/categories/C/C-%E6%A0%B8%E5%BF%83%E6%8C%87%E5%8D%97/"><i class="fa-fw fas fa-book"></i><span> C++ 核心指南</span></a></li><li><a class="site-page child" href="/categories/C/%E7%8E%B0%E4%BB%A3-C/"><i class="fa-fw fas fa-book"></i><span> 现代 C++</span></a></li><li><a class="site-page child" href="/categories/C/"><i class="fa-fw fas fa-folder"></i><span> C++ 合集</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 代码工匠</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"><i class="fa-fw fas fa-compass-drafting"></i><span> 设计模式</span></a></li><li><a class="site-page child" href="/categories/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/"><i class="fa-fw fas fa-compass-drafting"></i><span> 设计原则</span></a></li><li><a class="site-page child" href="/categories/%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84/"><i class="fa-fw fas fa-compass-drafting"></i><span> 软件架构</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 汽车电子</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/SOA/"><i class="fa-fw fas fa-car"></i><span> SOA</span></a></li><li><a class="site-page child" href="/categories/Adaptive%20AUTOSAR/"><i class="fa-fw fa-solid fa-car-side"></i><span> AUTOSAR AP</span></a></li><li><a class="site-page child" href="/categories/DDS/"><i class="fa-fw fa-solid fa-sitemap"></i><span> DDS</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 计算机基础</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/Linux"><i class="fa-fw fas fa-laptop-code"></i><span> Linux</span></a></li><li><a class="site-page child" href="/categories/%E7%BC%96%E8%AF%91%E9%93%BE%E6%8E%A5"><i class="fa-fw fa-solid fa-gears"></i><span> 编译链接</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 我的</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-user-astronaut"></i><span> 关于</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/collect/"><i class="fa-fw fas fa-image"></i><span> 图片</span></a></li><li><a class="site-page child" href="/equipment/"><i class="fa-fw fa-solid fa-gamepad"></i><span> 装备</span></a></li></ul></div></div></div><div id="nav-right"><div class="nav-button" id="nav-console"><a class="console_switchbutton" onclick="heo.showConsole()" title="显示中控台" href="javascript:void(0);" rel="external nofollow" data-pjax-state="data-pjax-state"><i class="fa-brands fa-ubuntu"></i></a></div><div class="nav-button" id="nav-totop" onclick="acy.scrollToDest(0, 500)"><a class="totopbtn" data-pjax-state="data-pjax-state"><i class="heofont icon-arrow-up-line"></i><span id="percent"></span></a></div><div id="toggle-menu"><a class="site-page" data-pjax-state="data-pjax-state"><i class="heofont icon-menu-fill"></i></a></div></div></div></nav><div class="coverdiv" id="coverdiv"><img class="nolazyload entered loaded" id="post-cover" src="/img/cool-background-trianglify_rotate.png" alt="cover" data-ll-status="loaded"></div><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original" title="该文章为原创文章，注意版权协议" href="undefined" data-pjax-state>原创</a><span class="post-meta-categories"><a class="post-meta-categories" href="/categories/%E4%BB%A3%E7%A0%81%E5%B7%A5%E5%8C%A0/" data-pjax-state>代码工匠</a></span><div class="tag_share"><div class="post-meta__tag-list"></div></div></div></div><h1 class="post-title">《代码整洁之道 Clean Code》学习笔记 Part 2 - 写出优雅的函数的10条建议</h1><div id="post-meta"><div class="meta-secondline"><span class="post-meta-date"><i class="fa-fw post-meta-icon fas fa-calendar"></i><time class="post-meta-date-created" datetime="2023-09-03T14:06:00.000Z" title="发表于 2023-09-03 22:06:00">2023-09-03</time><span class="post-meta-separator"></span><i class="fas fa-history fa-fw post-meta-icon"></i><time class="post-meta-date-updated" datetime="2023-09-04T12:54:00.000Z" title="更新于 2023-09-04 20:54:00">2023-09-04</time></span><span class="post-meta-wechat" title="该文章在博客首发"><i class="fas fa-user post-meta-icon"></i>滕子健</span><span class="post-meta-position" title="作者IP属地为上海"><i class="fas fa-location-dot post-meta-icon"></i>上海</span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section></header><main class="layout" id="content-inner"><div id="post"><div><article class="post-content" id="article-container"><blockquote>
+<p>大师级程序员把系统当作故事来讲，而不是当作程序来写。</p>
+</blockquote>
+<h3 id="TLDR"><a href="#TLDR" class="headerlink" title="TLDR"></a>TLDR</h3><ol>
+<li>短小（不超过 20 行、缩进不超过 2 层）</li>
+<li>只做一件事</li>
+<li>保持在同一抽象层级</li>
+<li>用多态替代 switch</li>
+<li>取个好的函数名</li>
+<li>函数参数越少越好（尽量避免 3 个及以上参数）</li>
+<li>无副作用、避免输出参数</li>
+<li>分隔指令与询问</li>
+<li>用异常替代错误码</li>
+<li>不要重复（DRY: Don’t Repeat Yourself）</li>
+</ol>
+<h3 id="1-短小"><a href="#1-短小" class="headerlink" title="1. 短小"></a>1. 短小</h3><p>这是函数的第一原则！作者几十年的的经验告诉我们：函数就应该短小，不接受反驳。</p>
+<ul>
+<li>最好不要超过 20 行</li>
+<li>缩进的层级不超过 2 层</li>
+<li>if&#x2F;else&#x2F;while 里面的代码应该只有一行（通常是一句函数调用）：这样不但能保持函数短小，因为函数名本身具有说明性的名称，从而增加了文档上的价值</li>
+</ul>
+<h3 id="2-只做一件事"><a href="#2-只做一件事" class="headerlink" title="2. 只做一件事"></a>2. 只做一件事</h3><blockquote>
+<p>参见：单一职责原则 SRP</p>
+</blockquote>
+<p>函数的目的是把一个大的概念拆分成<strong>另一个抽象层级上</strong>的一系列步骤。</p>
+<p>要判断函数是否只做了一件事，就看能否再拆出“<strong>改变抽象层级</strong>”的函数。</p>
+<h3 id="3-每个函数一个抽象层级"><a href="#3-每个函数一个抽象层级" class="headerlink" title="3. 每个函数一个抽象层级"></a>3. 每个函数一个抽象层级</h3><p>什么是<strong>抽象层级</strong>？举个例子：</p>
+<ul>
+<li><code>genHtml()</code> 位于较高抽象层</li>
+<li><code>pagePathName = PathParser.render(pagePath)</code> 位于中间抽象层</li>
+<li><code>.append(&quot;\n&quot;)</code> 位于较低的抽象层</li>
+</ul>
+<p>如果一个函数中同时有这些不同层级的语句，那就违反了这个规则。</p>
+<p>最佳实践：自顶向下读代码，每个函数后面跟着<strong>下一个抽象层级</strong>的函数。</p>
+<h3 id="4-用多态替代-switch"><a href="#4-用多态替代-switch" class="headerlink" title="4. 用多态替代 switch"></a>4. 用多态替代 switch</h3><p>switch 天生就要做 N 件事，很难写出短小的 switch 语句：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Money <span class="title">calculatePay</span><span class="params">(<span class="type">const</span> Employee &amp;e)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">switch</span> (e.type) &#123;</span><br><span class="line">  <span class="keyword">case</span> COMMISIONED:</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">calculateCommisionedPay</span>(e);</span><br><span class="line">  <span class="keyword">case</span> HOURLY:</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">calculateHourlyPay</span>(e);</span><br><span class="line">  <span class="keyword">case</span> SALARIED:</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">calculateSalariedPay</span>(e);</span><br><span class="line">  <span class="keyword">default</span>:</span><br><span class="line">    <span class="keyword">throw</span> <span class="built_in">InvalidEmployeeType</span>(e.type);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>存在的问题：</p>
+<ul>
+<li>违反了 SRP 单一职责原则：有好几个修改它的理由</li>
+<li>违反了 OCP 开放关闭原则：每次添加新的员工类型都要修改这段代码</li>
+</ul>
+<p>不仅如此，上述问题可能在多个地方重复出现：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">bool</span> <span class="title">isPayday</span><span class="params">(<span class="type">const</span> Employee&amp; e)</span></span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">deliverPay</span><span class="params">(<span class="type">const</span> Employee&amp; e, Money pay)</span></span>;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>解决办法就是利用<strong>多态</strong>和<strong>抽象工厂</strong>，将 switch 封装到工厂内部，让 switch <strong>只出现一次</strong>，用于创建多态对象：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 抽象基类 Employee</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Employee</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  <span class="function"><span class="keyword">virtual</span> <span class="type">bool</span> <span class="title">isPayday</span><span class="params">()</span> </span>= <span class="number">0</span>;</span><br><span class="line">  <span class="function"><span class="keyword">virtual</span> Money <span class="title">calculatePay</span><span class="params">()</span> </span>= <span class="number">0</span>;</span><br><span class="line">  <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">deliverPay</span><span class="params">(Money pay)</span> </span>= <span class="number">0</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 用工厂封装 switch（只出现一次）</span></span><br><span class="line"><span class="function">Employee *<span class="title">makeEmployee</span><span class="params">(...)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">switch</span> (...) &#123;</span><br><span class="line">  <span class="keyword">case</span> COMMISIONED:</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">CommissionedEmployee</span>(...);</span><br><span class="line">  <span class="keyword">case</span> HOURLY:</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">HourlyEmployee</span>(...);</span><br><span class="line">  <span class="keyword">case</span> SALARIED:</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">SalariedEmployee</span>(...);</span><br><span class="line">  <span class="keyword">default</span>:</span><br><span class="line">    <span class="keyword">throw</span> <span class="built_in">InvalidEmployeeType</span>(type);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>isPayday、calculatePay、deliverPay 方法在具体子类中实现，对于调用 Employee 的代码来说，无需关心 Employee 的具体类型（面向接口编程）。和原来的实现相比：</p>
+<ul>
+<li>增加新的员工类型时，需新增一个 Employee 的子类，实现 Employee 的抽象方法。此外，唯一需要修改的地方就是工厂中的 switch 语句，而<strong>其他使用 Employee 的代码无需改动</strong>。</li>
+<li>函数参数减少一个：不再需要传入 Employee</li>
+</ul>
+<h3 id="5-使用描述性名称"><a href="#5-使用描述性名称" class="headerlink" title="5. 使用描述性名称"></a>5. 使用描述性名称</h3><ul>
+<li>函数越短小，功能越集中，越容易取个好名字。</li>
+<li>长而清晰的名字好过短而费解（以至于不得不额外加注释）的名字</li>
+<li>追求好名字的过程有助于厘清设计思路，对代码进行改进重构</li>
+<li>命名风格保持一致</li>
+</ul>
+<h3 id="6-函数参数"><a href="#6-函数参数" class="headerlink" title="6. 函数参数"></a>6. 函数参数</h3><p>函数参数越少越好，尽量避免 3 个及以上参数：</p>
+<ul>
+<li>参数越多，代码越难以理解</li>
+<li>多个参数的函数难以测试：因为很难覆盖所有的排列组合</li>
+<li>避免使用 out 参数，应该直接返回输出内容（错误信息可以通过异常抛出或者返回 <code>Result&lt;T, Error&gt;</code> &#x2F; <code>std::optional&lt;T&gt;</code>）</li>
+<li>避免 bool 参数，如果存在 bool 类型的参数，大概率是做了两件事，应该拆成两个函数</li>
+</ul>
+<p>减少参数的方法：</p>
+<ul>
+<li>把函数作为其中一个参数的成员：foo(a, b) –&gt; a.foo(b)</li>
+<li>把其中几个参数封装为类：makeCircle(double x, double y, double r) –&gt; makeCircle(Point center, double r)</li>
+</ul>
+<h3 id="7-无副作用"><a href="#7-无副作用" class="headerlink" title="7. 无副作用"></a>7. 无副作用</h3><p>副作用会导致奇怪的时序性耦合及顺序依赖：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">bool</span> <span class="title">checkPassword</span><span class="params">(string username, string password)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">auto</span> user = <span class="built_in">getUser</span>(username);</span><br><span class="line">  string codedPhrase = user.<span class="built_in">getPhraseEncodedByPassword</span>();</span><br><span class="line">  <span class="keyword">if</span>(cryptographer.<span class="built_in">decrypt</span>(codedPhrase, password) == <span class="string">&quot;valid password&quot;</span>) &#123;</span><br><span class="line">    <span class="built_in">initializeSession</span>(); <span class="comment">// 副作用</span></span><br><span class="line">    <span class="keyword">return</span> ture;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>问题出在 initializeSession() 的调用：如果调用者只想核验密码而调用 checkPassword，就会意外重置当前 session。另外，这一副作用也导致了时序性耦合，即 checkPassword 只能在特定时候调用，在其他时刻调用则可能导致 session 数据丢失。如果一定要时序性耦合，至少应该在函数名中体现，如 checkPasswordAndInitializeSession，但这样还是违反了“只做一件事”的原则。</p>
+<p>输出参数是另一种副作用。面向对象几乎不需要输出参数，如果函数需要修改某个状态，应该修改所属对象的状态。</p>
+<h3 id="8-分隔指令与询问"><a href="#8-分隔指令与询问" class="headerlink" title="8.分隔指令与询问"></a>8.分隔指令与询问</h3><p>函数要么做什么事，要么回答什么事，不可以同时做两件事。应该避免这样的函数：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 成功返回 true，属性不存在返回 false</span></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">set</span><span class="params">(string attr, string value)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>这会导致这样的语句：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="built_in">set</span>(<span class="string">&quot;username&quot;</span>,<span class="string">&quot;zijian&quot;</span>))</span><br><span class="line">&#123;</span><br><span class="line">  <span class="comment">// 如果不看注释，很难知道 set 函数到底做了什么，返回值代表什么含义</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>即使将 set 修改为一个更贴切的名字 setAndCheckIfExists 也不会对可读性有多少提升。真正的解决方案是将指令与询问分隔开来：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="built_in">attributeExists</span>(<span class="string">&quot;username&quot;</span>)) &#123;</span><br><span class="line">  <span class="built_in">setAttribute</span>(<span class="string">&quot;username&quot;</span>, <span class="string">&quot;zijian&quot;</span>);</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="9-使用异常替代错误码"><a href="#9-使用异常替代错误码" class="headerlink" title="9. 使用异常替代错误码"></a>9. 使用异常替代错误码</h3><p>指令式的函数返回错误码也违反了上一条“指令与询问分隔”的规则。</p>
+<p>更讨厌的是，错误码会“强迫”调用者立即检查返回值，进而导致深层嵌套，难以阅读。你一定写过或见过类似的代码：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="built_in">DeletePage</span>(page) == E_OK) &#123;</span><br><span class="line">  <span class="keyword">if</span> (registry.<span class="built_in">DeleteReference</span>(page.name) == E_OK) &#123;</span><br><span class="line">    <span class="keyword">if</span> (configKeys.<span class="built_in">DeleteKey</span>(page.name.<span class="built_in">MakeKey</span>() == E_OK)) &#123;</span><br><span class="line">      logger.<span class="built_in">Log</span>(<span class="string">&quot;page deleted&quot;</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      logger.<span class="built_in">Log</span>(<span class="string">&quot;configKey not deleted&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    logger.<span class="built_in">Log</span>(<span class="string">&quot;deleteReference from registry file failed&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  logger.<span class="built_in">Log</span>(<span class="string">&quot;delete failed&quot;</span>);</span><br><span class="line">  <span class="keyword">return</span> E_ERROR;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>而如果使用异常替代错误码，就可以<strong>将错误处理和主要逻辑分离开</strong>：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  <span class="built_in">DeletePage</span>(page);</span><br><span class="line">  registry.<span class="built_in">DeleteReference</span>(page.name);</span><br><span class="line">  configKeys.<span class="built_in">DeleteKey</span>(page.name.<span class="built_in">MakeKey</span>();</span><br><span class="line">&#125; <span class="built_in">catch</span> (<span class="type">const</span> std::exception &amp;e) &#123;</span><br><span class="line">  logger.<span class="built_in">Log</span>(e.<span class="built_in">what</span>());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>更进一步，try&#x2F;catch 也应该和代码的正常流程分离：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">Delete</span><span class="params">(Page *page)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="built_in">DeletePageAndAllReference</span>(page);</span><br><span class="line">  &#125; <span class="built_in">catch</span> (<span class="type">const</span> std::exception &amp;e) &#123;</span><br><span class="line">    <span class="built_in">LogError</span>(e);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">DeletePageAndAllReference</span><span class="params">(Page *page)</span> </span>&#123;</span><br><span class="line">  <span class="built_in">DeletePage</span>(page);</span><br><span class="line">  registry.<span class="built_in">DeleteReference</span>(page.name);</span><br><span class="line">  configKeys.<span class="built_in">DeleteKey</span>(page.name.<span class="built_in">makeKey</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="built_in">LogError</span>(<span class="type">const</span> std::exception &amp;e) &#123;</span><br><span class="line">  logger.<span class="built_in">Log</span>(e.<span class="built_in">what</span>());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>一个函数只做一件事，而错误处理本身就是一件事。换句话说，如果一个函数中有 try&#x2F;catch，那么这个函数的第一个单词就应该是 try，catch 之后不应该再有其他代码，每个 try&#x2F;catch 语句中，应该只有一个语句&#x2F;函数调用。</p>
+<p>这么做的好处：</p>
+<ul>
+<li>Delete() 函数只负责错误处理，阅读代码的时候大脑会“自动跳过”</li>
+<li>主要逻辑函数 DeletePageAndAllReference() 可以完全不用考虑错误处理</li>
+</ul>
+<p>使用异常替代错误码的第二个好处是完全遵循了 OCP 开放关闭原则。项目中经常见到 ErrorCode&#x2F;ReturnCode&#x2F;Result 这样的 enum 类型，很多的类都依赖它。每次修改时，所有依赖的代码都需要重新编译和部署，因此很多程序员宁愿复用现有的、不太精确的错误码（如 UNKNOWN_ERROR），也不愿增加一个更清晰、准确的错误码。而异常具有继承体系，可以通过增加新的子类来扩展错误，而完全不用担心影响旧的代码。</p>
+<p>总结一下，用异常替代错误码的好处：</p>
+<ol>
+<li>使用户能够将错误处理的代码从主要逻辑中分离出来，阅读代码时能够轻松跳过错误处理部分，将重点放在主要逻辑</li>
+<li>遵循开放关闭原则（OCP），利用异常的继承体系，新的异常可以作为 exception 的新增子类，旧的代码不需要改动</li>
+</ol>
+<blockquote>
+<p>⚠️ 虽然异常有很多优点，但抛出异常会产生额外的开销（可能影响到确定性调度）。此外，<strong>编写异常安全的代码非常困难</strong>！因此一些对安全有特殊要求的应用会禁止使用异常，如汽车领域中很多对功能安全有要求的场合会禁止使用异常。</p>
+</blockquote>
+<h3 id="10-不要重复（DRY-Don’t-Repeat-Yourself）"><a href="#10-不要重复（DRY-Don’t-Repeat-Yourself）" class="headerlink" title="10. 不要重复（DRY: Don’t Repeat Yourself）"></a>10. 不要重复（DRY: Don’t Repeat Yourself）</h3><p>重复是一切邪恶的根源。许多原则和规则都是为了消除重复：Codd 数据库范式、面向对象的继承、函数……</p>
+<h3 id="11-结构化编程"><a href="#11-结构化编程" class="headerlink" title="11. 结构化编程"></a>11. 结构化编程</h3><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/tengzijian/p/17557427.html">之前的《架构整洁之道》中有介绍过，结构化编程是三个编程范式之一</a>。所谓结构化编程，即每个函数、代码块都应该只有一个入口、一个出口。具体对编码的限制是：一个函数只有一个 return，循环中不能有 break&#x2F;continue，绝对不能使用 goto。</p>
+<p>作者认可结构化编程的目标和规范，但是！！！这些规则对于小函数帮助不大。<strong>如果函数足够短小，及早地 return&#x2F;break&#x2F;continue 可以使代码意图更清晰</strong>！而 goto 通常只有在大函数中才有作用，小函数中应该避免使用。</p>
+<h3 id="12-如何写出这样的函数"><a href="#12-如何写出这样的函数" class="headerlink" title="12. 如何写出这样的函数"></a>12. 如何写出这样的函数</h3><p>即使作者 Uncle Bob 也不能一开始就写出这样的函数。</p>
+<ul>
+<li>先写初稿，并配上单元测试</li>
+<li>重构、优化：拆解函数、消除重复、修改名称</li>
+<li>保持单元测试通过</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author_group"><a class="post-copyright__author_img" href="/about/"><img class="post-copyright__author_img_back entered loading" src="/img/avatar.jpg" data-ll-status="loading"></a><div class="post-copyright__author_name">Zijian TENG</div><div class="post-copyright__author_desc">汽车软件工程狮，C++ 程序猿，喜欢骑行、摄影</div></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div class="post-reward" onclick="AddRewardMask()"><div class="reward-button button--animated" title="赞赏作者"><i class="heofont icon-hand-heart-fill"></i> 打赏作者</div><div class="reward-main"><ul class="reward-all"><span class="reward-title">感谢你赐予我前进的力量</span><ul class="reward-group"><li class="reward-item"><a href="https://img01.anheyu.com/useruploads/8/2023/08/09/64d36090eeae9.png" target="_blank"><img class="post-qr-code-img" src="https://img01.anheyu.com/useruploads/8/2023/08/09/64d36090eeae9.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://img01.anheyu.com/useruploads/8/2023/08/09/64d36090ee66e.png" target="_blank"><img class="post-qr-code-img" src="https://img01.anheyu.com/useruploads/8/2023/08/09/64d36090ee66e.png" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul><a class="reward-main-btn" href="/about/" target="_blank"><div class="reward-text">赞赏者名单</div><div class="reward-dec">因为你们的支持让我意识到写文章的价值🙏</div></a></ul></div></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">本文是原创文章，采用 <a href="undefined" target="_blank">CC BY-NC-SA 4.0</a>协议，完整转载请注明来自<a href="/" target="_blank">Zijian TENG</a></span></div></div><nav class="pagination-post needEndHide" id="pagination"><div class="prev-post pull-left"><a href="/2023/09/05/P3%20%E4%BB%A3%E7%A0%81%E6%95%B4%E6%B4%81%E4%B9%8B%E9%81%93/"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">P3 代码整洁之道</div></div></a></div><div class="next-post pull-right"><a href="/2023/08/20/%E3%80%8A%E4%BB%A3%E7%A0%81%E6%95%B4%E6%B4%81%E4%B9%8B%E9%81%93%20Clean%20Code%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%20Part%201%20-%20%E5%91%BD%E5%90%8D%E3%80%81%E6%B3%A8%E9%87%8A%E3%80%81%E6%A0%BC%E5%BC%8F/"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">《代码整洁之道 Clean Code》学习笔记 Part 1 - 命名、注释、格式</div></div></a></div></nav></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><div class="author-info__top-group"><div class="author-info__sayhi" id="author-info__sayhi" onclick="heo.changeSayHelloText()"></div></div></div><div class="avatar-img-group"><div class="avatar-img" id="lottie_avatar"><img src="/img/avatar.jpg"/></div><div class="avatar-sticker"><img class="avatar-sticker-img entered loading" src="/img/avatar_sticker.png" ait="status"/></div></div><div class="author-info__description_group"><div class="author-info__description">有一个绘画筑起的城堡</div><div class="author-info__description">城堡里藏着单纯安静</div><div class="author-info__description">藏着一群人的生活和梦想</div><div class="author-info__description">——『苹果树下』</div></div><div class="author-info__bottom-group"><a class="author-info__bottom-group-left" href="/about"><div class="author-info__name">Zijian</div><div class="author-info__desc">好记性如烂笔头</div></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/zijian-teng" rel="external nofollow" target="_blank" title="GitHub"><i class="fab fa-github"></i></a><a class="social-icon" href="https://500px.com/p/zi-jian" rel="external nofollow" target="_blank" title="500px"><i class="fab fa-500px"></i></a></div></div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#TLDR"><span class="toc-text">TLDR</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%9F%AD%E5%B0%8F"><span class="toc-text">1. 短小</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%8F%AA%E5%81%9A%E4%B8%80%E4%BB%B6%E4%BA%8B"><span class="toc-text">2. 只做一件事</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%AF%8F%E4%B8%AA%E5%87%BD%E6%95%B0%E4%B8%80%E4%B8%AA%E6%8A%BD%E8%B1%A1%E5%B1%82%E7%BA%A7"><span class="toc-text">3. 每个函数一个抽象层级</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E7%94%A8%E5%A4%9A%E6%80%81%E6%9B%BF%E4%BB%A3-switch"><span class="toc-text">4. 用多态替代 switch</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E4%BD%BF%E7%94%A8%E6%8F%8F%E8%BF%B0%E6%80%A7%E5%90%8D%E7%A7%B0"><span class="toc-text">5. 使用描述性名称</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0"><span class="toc-text">6. 函数参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-%E6%97%A0%E5%89%AF%E4%BD%9C%E7%94%A8"><span class="toc-text">7. 无副作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-%E5%88%86%E9%9A%94%E6%8C%87%E4%BB%A4%E4%B8%8E%E8%AF%A2%E9%97%AE"><span class="toc-text">8.分隔指令与询问</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-%E4%BD%BF%E7%94%A8%E5%BC%82%E5%B8%B8%E6%9B%BF%E4%BB%A3%E9%94%99%E8%AF%AF%E7%A0%81"><span class="toc-text">9. 使用异常替代错误码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-%E4%B8%8D%E8%A6%81%E9%87%8D%E5%A4%8D%EF%BC%88DRY-Don%E2%80%99t-Repeat-Yourself%EF%BC%89"><span class="toc-text">10. 不要重复（DRY: Don’t Repeat Yourself）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-%E7%BB%93%E6%9E%84%E5%8C%96%E7%BC%96%E7%A8%8B"><span class="toc-text">11. 结构化编程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-%E5%A6%82%E4%BD%95%E5%86%99%E5%87%BA%E8%BF%99%E6%A0%B7%E7%9A%84%E5%87%BD%E6%95%B0"><span class="toc-text">12. 如何写出这样的函数</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/11/04/hello-world/" title="Hello World"><img src="/img/cool-background-trianglify_rotate.png" onerror="this.onerror=null;this.src='/img/cool-background-trianglify_rotate.png'" alt="Hello World"/></a><div class="content"><a class="title" href="/2023/11/04/hello-world/" title="Hello World">Hello World</a><time datetime="2023-11-03T23:04:59.901Z" title="发表于 2023-11-04 07:04:59">2023-11-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/30/qiandaolake2/" title="千岛湖骑行记"><img src="/img/cool-background-trianglify_rotate.png" onerror="this.onerror=null;this.src='/img/cool-background-trianglify_rotate.png'" alt="千岛湖骑行记"/></a><div class="content"><a class="title" href="/2023/10/30/qiandaolake2/" title="千岛湖骑行记">千岛湖骑行记</a><time datetime="2023-10-30T13:56:20.000Z" title="发表于 2023-10-30 21:56:20">2023-10-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/23/node.js%20%E5%91%BD%E4%BB%A4%E5%BF%85%E9%A1%BB%E5%8A%A0%20npx%20%E6%89%8D%E8%83%BD%E6%89%A7%E8%A1%8C/" title="node.js 命令必须加 npx 才能执行"><img src="/img/cool-background-trianglify_rotate.png" onerror="this.onerror=null;this.src='/img/cool-background-trianglify_rotate.png'" alt="node.js 命令必须加 npx 才能执行"/></a><div class="content"><a class="title" href="/2023/10/23/node.js%20%E5%91%BD%E4%BB%A4%E5%BF%85%E9%A1%BB%E5%8A%A0%20npx%20%E6%89%8D%E8%83%BD%E6%89%A7%E8%A1%8C/" title="node.js 命令必须加 npx 才能执行">node.js 命令必须加 npx 才能执行</a><time datetime="2023-10-23T14:48:00.000Z" title="发表于 2023-10-23 22:48:00">2023-10-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/14/macOS%20%E5%AE%89%E8%A3%85%20clang-tidy/" title="macOS 安装 clang-tidy"><img src="/img/cool-background-trianglify_rotate.png" onerror="this.onerror=null;this.src='/img/cool-background-trianglify_rotate.png'" alt="macOS 安装 clang-tidy"/></a><div class="content"><a class="title" href="/2023/10/14/macOS%20%E5%AE%89%E8%A3%85%20clang-tidy/" title="macOS 安装 clang-tidy">macOS 安装 clang-tidy</a><time datetime="2023-10-14T03:22:00.000Z" title="发表于 2023-10-14 11:22:00">2023-10-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/10/QNX%20%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90%E5%B7%A5%E5%85%B7/" title="QNX 性能分析工具"><img src="/img/cool-background-trianglify_rotate.png" onerror="this.onerror=null;this.src='/img/cool-background-trianglify_rotate.png'" alt="QNX 性能分析工具"/></a><div class="content"><a class="title" href="/2023/10/10/QNX%20%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90%E5%B7%A5%E5%85%B7/" title="QNX 性能分析工具">QNX 性能分析工具</a><time datetime="2023-10-10T07:04:00.000Z" title="发表于 2023-10-10 15:04:00">2023-10-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/06/CSS%20%E5%9F%BA%E7%A1%80%205%20-%20CSS%20%E9%80%89%E6%8B%A9%E5%99%A8/" title="CSS 基础 5 - CSS 选择器"><img src="/img/cool-background-trianglify_rotate.png" onerror="this.onerror=null;this.src='/img/cool-background-trianglify_rotate.png'" alt="CSS 基础 5 - CSS 选择器"/></a><div class="content"><a class="title" href="/2023/10/06/CSS%20%E5%9F%BA%E7%A1%80%205%20-%20CSS%20%E9%80%89%E6%8B%A9%E5%99%A8/" title="CSS 基础 5 - CSS 选择器">CSS 基础 5 - CSS 选择器</a><time datetime="2023-10-06T02:26:00.000Z" title="发表于 2023-10-06 10:26:00">2023-10-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/09/28/CSS%20%E5%9F%BA%E7%A1%80%204%20-%20CSS%20%E5%B8%B8%E7%94%A8%E5%8D%95%E4%BD%8D/" title="CSS 基础 4 - CSS 常用单位"><img src="/img/cool-background-trianglify_rotate.png" onerror="this.onerror=null;this.src='/img/cool-background-trianglify_rotate.png'" alt="CSS 基础 4 - CSS 常用单位"/></a><div class="content"><a class="title" href="/2023/09/28/CSS%20%E5%9F%BA%E7%A1%80%204%20-%20CSS%20%E5%B8%B8%E7%94%A8%E5%8D%95%E4%BD%8D/" title="CSS 基础 4 - CSS 常用单位">CSS 基础 4 - CSS 常用单位</a><time datetime="2023-09-28T12:52:00.000Z" title="发表于 2023-09-28 20:52:00">2023-09-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/09/28/CSS%20%E5%9F%BA%E7%A1%80%203%20-%20%E5%AE%9A%E4%BD%8D%20Postion%20%E5%B1%9E%E6%80%A7/" title="CSS 基础 3 - 定位 Postion 属性"><img src="/img/cool-background-trianglify_rotate.png" onerror="this.onerror=null;this.src='/img/cool-background-trianglify_rotate.png'" alt="CSS 基础 3 - 定位 Postion 属性"/></a><div class="content"><a class="title" href="/2023/09/28/CSS%20%E5%9F%BA%E7%A1%80%203%20-%20%E5%AE%9A%E4%BD%8D%20Postion%20%E5%B1%9E%E6%80%A7/" title="CSS 基础 3 - 定位 Postion 属性">CSS 基础 3 - 定位 Postion 属性</a><time datetime="2023-09-28T12:49:00.000Z" title="发表于 2023-09-28 20:49:00">2023-09-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/09/27/CSS%20%E5%9F%BA%E7%A1%80%202%20-%20Box%20Model%20%E7%9B%92%E6%A8%A1%E5%9E%8B/" title="CSS 基础 2 - Box Model 盒模型"><img src="/img/cool-background-trianglify_rotate.png" onerror="this.onerror=null;this.src='/img/cool-background-trianglify_rotate.png'" alt="CSS 基础 2 - Box Model 盒模型"/></a><div class="content"><a class="title" href="/2023/09/27/CSS%20%E5%9F%BA%E7%A1%80%202%20-%20Box%20Model%20%E7%9B%92%E6%A8%A1%E5%9E%8B/" title="CSS 基础 2 - Box Model 盒模型">CSS 基础 2 - Box Model 盒模型</a><time datetime="2023-09-27T12:40:00.000Z" title="发表于 2023-09-27 20:40:00">2023-09-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/09/27/CSS%20%E5%9F%BA%E7%A1%80%201%20-%20Block%20&amp;%20Inline/" title="CSS 基础 1 - Block &amp; Inline"><img src="/img/cool-background-trianglify_rotate.png" onerror="this.onerror=null;this.src='/img/cool-background-trianglify_rotate.png'" alt="CSS 基础 1 - Block &amp; Inline"/></a><div class="content"><a class="title" href="/2023/09/27/CSS%20%E5%9F%BA%E7%A1%80%201%20-%20Block%20&amp;%20Inline/" title="CSS 基础 1 - Block &amp; Inline">CSS 基础 1 - Block &amp; Inline</a><time datetime="2023-09-27T12:38:00.000Z" title="发表于 2023-09-27 20:38:00">2023-09-27</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer_deal"></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div id="footer-bar-tips"></div><a class="footer-bar-link" href="/">Zijian's Blog</a></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" href="https://hexo.io" rel="noopener external nofollow noreferrer">Powered by Hexo & Butterfly</a><a class="footer-bar-link cc" href="/" title="Copyright"><i class="fa-regular fa-copyright"></i><i class="fa-brands fa-creative-commons-by"></i><i class="fa-brands fa-creative-commons-nc"></i><i class="fa-brands fa-creative-commons-nd"></i></a></div></div></div><div id="quit-box" onclick="RemoveRewardMask()" style="display: none"></div><div class="comment-barrage"></div></footer></div><div id="rightside" style="opacity: 1; transform: translateX(-38px);"><div id="rightside-config-hide"><button id="hide-aside-btn" type="button" title="侧栏显隐"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><!-- 右键菜单--><div class="js-pjax"><div id="rightMenu" style="top: 116px; left: 485px;"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="heofont icon-arrow-left-line"></i></div><div class="rightMenu-item" id="menu-forward"><i class="heofont icon-arrow-right-line"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="heofont icon-restart-line" style="font-size: 19px;"></i></div><div class="rightMenu-item" id="menu-top"><i class="heofont icon-arrow-up-line"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-newwindow"><i class="heofont icon-window-fill"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="heofont icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="heofont icon-file-copy-fill"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="heofont icon-play-fill"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="heofont icon-skip-back-fill"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="heofont icon-skip-forward-fill"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open('https://music.163.com/#/playlist?app_version=8.8.36&amp;id=7861823420', '_blank');"><i class="heofont icon-play-list-2-line"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="heofont icon-file-copy-fill"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-Link" id="menu-randomPost" data-pjax-state="data-pjax-state"><i class="heofont icon-signal-tower-fill"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="heofont icon-checkbox-multiple-blank-fill"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="heofont icon-price-tag-3-fill"></i><span>文章标签</span></a></div></div><div id="rightmenu-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script charset="utf-8" data-pjax src="/js/blogex.js"></script><div class="js-pjax"></div><link rel="stylesheet" href="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.js"></script><script src="https://jsd.onmicrosoft.cn/gh/hexo-theme-Acrylic/JS-Acrylic@main/Meting.js"></script><script src="https://jsd.onmicrosoft.cn/npm/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script src="/js/rightmenu.js"></script><script data-pjax src="/zhheo/random.js"></script></div></body></html>
