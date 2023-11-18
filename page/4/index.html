@@ -1,111 +1,123 @@
-<!DOCTYPE html><html class="true" lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta http-equiv="content-language" content="zh-cn"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Zijian's Blog - 好记性如烂笔头</title><meta name="author" content="Zijian TENG"><meta name="copyright" content="Zijian TENG"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#425AEF"><meta name="description" content="汽车软件工程狮，C++ 程序猿，喜欢骑行、摄影"><meta name="apple-mobile-web-app-status-bar-style" content="#425AEF"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://jsd.onmicrosoft.cn/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/3.6.0/jquery.min.js"></script><script src="/js/heo.js"></script><script data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}" src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/pace/1.2.4/pace.min.js"></script><link rel="shortcut icon" href="/img/favicon.ico"><meta property="og:image" content="/img/avatar.jpg"><meta property="og:type" content="website"><meta property="og:title" content="Zijian TENG"><meta property="og:url" content="http://example.com/page/4/"><meta property="og:site_name" content="Zijian TENG"><meta property="og:description" content="汽车软件工程狮，C++ 程序猿，喜欢骑行、摄影"><meta property="og:locale" content="zh_CN"><link rel="canonical" href="http://example.com/page/4/"><link rel="preconnect" href="//bu.dusays.com"><script>const GLOBAL_CONFIG = {
-  author: `Zijian TENG`,
-  api: {"fcircle_random":"https://fcircle.acrylic.org.cn/randomfriend"},
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Zijian's Blog - 好记性如烂笔头</title><meta name="author" content="Zijian TENG"><meta name="copyright" content="Zijian TENG"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="汽车软件工程狮，C++ 程序猿，喜欢骑行、摄影">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Zijian&#39;s Blog">
+<meta property="og:url" content="http://example.com/page/4/index.html">
+<meta property="og:site_name" content="Zijian&#39;s Blog">
+<meta property="og:description" content="汽车软件工程狮，C++ 程序猿，喜欢骑行、摄影">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/avatar.jpg">
+<meta property="article:author" content="Zijian TENG">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/avatar.jpg"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="http://example.com/page/4/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
   root: '/',
-  post_root: "/:year/",
   algolia: undefined,
-  twikoo: undefined,
   localSearch: undefined,
-  translate: { "defaultEncoding": 2, "translateDelay": 0, "msgToTraditionalChinese": "简", "msgToSimplifiedChinese": "繁" },
-  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":400},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
   copy: {
     success: '复制成功',
     error: '复制错误',
     noSupport: '浏览器不支持'
   },
   relativeDate: {
-    homepage: true,
+    homepage: false,
     post: false
   },
   runtime: '',
-  date_suffix: {
+  dateSuffix: {
     just: '刚刚',
     min: '分钟前',
     hour: '小时前',
     day: '天前',
     month: '个月前'
   },
+  copyright: undefined,
   lightbox: 'fancybox',
   Snackbar: undefined,
-  source: {
-  jQuery: 'https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/3.6.0/jquery.min.js',
-  justifiedGallery: {
-    js: 'https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js',
-    css: 'https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/justifiedGallery/3.8.1/css/justifiedGallery.min.css'
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
   },
-  fancybox: {
-    js: 'https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/fancybox/3.5.7/jquery.fancybox.min.js',
-    css: 'https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/fancybox/3.5.7/jquery.fancybox.min.css'
-  }
-},
-  isPhotoFigcaption: true,
+  isPhotoFigcaption: false,
   islazyload: false,
   isAnchor: false,
+  percent: {
+    toc: false,
+    rightside: true,
+  },
+  autoDarkmode: false
 }</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
-  title: 'Zijian\'s Blog | Zijian TENG',
+  title: 'Zijian\'s Blog',
   isPost: false,
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2023-11-12 21:43:51',
-  tcolor_mode: 'undefined',
-  tcolor: 'undefined'
-}</script><noscript><style type="text/css">
-  #nav {
-    opacity: 1
-  }
-  .justified-gallery img {
-    opacity: 1
-  }
-
-  #recent-posts time,
-  #post-meta time {
-    display: inline !important
-  }
-</style></noscript><script>(win=>{
-    win.saveToLocal = {
-      set: function setWithExpiry(key, value, ttl) {
-        if (ttl === 0) return
-        const now = new Date()
-        const expiryDay = ttl * 86400000
-        const item = {
-          value: value,
-          expiry: now.getTime() + expiryDay,
+  postUpdate: '2023-11-18 17:47:32'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
         }
-        localStorage.setItem(key, JSON.stringify(item))
-      },
-
-      get: function getWithExpiry(key) {
-        const itemStr = localStorage.getItem(key)
-
-        if (!itemStr) {
-          return undefined
-        }
-        const item = JSON.parse(itemStr)
-        const now = new Date()
-
-        if (now.getTime() > item.expiry) {
-          localStorage.removeItem(key)
-          return undefined
-        }
-        return item.value
       }
-    }
-  
-    win.getScript = url => new Promise((resolve, reject) => {
-      const script = document.createElement('script')
-      script.src = url
-      script.async = true
-      script.onerror = reject
-      script.onload = script.onreadystatechange = function() {
-        const loadState = this.readyState
-        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-        script.onload = script.onreadystatechange = null
-        resolve()
-      }
-      document.head.appendChild(script)
-    })
-  
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
       const asideStatus = saveToLocal.get('aside-status')
       if (asideStatus !== undefined) {
         if (asideStatus === 'hide') {
@@ -115,95 +127,125 @@
         }
       }
     
-    const detectApple = () => {
-      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
-        document.documentElement.classList.add('apple')
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
       }
-    }
-    detectApple()
-    })(window)</script><link rel="stylesheet" href="https://cdn3.codesign.qq.com/icons/X2bzpZvRWkZkAaV/latest/iconfont.css"><link rel="stylesheet" href="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/Swiper/8.0.6/swiper-bundle.min.css"><script>var meting_api = "https://meting.qjqq.cn/?server=:server&type=:type&id=:id&auth=:auth&r=:r";</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="web_bg"></div><div id="console"><div class="close-btn" onclick="heo.hideConsole()" href="javascript:void(0);"><i class="fas fa-circle-xmark"></i></div><div class="console-card-group"><div class="console-card-group-right"><div class="console-card tags" onclick="heo.hideConsole()"><div class="card-content"><div class="author-content-item-tips">标签</div><span class="author-content-item-title">寻找感兴趣的领域</span></div><div class="card-tag-cloud"><a href="/tags/%E9%AA%91%E8%A1%8C/">骑行<sup>1</sup></a><a href="/tags/%E5%8D%83%E5%B2%9B%E6%B9%96/">千岛湖<sup>1</sup></a></div></div><div class="console-card history" onclick="heo.hideConsole()"></div></div></div><div class="button-group"><div class="console-btn-item" id="consoleHideAside" onclick="heo.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="fas fa-arrows-alt-h"></i></a></div><div class="console-btn-item" id="consoleMusic" onclick="heo.musicToggle()" title="音乐开关"><a class="music-switch"><i class="fas fa-music"></i></a></div></div><div class="console-mask" onclick="heo.hideConsole()" href="javascript:void(0);"></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">博客<div class="back-menu-list"><a class="back-menu-item" href="/" title="本站" target="_blank"><img class="back-menu-item-icon entered loading" src="/img/navicon.png" data-ll-status="loading"/><span class="back-menu-item-text">本站</span></a><a class="back-menu-item" href="https://www.cnblogs.com/tengzijian/" title="博客园" target="_blank"><img class="back-menu-item-icon entered loading" src="/img/navicon.png" data-ll-status="loading"/><span class="back-menu-item-text">博客园</span></a><a class="back-menu-item" href="https://500px.com/p/zi-jian" title="500px" target="_blank"><img class="back-menu-item-icon entered loading" src="/img/navicon.png" data-ll-status="loading"/><span class="back-menu-item-text">500px</span></a><a class="back-menu-item" href="https://github.com/zijian-teng" title="GitHub" target="_blank"><img class="back-menu-item-icon entered loading" src="/img/navicon.png" data-ll-status="loading"/><span class="back-menu-item-text">GitHub</span></a></div></div></div></div><div class="menus_items"><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 文库</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-box-archive"></i><span> 所有分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 所有标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-inbox"></i><span> 时间轴</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 珍爱生命</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/C/C-%E6%83%AF%E7%94%A8%E6%B3%95/"><i class="fa-fw fas fa-book"></i><span> C++ 惯用法</span></a></li><li><a class="site-page child" href="/categories/C/C-%E6%A0%B8%E5%BF%83%E6%8C%87%E5%8D%97/"><i class="fa-fw fas fa-book"></i><span> C++ 核心指南</span></a></li><li><a class="site-page child" href="/categories/C/%E7%8E%B0%E4%BB%A3-C/"><i class="fa-fw fas fa-book"></i><span> 现代 C++</span></a></li><li><a class="site-page child" href="/categories/C/"><i class="fa-fw fas fa-folder"></i><span> C++ 合集</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 代码工匠</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"><i class="fa-fw fas fa-compass-drafting"></i><span> 设计模式</span></a></li><li><a class="site-page child" href="/categories/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/"><i class="fa-fw fas fa-compass-drafting"></i><span> 设计原则</span></a></li><li><a class="site-page child" href="/categories/%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84/"><i class="fa-fw fas fa-compass-drafting"></i><span> 软件架构</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 汽车电子</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/SOA/"><i class="fa-fw fas fa-car"></i><span> SOA</span></a></li><li><a class="site-page child" href="/categories/Adaptive%20AUTOSAR/"><i class="fa-fw fa-solid fa-car-side"></i><span> AUTOSAR AP</span></a></li><li><a class="site-page child" href="/categories/DDS/"><i class="fa-fw fa-solid fa-sitemap"></i><span> DDS</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 计算机基础</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/Linux"><i class="fa-fw fas fa-laptop-code"></i><span> Linux</span></a></li><li><a class="site-page child" href="/categories/%E7%BC%96%E8%AF%91%E9%93%BE%E6%8E%A5"><i class="fa-fw fa-solid fa-gears"></i><span> 编译链接</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 我的</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-user-astronaut"></i><span> 关于</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/collect/"><i class="fa-fw fas fa-image"></i><span> 图片</span></a></li><li><a class="site-page child" href="/equipment/"><i class="fa-fw fa-solid fa-gamepad"></i><span> 装备</span></a></li></ul></div></div><span class="sidebar-menu-item-title">标签</span><div class="card-widget card-tags card-archives card-webinfo card-allinfo"><div class="item-headline"><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/%E9%AA%91%E8%A1%8C/">骑行<sup>1</sup></a><a href="/tags/%E5%8D%83%E5%B2%9B%E6%B9%96/">千岛湖<sup>1</sup></a></div></div></div></div><div id="nav-music" onclick="heo.musicToggle()"><div id="nav-music-hoverTips">播放音乐</div><meting-js id="7861823420" server="netease" type="playlist" mutex="true" preload="none" theme="var(--heo-main)" data-lrctype="0" order="random"></meting-js></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav class="show" id="nav"><div id="nav-group"><div id="blog_name"><div class="back-home-button" tabindex="-1"><i class="back-home-button-icon heofont icon-apps-fill"></i><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">博客<div class="back-menu-list"><a class="back-menu-item" href="/" title="本站" target="_blank"><img class="back-menu-item-icon entered loading" src="/img/navicon.png" data-ll-status="loading"/><span class="back-menu-item-text">本站</span></a><a class="back-menu-item" href="https://www.cnblogs.com/tengzijian/" title="博客园" target="_blank"><img class="back-menu-item-icon entered loading" src="/img/navicon.png" data-ll-status="loading"/><span class="back-menu-item-text">博客园</span></a><a class="back-menu-item" href="https://500px.com/p/zi-jian" title="500px" target="_blank"><img class="back-menu-item-icon entered loading" src="/img/navicon.png" data-ll-status="loading"/><span class="back-menu-item-text">500px</span></a><a class="back-menu-item" href="https://github.com/zijian-teng" title="GitHub" target="_blank"><img class="back-menu-item-icon entered loading" src="/img/navicon.png" data-ll-status="loading"/><span class="back-menu-item-text">GitHub</span></a></div></div></div></div></div><a id="site-name" href="/" title="返回博客主页"><i class="fas fa-home"></i></a></div><div id="page-name-mask"><div id="page-name"><a id="page-name-text" onclick="acy.scrollToDest(0, 500)"><span>Zijian's Blog</span></a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 文库</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-box-archive"></i><span> 所有分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 所有标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-inbox"></i><span> 时间轴</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 珍爱生命</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/C/C-%E6%83%AF%E7%94%A8%E6%B3%95/"><i class="fa-fw fas fa-book"></i><span> C++ 惯用法</span></a></li><li><a class="site-page child" href="/categories/C/C-%E6%A0%B8%E5%BF%83%E6%8C%87%E5%8D%97/"><i class="fa-fw fas fa-book"></i><span> C++ 核心指南</span></a></li><li><a class="site-page child" href="/categories/C/%E7%8E%B0%E4%BB%A3-C/"><i class="fa-fw fas fa-book"></i><span> 现代 C++</span></a></li><li><a class="site-page child" href="/categories/C/"><i class="fa-fw fas fa-folder"></i><span> C++ 合集</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 代码工匠</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"><i class="fa-fw fas fa-compass-drafting"></i><span> 设计模式</span></a></li><li><a class="site-page child" href="/categories/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/"><i class="fa-fw fas fa-compass-drafting"></i><span> 设计原则</span></a></li><li><a class="site-page child" href="/categories/%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84/"><i class="fa-fw fas fa-compass-drafting"></i><span> 软件架构</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 汽车电子</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/SOA/"><i class="fa-fw fas fa-car"></i><span> SOA</span></a></li><li><a class="site-page child" href="/categories/Adaptive%20AUTOSAR/"><i class="fa-fw fa-solid fa-car-side"></i><span> AUTOSAR AP</span></a></li><li><a class="site-page child" href="/categories/DDS/"><i class="fa-fw fa-solid fa-sitemap"></i><span> DDS</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 计算机基础</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/Linux"><i class="fa-fw fas fa-laptop-code"></i><span> Linux</span></a></li><li><a class="site-page child" href="/categories/%E7%BC%96%E8%AF%91%E9%93%BE%E6%8E%A5"><i class="fa-fw fa-solid fa-gears"></i><span> 编译链接</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 我的</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-user-astronaut"></i><span> 关于</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/collect/"><i class="fa-fw fas fa-image"></i><span> 图片</span></a></li><li><a class="site-page child" href="/equipment/"><i class="fa-fw fa-solid fa-gamepad"></i><span> 装备</span></a></li></ul></div></div></div><div id="nav-right"><div class="nav-button" id="nav-console"><a class="console_switchbutton" onclick="heo.showConsole()" title="显示中控台" href="javascript:void(0);" rel="external nofollow" data-pjax-state="data-pjax-state"><i class="fa-brands fa-ubuntu"></i></a></div><div class="nav-button" id="nav-totop" onclick="acy.scrollToDest(0, 500)"><a class="totopbtn" data-pjax-state="data-pjax-state"><i class="heofont icon-arrow-up-line"></i><span id="percent"></span></a></div><div id="toggle-menu"><a class="site-page" data-pjax-state="data-pjax-state"><i class="heofont icon-menu-fill"></i></a></div></div></div></nav></header><div id="home_top"><style type="text/css">.recent-post-item:nth-child(n+7) {
-  display: none;
-}
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">134</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">17</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-link"></i><span> 专题</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/"><i class="fa-fw fas fa-link"></i><span> C++</span></a></li><li><a class="site-page child" href="/"><i class="fa-fw fas fa-link"></i><span> Linux</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 收藏</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/collect/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/equipment/"><i class="fa-fw fas fa-gamepad"></i><span> 装备</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-top-img fixed" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Zijian's Blog"><span class="site-name">Zijian's Blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-link"></i><span> 专题</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/"><i class="fa-fw fas fa-link"></i><span> C++</span></a></li><li><a class="site-page child" href="/"><i class="fa-fw fas fa-link"></i><span> Linux</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 收藏</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/collect/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/equipment/"><i class="fa-fw fas fa-gamepad"></i><span> 装备</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/07/08/C++%20%E6%83%AF%E7%94%A8%E6%B3%95%E4%B9%8B%20Copy-Swap%20%E6%8B%B7%E8%B4%9D%E4%BA%A4%E6%8D%A2/" title="C++ 惯用法之 Copy-Swap 拷贝交换">C++ 惯用法之 Copy-Swap 拷贝交换</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-07-08T10:16:00.000Z" title="发表于 2023-07-08 18:16:00">2023-07-08</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/C/">C++</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/C/C-%E6%83%AF%E7%94%A8%E6%B3%95/">C++ 惯用法</a></span></div><div class="content">C++ 惯用法之 Copy-Swap 拷贝交换
+这是“C++ 惯用法”合集的第 3 篇，前面 2 篇分别介绍了 RAII 和 PIMPL 两种惯用法：
 
-.topGroup .todayCard::after {
-  box-shadow: 0 -109px 133px -9px #0E57D5 inset;
-}
+RAII: Resouce Acquistion Is Initialization
+PIMPL：Pointer To Implemetation
 
-.todayCard-title,.todayCard-tips,.topGroup .banner-button {
-    color: #ffffff;
-}
 
-.topGroup .todayCard {
-    background: #0E57D5;
-}</style><div class="recent-top-post-group" id="recent-top-post-group"><div class="recent-post-top" id="recent-post-top"></div></div></div><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div id="category-bar"><div class="category-bar-items" id="category-bar-items"><div class="category-bar-item" id="category-bar-home"><a href="/">首页</a></div>
-    <div class="category-bar-item" id="汽车电子">
-      <a href="/categories/汽车电子/">汽车电子</a>
-    </div>
-    
-    <div class="category-bar-item" id="C">
-      <a href="/categories/C/">C++</a>
-    </div>
-    
-    <div class="category-bar-item" id="AUTOSAR-AP">
-      <a href="/categories/汽车电子/AUTOSAR-AP/">AUTOSAR AP</a>
-    </div>
-    
-    <div class="category-bar-item" id="计算机基础">
-      <a href="/categories/计算机基础/">计算机基础</a>
-    </div>
-    
-    <div class="category-bar-item" id="代码工匠">
-      <a href="/categories/代码工匠/">代码工匠</a>
-    </div>
-    
-    <div class="category-bar-item" id="编译链接">
-      <a href="/categories/计算机基础/编译链接/">编译链接</a>
-    </div>
-    
-    <div class="category-bar-item" id="设计模式">
-      <a href="/categories/代码工匠/设计模式/">设计模式</a>
-    </div>
-    
-    <div class="category-bar-item" id="C-惯用法">
-      <a href="/categories/C/C-惯用法/">C++ 惯用法</a>
-    </div>
-    
-    <div class="category-bar-item" id="C-核心指南">
-      <a href="/categories/C/C-核心指南/">C++ 核心指南</a>
-    </div>
-    
-    <div class="category-bar-item" id="前端">
-      <a href="/categories/前端/">前端</a>
-    </div>
-    
-    <div class="category-bar-item" id="Trouble-Shooting">
-      <a href="/categories/Trouble-Shooting/">Trouble Shooting</a>
-    </div>
-    
-    <div class="category-bar-item" id="Linux">
-      <a href="/categories/计算机基础/Linux/">Linux</a>
-    </div>
-    
-    <div class="category-bar-item" id="工欲善其事">
-      <a href="/categories/工欲善其事/">工欲善其事</a>
-    </div>
-    
-    <div class="category-bar-item" id="生活">
-      <a href="/categories/生活/">生活</a>
-    </div>
-    
-    <div class="category-bar-item" id="软件架构">
-      <a href="/categories/代码工匠/软件架构/">软件架构</a>
-    </div>
-    
-    <div class="category-bar-item" id="算法">
-      <a href="/categories/计算机基础/算法/">算法</a>
-    </div>
-    
-    <div class="category-bar-item" id="计算机网络">
-      <a href="/categories/计算机基础/计算机网络/">计算机网络</a>
-    </div>
-    </div><a class="category-bar-more" href="/categories/">更多</a></div><div class="recent-post-item" onclick="pjax.loadUrl('/2023/07/08/C++%20%E6%83%AF%E7%94%A8%E6%B3%95%E4%B9%8B%20Copy-Swap%20%E6%8B%B7%E8%B4%9D%E4%BA%A4%E6%8D%A2/')"><div class="post_cover left_radius"><a href="/2023/07/08/C++%20%E6%83%AF%E7%94%A8%E6%B3%95%E4%B9%8B%20Copy-Swap%20%E6%8B%B7%E8%B4%9D%E4%BA%A4%E6%8D%A2/" title="C++ 惯用法之 Copy-Swap 拷贝交换"><img class="post_bg" src="/img/cool-background-trianglify_rotate.png" onerror="this.onerror=null;this.src='/img/cool-background-trianglify_rotate.png'" alt="C++ 惯用法之 Copy-Swap 拷贝交换"></a></div><div class="recent-post-info"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><span class="original">C++</span><span class="original">C++ 惯用法</span></div><a class="article-title" href="/2023/07/08/C++%20%E6%83%AF%E7%94%A8%E6%B3%95%E4%B9%8B%20Copy-Swap%20%E6%8B%B7%E8%B4%9D%E4%BA%A4%E6%8D%A2/" title="C++ 惯用法之 Copy-Swap 拷贝交换">C++ 惯用法之 Copy-Swap 拷贝交换</a></div><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><time datetime="2023-07-08T10:16:00.000Z" title="undefined 2023-07-08 18:16:00">2023-07-08</time></span></div></div></div><div class="recent-post-item" onclick="pjax.loadUrl('/2023/07/02/C++%20%E6%83%AF%E7%94%A8%E6%B3%95%E4%B9%8B%20RAII/')"><div class="post_cover left_radius"><a href="/2023/07/02/C++%20%E6%83%AF%E7%94%A8%E6%B3%95%E4%B9%8B%20RAII/" title="C++ 惯用法之 RAII"><img class="post_bg" src="/img/cool-background-trianglify_rotate.png" onerror="this.onerror=null;this.src='/img/cool-background-trianglify_rotate.png'" alt="C++ 惯用法之 RAII"></a></div><div class="recent-post-info"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><span class="original">C++</span><span class="original">C++ 惯用法</span></div><a class="article-title" href="/2023/07/02/C++%20%E6%83%AF%E7%94%A8%E6%B3%95%E4%B9%8B%20RAII/" title="C++ 惯用法之 RAII">C++ 惯用法之 RAII</a></div><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><time datetime="2023-07-02T09:33:00.000Z" title="undefined 2023-07-02 17:33:00">2023-07-02</time></span></div></div></div><div class="recent-post-item" onclick="pjax.loadUrl('/2023/07/01/C++%20%E6%A0%B8%E5%BF%83%E6%8C%87%E5%8D%97%E4%B9%8B%E8%B5%84%E6%BA%90%E7%AE%A1%E7%90%86%EF%BC%88%E4%B8%8B%EF%BC%89%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/')"><div class="post_cover left_radius"><a href="/2023/07/01/C++%20%E6%A0%B8%E5%BF%83%E6%8C%87%E5%8D%97%E4%B9%8B%E8%B5%84%E6%BA%90%E7%AE%A1%E7%90%86%EF%BC%88%E4%B8%8B%EF%BC%89%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" title="C++ 核心指南之资源管理（下）智能指针最佳实践"><img class="post_bg" src="/img/cool-background-trianglify_rotate.png" onerror="this.onerror=null;this.src='/img/cool-background-trianglify_rotate.png'" alt="C++ 核心指南之资源管理（下）智能指针最佳实践"></a></div><div class="recent-post-info"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><span class="original">C++</span><span class="original">C++ 核心指南</span></div><a class="article-title" href="/2023/07/01/C++%20%E6%A0%B8%E5%BF%83%E6%8C%87%E5%8D%97%E4%B9%8B%E8%B5%84%E6%BA%90%E7%AE%A1%E7%90%86%EF%BC%88%E4%B8%8B%EF%BC%89%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" title="C++ 核心指南之资源管理（下）智能指针最佳实践">C++ 核心指南之资源管理（下）智能指针最佳实践</a></div><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><time datetime="2023-07-01T15:30:00.000Z" title="undefined 2023-07-01 23:30:00">2023-07-01</time></span></div></div></div><div class="recent-post-item" onclick="pjax.loadUrl('/2023/06/25/C++%20%E6%A0%B8%E5%BF%83%E6%8C%87%E5%8D%97%E4%B9%8B%E8%B5%84%E6%BA%90%E7%AE%A1%E7%90%86%EF%BC%88%E4%B8%AD%EF%BC%89%E5%88%86%E9%85%8D%E5%92%8C%E9%87%8A%E6%94%BE/')"><div class="post_cover left_radius"><a href="/2023/06/25/C++%20%E6%A0%B8%E5%BF%83%E6%8C%87%E5%8D%97%E4%B9%8B%E8%B5%84%E6%BA%90%E7%AE%A1%E7%90%86%EF%BC%88%E4%B8%AD%EF%BC%89%E5%88%86%E9%85%8D%E5%92%8C%E9%87%8A%E6%94%BE/" title="C++ 核心指南之资源管理（中）分配和释放"><img class="post_bg" src="/img/cool-background-trianglify_rotate.png" onerror="this.onerror=null;this.src='/img/cool-background-trianglify_rotate.png'" alt="C++ 核心指南之资源管理（中）分配和释放"></a></div><div class="recent-post-info"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><span class="original">C++</span><span class="original">C++ 核心指南</span></div><a class="article-title" href="/2023/06/25/C++%20%E6%A0%B8%E5%BF%83%E6%8C%87%E5%8D%97%E4%B9%8B%E8%B5%84%E6%BA%90%E7%AE%A1%E7%90%86%EF%BC%88%E4%B8%AD%EF%BC%89%E5%88%86%E9%85%8D%E5%92%8C%E9%87%8A%E6%94%BE/" title="C++ 核心指南之资源管理（中）分配和释放">C++ 核心指南之资源管理（中）分配和释放</a></div><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><time datetime="2023-06-25T12:57:00.000Z" title="undefined 2023-06-25 20:57:00">2023-06-25</time></span></div></div></div><div class="recent-post-item" onclick="pjax.loadUrl('/2023/06/24/C++%20%E6%A0%B8%E5%BF%83%E6%8C%87%E5%8D%97%E4%B9%8B%E8%B5%84%E6%BA%90%E7%AE%A1%E7%90%86%EF%BC%88%E4%B8%8A%EF%BC%89%E6%A6%82%E8%BF%B0/')"><div class="post_cover left_radius"><a href="/2023/06/24/C++%20%E6%A0%B8%E5%BF%83%E6%8C%87%E5%8D%97%E4%B9%8B%E8%B5%84%E6%BA%90%E7%AE%A1%E7%90%86%EF%BC%88%E4%B8%8A%EF%BC%89%E6%A6%82%E8%BF%B0/" title="C++ 核心指南之资源管理（上）概述"><img class="post_bg" src="/img/cool-background-trianglify_rotate.png" onerror="this.onerror=null;this.src='/img/cool-background-trianglify_rotate.png'" alt="C++ 核心指南之资源管理（上）概述"></a></div><div class="recent-post-info"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><span class="original">C++</span><span class="original">C++ 核心指南</span></div><a class="article-title" href="/2023/06/24/C++%20%E6%A0%B8%E5%BF%83%E6%8C%87%E5%8D%97%E4%B9%8B%E8%B5%84%E6%BA%90%E7%AE%A1%E7%90%86%EF%BC%88%E4%B8%8A%EF%BC%89%E6%A6%82%E8%BF%B0/" title="C++ 核心指南之资源管理（上）概述">C++ 核心指南之资源管理（上）概述</a></div><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><time datetime="2023-06-24T09:39:00.000Z" title="undefined 2023-06-24 17:39:00">2023-06-24</time></span></div></div></div><div class="recent-post-item" onclick="pjax.loadUrl('/2023/06/18/C++%20%E6%83%AF%E7%94%A8%E6%B3%95%E4%B9%8B%20PIMPL%20%EF%BC%88%E6%8E%A5%E5%8F%A3%E7%B1%BB%E8%AE%BE%E8%AE%A1%E6%8A%80%E5%B7%A7%EF%BC%89/')"><div class="post_cover left_radius"><a href="/2023/06/18/C++%20%E6%83%AF%E7%94%A8%E6%B3%95%E4%B9%8B%20PIMPL%20%EF%BC%88%E6%8E%A5%E5%8F%A3%E7%B1%BB%E8%AE%BE%E8%AE%A1%E6%8A%80%E5%B7%A7%EF%BC%89/" title="C++ 惯用法之 PIMPL （接口类设计技巧）"><img class="post_bg" src="/img/cool-background-trianglify_rotate.png" onerror="this.onerror=null;this.src='/img/cool-background-trianglify_rotate.png'" alt="C++ 惯用法之 PIMPL （接口类设计技巧）"></a></div><div class="recent-post-info"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><span class="original">C++</span><span class="original">C++ 惯用法</span></div><a class="article-title" href="/2023/06/18/C++%20%E6%83%AF%E7%94%A8%E6%B3%95%E4%B9%8B%20PIMPL%20%EF%BC%88%E6%8E%A5%E5%8F%A3%E7%B1%BB%E8%AE%BE%E8%AE%A1%E6%8A%80%E5%B7%A7%EF%BC%89/" title="C++ 惯用法之 PIMPL （接口类设计技巧）">C++ 惯用法之 PIMPL （接口类设计技巧）</a></div><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><time datetime="2023-06-18T00:28:00.000Z" title="undefined 2023-06-18 08:28:00">2023-06-18</time></span></div></div></div><div class="recent-post-item" onclick="pjax.loadUrl('/2023/06/11/C++%20%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%90%84%E7%A7%8D%E5%9D%91%E5%8F%8A%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/')"><div class="post_cover left_radius"><a href="/2023/06/11/C++%20%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%90%84%E7%A7%8D%E5%9D%91%E5%8F%8A%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" title="C++ 单例模式的各种坑及最佳实践"><img class="post_bg" src="/img/cool-background-trianglify_rotate.png" onerror="this.onerror=null;this.src='/img/cool-background-trianglify_rotate.png'" alt="C++ 单例模式的各种坑及最佳实践"></a></div><div class="recent-post-info"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><span class="original">代码工匠</span><span class="original">设计模式</span></div><a class="article-title" href="/2023/06/11/C++%20%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%90%84%E7%A7%8D%E5%9D%91%E5%8F%8A%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" title="C++ 单例模式的各种坑及最佳实践">C++ 单例模式的各种坑及最佳实践</a></div><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><time datetime="2023-06-11T11:34:00.000Z" title="undefined 2023-06-11 19:34:00">2023-06-11</time></span></div></div></div><div class="recent-post-item" onclick="pjax.loadUrl('/2023/06/03/LFS%20-%20Linux%20From%20Scratch%20%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%85%A8%E8%AE%B0%E5%BD%95%20-%201%20%E5%87%86%E5%A4%87%E7%AF%87/')"><div class="post_cover left_radius"><a href="/2023/06/03/LFS%20-%20Linux%20From%20Scratch%20%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%85%A8%E8%AE%B0%E5%BD%95%20-%201%20%E5%87%86%E5%A4%87%E7%AF%87/" title="LFS - Linux From Scratch 从零开始全记录 - 1 准备篇"><img class="post_bg" src="/img/cool-background-trianglify_rotate.png" onerror="this.onerror=null;this.src='/img/cool-background-trianglify_rotate.png'" alt="LFS - Linux From Scratch 从零开始全记录 - 1 准备篇"></a></div><div class="recent-post-info"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><span class="original">计算机基础</span><span class="original">Linux</span></div><a class="article-title" href="/2023/06/03/LFS%20-%20Linux%20From%20Scratch%20%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%85%A8%E8%AE%B0%E5%BD%95%20-%201%20%E5%87%86%E5%A4%87%E7%AF%87/" title="LFS - Linux From Scratch 从零开始全记录 - 1 准备篇">LFS - Linux From Scratch 从零开始全记录 - 1 准备篇</a></div><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><time datetime="2023-06-03T08:45:00.000Z" title="undefined 2023-06-03 16:45:00">2023-06-03</time></span></div></div></div><div class="recent-post-item" onclick="pjax.loadUrl('/2023/05/25/VSCode%20%E7%BB%88%E7%AB%AF%E9%80%89%E6%8B%A9%E6%96%87%E6%9C%AC%E8%87%AA%E5%8A%A8%E5%A4%8D%E5%88%B6/')"><div class="post_cover left_radius"><a href="/2023/05/25/VSCode%20%E7%BB%88%E7%AB%AF%E9%80%89%E6%8B%A9%E6%96%87%E6%9C%AC%E8%87%AA%E5%8A%A8%E5%A4%8D%E5%88%B6/" title="VSCode 终端选择文本自动复制"><img class="post_bg" src="/img/cool-background-trianglify_rotate.png" onerror="this.onerror=null;this.src='/img/cool-background-trianglify_rotate.png'" alt="VSCode 终端选择文本自动复制"></a></div><div class="recent-post-info"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><span class="original">工欲善其事</span></div><a class="article-title" href="/2023/05/25/VSCode%20%E7%BB%88%E7%AB%AF%E9%80%89%E6%8B%A9%E6%96%87%E6%9C%AC%E8%87%AA%E5%8A%A8%E5%A4%8D%E5%88%B6/" title="VSCode 终端选择文本自动复制">VSCode 终端选择文本自动复制</a></div><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><time datetime="2023-05-25T12:40:00.000Z" title="undefined 2023-05-25 20:40:00">2023-05-25</time></span></div></div></div><div class="recent-post-item" onclick="pjax.loadUrl('/2023/05/04/LFS%20-%20Linux%20From%20Scratch%20%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%85%A8%E8%AE%B0%E5%BD%95/')"><div class="post_cover left_radius"><a href="/2023/05/04/LFS%20-%20Linux%20From%20Scratch%20%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%85%A8%E8%AE%B0%E5%BD%95/" title="LFS - Linux From Scratch 从零开始全记录"><img class="post_bg" src="/img/cool-background-trianglify_rotate.png" onerror="this.onerror=null;this.src='/img/cool-background-trianglify_rotate.png'" alt="LFS - Linux From Scratch 从零开始全记录"></a></div><div class="recent-post-info"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><span class="original">计算机基础</span><span class="original">Linux</span></div><a class="article-title" href="/2023/05/04/LFS%20-%20Linux%20From%20Scratch%20%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%85%A8%E8%AE%B0%E5%BD%95/" title="LFS - Linux From Scratch 从零开始全记录">LFS - Linux From Scratch 从零开始全记录</a></div><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><time datetime="2023-05-04T10:26:00.000Z" title="undefined 2023-05-04 18:26:00">2023-05-04</time></span></div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/3/#content-inner"><i class="heofont icon-arrow-left-s-line"></i><div class="pagination_tips_prev">上页</div></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/#content-inner">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/#content-inner">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/#content-inner">14</a><a class="extend next" rel="next" href="/page/5/#content-inner"><div class="pagination_tips_next">下页</div><i class="heofont icon-arrow-right-s-line"></i></a><div class="toPageGroup"><input id="toPageText" oninput="value=value.replace(/[^0-9]/g,'')" maxlength="3" title="跳转到指定页面" onkeyup="if (this.value === '0') this.value = ''"><a id="toPageButton" onclick="heo.toPage()" data-pjax-state><i class="heofont icon-youxiangshuangjiantou"></i></a></div></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><div class="author-info__top-group"><div class="author-info__sayhi" id="author-info__sayhi" onclick="heo.changeSayHelloText()"></div></div></div><div class="avatar-img-group"><div class="avatar-img" id="lottie_avatar"><img src="/img/avatar.jpg"/></div><div class="avatar-sticker"><img class="avatar-sticker-img entered loading" src="/img/avatar_sticker.png" ait="status"/></div></div><div class="author-info__description_group"><div class="author-info__description">有一个绘画筑起的城堡</div><div class="author-info__description">城堡里藏着单纯安静</div><div class="author-info__description">藏着一群人的生活和梦想</div><div class="author-info__description">——『苹果树下』</div></div><div class="author-info__bottom-group"><a class="author-info__bottom-group-left" href="/about"><div class="author-info__name">Zijian</div><div class="author-info__desc">好记性如烂笔头</div></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/zijian-teng" rel="external nofollow" target="_blank" title="GitHub"><i class="fab fa-github"></i></a><a class="social-icon" href="https://500px.com/p/zi-jian" rel="external nofollow" target="_blank" title="500px"><i class="fab fa-500px"></i></a></div></div></div></div><div class="sticky_layout"><div class="card-widget card-tags card-archives card-webinfo card-allinfo"><div class="card-tag-cloud"><a href="/tags/%E9%AA%91%E8%A1%8C/">骑行<sup>1</sup></a><a href="/tags/%E5%8D%83%E5%B2%9B%E6%B9%96/">千岛湖<sup>1</sup></a></div><hr/><div class="webinfo"><div class="webinfo-item"><div class="webinfo-item-title"><i class="item-icon fas fa-file-alt"></i><div class="item-name">文章数目 :</div></div><div class="item-count">134</div></div></div></div></div></div></main><footer id="footer"><div id="footer_deal"></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div id="footer-bar-tips"></div><a class="footer-bar-link" href="/">Zijian's Blog</a></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" href="https://hexo.io" rel="noopener external nofollow noreferrer">Powered by Hexo & Butterfly</a><a class="footer-bar-link cc" href="/" title="Copyright"><i class="fa-regular fa-copyright"></i><i class="fa-brands fa-creative-commons-by"></i><i class="fa-brands fa-creative-commons-nc"></i><i class="fa-brands fa-creative-commons-nd"></i></a></div></div></div><div id="quit-box" onclick="RemoveRewardMask()" style="display: none"></div><div class="comment-barrage"></div></footer></div><div id="rightside" style="opacity: 1; transform: translateX(-38px);"><div id="rightside-config-hide"><button id="hide-aside-btn" type="button" title="侧栏显隐"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><!-- 右键菜单--><div class="js-pjax"><div id="rightMenu" style="top: 116px; left: 485px;"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="heofont icon-arrow-left-line"></i></div><div class="rightMenu-item" id="menu-forward"><i class="heofont icon-arrow-right-line"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="heofont icon-restart-line" style="font-size: 19px;"></i></div><div class="rightMenu-item" id="menu-top"><i class="heofont icon-arrow-up-line"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-newwindow"><i class="heofont icon-window-fill"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="heofont icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="heofont icon-file-copy-fill"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="heofont icon-play-fill"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="heofont icon-skip-back-fill"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="heofont icon-skip-forward-fill"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open('https://music.163.com/#/playlist?app_version=8.8.36&amp;id=7861823420', '_blank');"><i class="heofont icon-play-list-2-line"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="heofont icon-file-copy-fill"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-Link" id="menu-randomPost" data-pjax-state="data-pjax-state"><i class="heofont icon-signal-tower-fill"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="heofont icon-checkbox-multiple-blank-fill"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="heofont icon-price-tag-3-fill"></i><span>文章标签</span></a></div></div><div id="rightmenu-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script charset="utf-8" data-pjax src="/js/blogex.js"></script><div class="js-pjax"></div><link rel="stylesheet" href="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.js"></script><script src="https://jsd.onmicrosoft.cn/gh/hexo-theme-Acrylic/JS-Acrylic@main/Meting.js"></script><script src="https://jsd.onmicrosoft.cn/npm/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+正式介绍 Copy-Swap 之前，先看下《剑指 Offer》里的第☝️题：
+如下为类型 CMyString 的声明，请为该类型添加赋值运算符函数。
+123456789class CMyString &#123;public:  CMyString(char* pData = nullptr);  CMyString(const CMyString&amp; str);  ~CMyString();private:  char* m_pData;&#125;;
+
+
+
+这道题目虽然基础，但考察点颇多，有区分度：
+
+返回值类型应为引用类型，否则将无法支持形如 s3 = s2 = s1 的连续赋值
+形参类型应为 const 引用类型
+无资源泄露，正确释放赋值运算符左侧的对象的资源
+自赋值安全 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/07/02/C++%20%E6%83%AF%E7%94%A8%E6%B3%95%E4%B9%8B%20RAII/" title="C++ 惯用法之 RAII">C++ 惯用法之 RAII</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-07-02T09:33:00.000Z" title="发表于 2023-07-02 17:33:00">2023-07-02</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/C/">C++</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/C/C-%E6%83%AF%E7%94%A8%E6%B3%95/">C++ 惯用法</a></span></div><div class="content">RAII（Resource Acquisition Is Initialization）资源获取即初始化，是 C++ 中最基本、应用最广范的惯用法（idiom）之一。
+RAII 的基本思想是通过构造&#x2F;析构函数，对资源的获取&#x2F;释放进行封装，然后借助局部对象的自动生命周期来管理资源。使用 RAII 可以让用户无需手动管理资源的获取&#x2F;释放，减少出错的机会。不仅如此，RAII 还是异常安全的：即使获取资源后，在使用资源的过程中抛出异常，也可以自动释放，避免资源泄露。
+C++ 标准库里面有很多 RAII 的例子，如 unique_ptr、lock_guard、fstream、string 以及 vector 等各类容器。我们在实现自己的类时，也要尽量遵循 RAII。
+一些例子C++ 核心指南 R.1: 通过资源句柄和 RAII 自动管理资源123456789101112131415161718192021222324// BADvoid send(X* x, string_view destination)&#123;    auto port = open_por ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/07/01/C++%20%E6%A0%B8%E5%BF%83%E6%8C%87%E5%8D%97%E4%B9%8B%E8%B5%84%E6%BA%90%E7%AE%A1%E7%90%86%EF%BC%88%E4%B8%8B%EF%BC%89%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" title="C++ 核心指南之资源管理（下）智能指针最佳实践">C++ 核心指南之资源管理（下）智能指针最佳实践</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-07-01T15:30:00.000Z" title="发表于 2023-07-01 23:30:00">2023-07-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/C/">C++</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/C/C-%E6%A0%B8%E5%BF%83%E6%8C%87%E5%8D%97/">C++ 核心指南</a></span></div><div class="content">
+C++ 核心指南（C++ Core Guidelines）是由 Bjarne Stroustrup、Herb Sutter 等顶尖 C+ 专家创建的一份 C++ 指南、规则及最佳实践。旨在帮助大家正确、高效地使用“现代 C++”。
+这份指南侧重于接口、资源管理、内存管理、并发等 High-level 主题。遵循这些规则可以最大程度地保证静态类型安全，避免资源泄露及常见的错误，使得程序运行得更快、更好。
+
+R.smart：智能指针
+R.20：使用 unique_ptr 或 shared_ptr 来表示所有权
+R.21：除非需要共享所有权，否则优先使用 unique_ptr 而不是 shared_ptr
+R.22：使用 make_shared() 创建 shared_ptr
+R.23：使用 make_unique() 创建 unique_ptr
+R.24：使用 std::weak_ptr 打破 shared_ptr 的循环引用
+R.30: 仅在需要明确表示生命周期语义时才将智能指针作为参数传递
+R.31: 如果你使用的是非 std 智能指针，遵循 std 的基本模式
+R.32: 将形参声 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/06/25/C++%20%E6%A0%B8%E5%BF%83%E6%8C%87%E5%8D%97%E4%B9%8B%E8%B5%84%E6%BA%90%E7%AE%A1%E7%90%86%EF%BC%88%E4%B8%AD%EF%BC%89%E5%88%86%E9%85%8D%E5%92%8C%E9%87%8A%E6%94%BE/" title="C++ 核心指南之资源管理（中）分配和释放">C++ 核心指南之资源管理（中）分配和释放</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-06-25T12:57:00.000Z" title="发表于 2023-06-25 20:57:00">2023-06-25</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/C/">C++</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/C/C-%E6%A0%B8%E5%BF%83%E6%8C%87%E5%8D%97/">C++ 核心指南</a></span></div><div class="content">
+C++ 核心指南（C++ Core Guidelines）是由 Bjarne Stroustrup、Herb Sutter 等顶尖 C++ 专家创建的一份 C++ 指南、规则及最佳实践。旨在帮助大家正确、高效地使用“现代 C++”。
+这份指南侧重于接口、资源管理、内存管理、并发等 High-level 主题。遵循这些规则可以最大程度地保证静态类型安全，避免资源泄露及常见的错误，使得程序运行得更快、更好。
+
+R.alloc: 分配和释放
+R.10: 避免使用 malloc() &#x2F; free()
+R.11: 避免显式调用 new &#x2F; delete
+R.12: 显式资源分配的结果应立即给到资源管理对象
+R.13: 在一条语句中，最多只能有一个显式资源分配
+R.14: 避免使用 [] 参数，用 span 替代
+R.15: 分配&#x2F;释放操作要成对重载
+
+R.10: 避免使用 malloc() &#x2F; free()malloc() &#x2F; free() 不支持构造、析构，不要和 new &#x2F; delete 混用。
+例子123456789101112 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/06/24/C++%20%E6%A0%B8%E5%BF%83%E6%8C%87%E5%8D%97%E4%B9%8B%E8%B5%84%E6%BA%90%E7%AE%A1%E7%90%86%EF%BC%88%E4%B8%8A%EF%BC%89%E6%A6%82%E8%BF%B0/" title="C++ 核心指南之资源管理（上）概述">C++ 核心指南之资源管理（上）概述</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-06-24T09:39:00.000Z" title="发表于 2023-06-24 17:39:00">2023-06-24</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/C/">C++</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/C/C-%E6%A0%B8%E5%BF%83%E6%8C%87%E5%8D%97/">C++ 核心指南</a></span></div><div class="content">C++ 核心指南（C++ Core Guidelines）是由 Bjarne Stroustrup、Herb Sutter 等顶尖 C++ 专家创建的一份 C++ 指南、规则及最佳实践。旨在帮助大家正确、高效地使用“现代 C++”。
+这份指南侧重于接口、资源管理、内存管理、并发等 High-level 主题。遵循这些规则可以最大程度地保证静态类型安全，避免资源泄露及常见的错误，使得程序运行得更快、更好。
+R. Resource Management本章的基本目标是：不产生资源泄漏，不持有不再需要的资源。资源是指需要申请和（显式或隐式）释放的任何东西，如内存、文件句柄、套接字、锁等。如果一个实体“拥有”资源，则意味着该实体负责释放资源。在个别场景下，资源泄露是可以接受的。例如有足够的内存处理最大的输入，或者出于性能优化考虑，只申请不释放，本章的规则不适用于这类特殊情况。
+
+资源管理规则总结
+R.1: 通过资源句柄和 RAII 自动管理资源
+R.2: 在接口中，裸指针只用来表示单个对象
+R.3: 裸指针（T*）不拥有资源
+R.4: 裸引用（T&amp;）不拥有资源
+R.5: 优先使用对象， ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/06/18/C++%20%E6%83%AF%E7%94%A8%E6%B3%95%E4%B9%8B%20PIMPL%20%EF%BC%88%E6%8E%A5%E5%8F%A3%E7%B1%BB%E8%AE%BE%E8%AE%A1%E6%8A%80%E5%B7%A7%EF%BC%89/" title="C++ 惯用法之 PIMPL （接口类设计技巧）">C++ 惯用法之 PIMPL （接口类设计技巧）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-06-18T00:28:00.000Z" title="发表于 2023-06-18 08:28:00">2023-06-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/C/">C++</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/C/C-%E6%83%AF%E7%94%A8%E6%B3%95/">C++ 惯用法</a></span></div><div class="content">C++ 里面有一些惯用法（idioms），如 RAII，PIMPL，copy-swap、CRTP、SFINAE 等。今天要说的是 PIMPL，即 Pointer To Implementation，指向实现的指针。
+问题描述在实际的项目中，经常需要定义和第三方&#x2F;供应商的 C++ 接口。假如有这样一个接口文件：
+MyInterface.h
+123456789101112131415161718192021#include &lt;string&gt;#include &lt;list&gt;#include &quot;dds.h&quot;class MyInterface &#123;   public:    int publicApi1();    int publicApi2();   private:    int privateMethod1();    int privateMethod2();    int privateMethod3();   private:    std::string name_;    std::list&lt;int&gt; li ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/06/11/C++%20%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%90%84%E7%A7%8D%E5%9D%91%E5%8F%8A%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" title="C++ 单例模式的各种坑及最佳实践">C++ 单例模式的各种坑及最佳实践</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-06-11T11:34:00.000Z" title="发表于 2023-06-11 19:34:00">2023-06-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E4%BB%A3%E7%A0%81%E5%B7%A5%E5%8C%A0/">代码工匠</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/%E4%BB%A3%E7%A0%81%E5%B7%A5%E5%8C%A0/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></span></div><div class="content">单例模式是设计模式中最简单、常见的一种。其主要目的是确保整个进程中，只有一个类的实例，并且提供一个统一的访问接口。常用于 Logger 类、通信接口类、线程池等。
+基本原理限制用户直接访问类的构造函数，提供一个统一的 public 接口获取单例对象。
+这里有一个“先有鸡还是先有蛋”的问题：
+
+因为用户无法访问构造函数，所以无法创建对象
+因为无法创建对象，所以不能调用普通的 getInstance() 方法来获取单例对象
+
+解决这个问题的方法很简单，将 getInstance() 定义为 static 即可（这也会限制 getInstance() 内只能访问类的静态成员）
+注意事项
+所有的构造函数是 private 的
+拷贝构造、拷贝赋值运算符需要显式删除 =delete，防止编译器自动合成（即使你显式定义了析构函数或拷贝构造&#x2F;拷贝赋值运算符，编译器依然可能合成拷贝赋值运算符&#x2F;拷贝构造！新的 C++ 标准已将该行为标记为 deprecated，但为了兼容旧代码，目前 C++23 仍然会合成！后面打算单独用一篇笔记总结一下编译器默认合成的函数）
+
+C++ 单例模式的几种 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/06/03/LFS%20-%20Linux%20From%20Scratch%20%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%85%A8%E8%AE%B0%E5%BD%95%20-%201%20%E5%87%86%E5%A4%87%E7%AF%87/" title="LFS - Linux From Scratch 从零开始全记录 - 1 准备篇">LFS - Linux From Scratch 从零开始全记录 - 1 准备篇</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-06-03T08:45:00.000Z" title="发表于 2023-06-03 16:45:00">2023-06-03</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">计算机基础</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/Linux/">Linux</a></span></div><div class="content">上次折腾 LFS 已经是好几年前了，只记得最后用 VMware 引导成功了，好多技术细节已经不记得了。趁着最近有空，再来折腾一次。这一次用的一台新的 Win10 PC，目标是在一个 U 盘上构建 LFS，然后用 U 盘引导物理机，顺便记录一下整个过程。
+准备阶段下载虚拟机、Ubuntu 镜像
+下载安装 Microsoft Visual C++ Redistributable 2019，VirtualBox 依赖于该组件，如果安装其他程序的时候已安装过这个包，则可跳过
+下载安装 VirtualBox
+下载 Ubuntu 22.04.2 LTS 镜像 ubuntu-22.04.2-desktop-amd64.iso 考虑到网速，我从清华镜像站下载的
+
+虚拟机设置按照我的个人习惯，创建两个磁盘文件
+
+&#x2F;dev&#x2F;sda 用于系统：BIOS boot、EFI System(&#x2F;boot)、RootFS(&#x2F;)
+&#x2F;dev&#x2F;sdb 用于主目录(&#x2F;home)。万一今后系统挂掉了，我们平时保存资料的 &#x2F;home 里面的东西都还在 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/05/25/VSCode%20%E7%BB%88%E7%AB%AF%E9%80%89%E6%8B%A9%E6%96%87%E6%9C%AC%E8%87%AA%E5%8A%A8%E5%A4%8D%E5%88%B6/" title="VSCode 终端选择文本自动复制">VSCode 终端选择文本自动复制</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-05-25T12:40:00.000Z" title="发表于 2023-05-25 20:40:00">2023-05-25</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%B7%A5%E6%AC%B2%E5%96%84%E5%85%B6%E4%BA%8B/">工欲善其事</a></span></div><div class="content">Ctrl + , 打开设置
+搜索 copyOnSelection，勾选即可对应的 settings.json 如下
+1&quot;terminal.integrated.copyOnSelection&quot;: true
+
+相关阅读：修改 VSCode 底部终端配色
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/05/04/LFS%20-%20Linux%20From%20Scratch%20%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%85%A8%E8%AE%B0%E5%BD%95/" title="LFS - Linux From Scratch 从零开始全记录">LFS - Linux From Scratch 从零开始全记录</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-05-04T10:26:00.000Z" title="发表于 2023-05-04 18:26:00">2023-05-04</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">计算机基础</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/Linux/">Linux</a></span></div><div class="content">前言LFS 的精华在于过程，而不是结果。如果只是追求最终的结果，那完全可以直接运行脚本，一键 LFS，整个过程就会变得索然无味，没有任何收获，毫无成就感。
+要去理解每一步是在做什么，为什么要这么做。这个过程中，我收获了：
+
+编译、交叉编译
+Linux 发行版由哪些软件包组成，各个软件包的作用
+Linux 的目录结构是如何组织的
+硬盘分区、格式化
+Linux 启动过程
+shell 脚本的编写技巧…
+
+背景知识 - Linux 启动过程以传统的 BIOS+MBR 为例，现代的 UEFI+GPT 过程类似
+BIOS
+上电后运行 BIOS（EEPROM）中的 Firmware
+BIOS Firmware 可直接在 EEPROM 中运行或者拷贝到内存（内存 RAM 可以看作是一个巨大的字节数组）
+BIOS 让 CPU 和硬盘通信，把磁盘的第一个扇区（MBR）拷贝到内存（如拷贝到 BIOS Firmware 之后）
+MBR：Master Boot Record，主引导记录，磁盘的第一个扇区，512 字节，存有 BootLoader 程序
+
+
+
+BootLoader
+BIOS 设置指令指针，让 CP ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/3/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/#content-inner">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/#content-inner">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/#content-inner">14</a><a class="extend next" rel="next" href="/page/5/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Zijian TENG</div><div class="author-info__description">汽车软件工程狮，C++ 程序猿，喜欢骑行、摄影</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">134</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">17</div></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/zijian-teng" target="_blank" title="GitHub"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="https://500px.com/p/zi-jian" target="_blank" title="500px"><i class="fab fa-500px" style="color: #24292e;"></i></a><a class="social-icon" href="https://www.cnblogs.com/tengzijian/" target="_blank" title="cnblogs"><i class="fas fa-globe" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:xxxxxx@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #24292e;"></i></a></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/11/04/hello-world/" title="Hello World">Hello World</a><time datetime="2023-11-03T23:04:59.901Z" title="发表于 2023-11-04 07:04:59">2023-11-04</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/30/qiandaolake2/" title="千岛湖骑行记">千岛湖骑行记</a><time datetime="2023-10-30T13:56:20.000Z" title="发表于 2023-10-30 21:56:20">2023-10-30</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/23/node.js%20%E5%91%BD%E4%BB%A4%E5%BF%85%E9%A1%BB%E5%8A%A0%20npx%20%E6%89%8D%E8%83%BD%E6%89%A7%E8%A1%8C/" title="node.js 命令必须加 npx 才能执行">node.js 命令必须加 npx 才能执行</a><time datetime="2023-10-23T14:48:00.000Z" title="发表于 2023-10-23 22:48:00">2023-10-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/14/macOS%20%E5%AE%89%E8%A3%85%20clang-tidy/" title="macOS 安装 clang-tidy">macOS 安装 clang-tidy</a><time datetime="2023-10-14T03:22:00.000Z" title="发表于 2023-10-14 11:22:00">2023-10-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/10/QNX%20%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90%E5%B7%A5%E5%85%B7/" title="QNX 性能分析工具">QNX 性能分析工具</a><time datetime="2023-10-10T07:04:00.000Z" title="发表于 2023-10-10 15:04:00">2023-10-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/06/CSS%20%E5%9F%BA%E7%A1%80%205%20-%20CSS%20%E9%80%89%E6%8B%A9%E5%99%A8/" title="CSS 基础 5 - CSS 选择器">CSS 基础 5 - CSS 选择器</a><time datetime="2023-10-06T02:26:00.000Z" title="发表于 2023-10-06 10:26:00">2023-10-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/09/28/CSS%20%E5%9F%BA%E7%A1%80%204%20-%20CSS%20%E5%B8%B8%E7%94%A8%E5%8D%95%E4%BD%8D/" title="CSS 基础 4 - CSS 常用单位">CSS 基础 4 - CSS 常用单位</a><time datetime="2023-09-28T12:52:00.000Z" title="发表于 2023-09-28 20:52:00">2023-09-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/09/28/CSS%20%E5%9F%BA%E7%A1%80%203%20-%20%E5%AE%9A%E4%BD%8D%20Postion%20%E5%B1%9E%E6%80%A7/" title="CSS 基础 3 - 定位 Postion 属性">CSS 基础 3 - 定位 Postion 属性</a><time datetime="2023-09-28T12:49:00.000Z" title="发表于 2023-09-28 20:49:00">2023-09-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/09/27/CSS%20%E5%9F%BA%E7%A1%80%202%20-%20Box%20Model%20%E7%9B%92%E6%A8%A1%E5%9E%8B/" title="CSS 基础 2 - Box Model 盒模型">CSS 基础 2 - Box Model 盒模型</a><time datetime="2023-09-27T12:40:00.000Z" title="发表于 2023-09-27 20:40:00">2023-09-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/09/27/CSS%20%E5%9F%BA%E7%A1%80%201%20-%20Block%20&amp;%20Inline/" title="CSS 基础 1 - Block &amp; Inline">CSS 基础 1 - Block &amp; Inline</a><time datetime="2023-09-27T12:38:00.000Z" title="发表于 2023-09-27 20:38:00">2023-09-27</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            
+            </div>
+            <ul class="card-category-list expandBtn" id="aside-cat-list">
+            <li class="card-category-list-item parent"><a class="card-category-list-link" href="/categories/C/"><span class="card-category-list-name">C++</span><span class="card-category-list-count">33</span><i class="fas fa-caret-left "></i></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/C/C-%E6%83%AF%E7%94%A8%E6%B3%95/"><span class="card-category-list-name">C++ 惯用法</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/C/C-%E6%A0%B8%E5%BF%83%E6%8C%87%E5%8D%97/"><span class="card-category-list-name">C++ 核心指南</span><span class="card-category-list-count">5</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Trouble-Shooting/"><span class="card-category-list-name">Trouble Shooting</span><span class="card-category-list-count">11</span></a></li><li class="card-category-list-item parent"><a class="card-category-list-link" href="/categories/%E4%BB%A3%E7%A0%81%E5%B7%A5%E5%8C%A0/"><span class="card-category-list-name">代码工匠</span><span class="card-category-list-count">11</span><i class="fas fa-caret-left "></i></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E4%BB%A3%E7%A0%81%E5%B7%A5%E5%8C%A0/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"><span class="card-category-list-name">设计模式</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E4%BB%A3%E7%A0%81%E5%B7%A5%E5%8C%A0/%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84/"><span class="card-category-list-name">软件架构</span><span class="card-category-list-count">3</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/"><span class="card-category-list-name">前端</span><span class="card-category-list-count">6</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%B7%A5%E6%AC%B2%E5%96%84%E5%85%B6%E4%BA%8B/"><span class="card-category-list-name">工欲善其事</span><span class="card-category-list-count">21</span></a></li><li class="card-category-list-item parent"><a class="card-category-list-link" href="/categories/%E6%B1%BD%E8%BD%A6%E7%94%B5%E5%AD%90/"><span class="card-category-list-name">汽车电子</span><span class="card-category-list-count">22</span><i class="fas fa-caret-left "></i></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%B1%BD%E8%BD%A6%E7%94%B5%E5%AD%90/AUTOSAR-AP/"><span class="card-category-list-name">AUTOSAR AP</span><span class="card-category-list-count">18</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%94%9F%E6%B4%BB/"><span class="card-category-list-name">生活</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item parent"><a class="card-category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/"><span class="card-category-list-name">计算机基础</span><span class="card-category-list-count">23</span><i class="fas fa-caret-left "></i></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/Linux/"><span class="card-category-list-name">Linux</span><span class="card-category-list-count">9</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%AE%97%E6%B3%95/"><span class="card-category-list-name">算法</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%BC%96%E8%AF%91%E9%93%BE%E6%8E%A5/"><span class="card-category-list-name">编译链接</span><span class="card-category-list-count">4</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"><span class="card-category-list-name">计算机网络</span><span class="card-category-list-count">6</span></a></li></ul></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/%E9%AA%91%E8%A1%8C/" style="font-size: 1.15em; color: rgb(48, 117, 106)">骑行</a><a href="/tags/%E5%8D%83%E5%B2%9B%E6%B9%96/" style="font-size: 1.15em; color: rgb(199, 100, 62)">千岛湖</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/11/"><span class="card-archive-list-date">2023 年 11 月</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/10/"><span class="card-archive-list-date">2023 年 10 月</span><span class="card-archive-list-count">5</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/09/"><span class="card-archive-list-date">2023 年 09 月</span><span class="card-archive-list-count">9</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/08/"><span class="card-archive-list-date">2023 年 08 月</span><span class="card-archive-list-count">11</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/07/"><span class="card-archive-list-date">2023 年 07 月</span><span class="card-archive-list-count">7</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/06/"><span class="card-archive-list-date">2023 年 06 月</span><span class="card-archive-list-count">5</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/05/"><span class="card-archive-list-date">2023 年 05 月</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/04/"><span class="card-archive-list-date">2023 年 04 月</span><span class="card-archive-list-count">2</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">134</div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2023-11-18T09:47:32.357Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="footer_custom_text">Powered by Hexo & Butterfly</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><div class="aplayer no-destroy" data-id="60198" data-server="netease" data-type="playlist" data-fixed="true" data-autoplay="true" data-mini="true"> </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
 
 var pjax = new Pjax({
   elements: 'a:not([target="_blank"])',
@@ -215,12 +257,11 @@ var pjax = new Pjax({
 
 document.addEventListener('pjax:send', function () {
 
-  // removeEventListener scroll 
-  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
-  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+  // removeEventListener
+  btf.removeGlobalFnEvent('pjax')
+  btf.removeGlobalFnEvent('themeChange')
 
-  typeof preloader === 'object' && preloader.initLoading()
-  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  document.getElementById('rightside').classList.remove('rightside-show')
   
   if (window.aplayers) {
     for (let i = 0; i < window.aplayers.length; i++) {
@@ -231,6 +272,10 @@ document.addEventListener('pjax:send', function () {
   }
 
   typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
 
   typeof disqusjs === 'object' && disqusjs.destroy()
 })
@@ -248,7 +293,6 @@ document.addEventListener('pjax:complete', function () {
 
   GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
 
-  typeof chatBtnFn === 'function' && chatBtnFn()
   typeof panguInit === 'function' && panguInit()
 
   // google analytics
@@ -261,12 +305,10 @@ document.addEventListener('pjax:complete', function () {
 
   // prismjs
   typeof Prism === 'object' && Prism.highlightAll()
-
-  typeof preloader === 'object' && preloader.endLoading()
 })
 
-document.addEventListener('pjax:error', (e) => {
+document.addEventListener('pjax:error', e => {
   if (e.request.status === 404) {
     pjax.loadUrl('/404.html')
   }
-})</script><script src="/js/rightmenu.js"></script><script data-pjax src="/zhheo/random.js"></script></div></body></html>
+})</script></div></body></html>

@@ -1,111 +1,125 @@
-<!DOCTYPE html><html class="true" lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta http-equiv="content-language" content="zh-cn"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>我的装备 | Zijian's Blog</title><meta name="author" content="Zijian TENG"><meta name="copyright" content="Zijian TENG"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#425AEF"><meta name="description" content="汽车软件工程狮，C++ 程序猿，喜欢骑行、摄影"><meta name="apple-mobile-web-app-status-bar-style" content="#425AEF"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://jsd.onmicrosoft.cn/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/3.6.0/jquery.min.js"></script><script src="/js/heo.js"></script><script data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}" src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/pace/1.2.4/pace.min.js"></script><link rel="shortcut icon" href="/img/favicon.ico"><meta property="og:image" content="/img/cool-background-trianglify_rotate.png"><meta property="og:type" content="website"><meta property="og:title" content="Zijian TENG"><meta property="og:url" content="http://example.com/equipment/"><meta property="og:site_name" content="Zijian TENG"><meta property="og:description" content="汽车软件工程狮，C++ 程序猿，喜欢骑行、摄影"><meta property="og:locale" content="zh_CN"><link rel="canonical" href="http://example.com/equipment/"><link rel="preconnect" href="//bu.dusays.com"><script>const GLOBAL_CONFIG = {
-  author: `Zijian TENG`,
-  api: {"fcircle_random":"https://fcircle.acrylic.org.cn/randomfriend"},
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>我的装备 | Zijian's Blog</title><meta name="author" content="Zijian TENG"><meta name="copyright" content="Zijian TENG"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="汽车软件工程狮，C++ 程序猿，喜欢骑行、摄影">
+<meta property="og:type" content="website">
+<meta property="og:title" content="我的装备">
+<meta property="og:url" content="http://example.com/equipment/index.html">
+<meta property="og:site_name" content="Zijian&#39;s Blog">
+<meta property="og:description" content="汽车软件工程狮，C++ 程序猿，喜欢骑行、摄影">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:published_time" content="2020-07-21T16:45:12.000Z">
+<meta property="article:modified_time" content="2023-10-29T01:17:42.392Z">
+<meta property="article:author" content="Zijian TENG">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="http://example.com/equipment/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
   root: '/',
-  post_root: "/:year/",
   algolia: undefined,
-  twikoo: undefined,
   localSearch: undefined,
-  translate: { "defaultEncoding": 2, "translateDelay": 0, "msgToTraditionalChinese": "简", "msgToSimplifiedChinese": "繁" },
-  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":400},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
   copy: {
     success: '复制成功',
     error: '复制错误',
     noSupport: '浏览器不支持'
   },
   relativeDate: {
-    homepage: true,
+    homepage: false,
     post: false
   },
   runtime: '',
-  date_suffix: {
+  dateSuffix: {
     just: '刚刚',
     min: '分钟前',
     hour: '小时前',
     day: '天前',
     month: '个月前'
   },
+  copyright: undefined,
   lightbox: 'fancybox',
   Snackbar: undefined,
-  source: {
-  jQuery: 'https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/3.6.0/jquery.min.js',
-  justifiedGallery: {
-    js: 'https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js',
-    css: 'https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/justifiedGallery/3.8.1/css/justifiedGallery.min.css'
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
   },
-  fancybox: {
-    js: 'https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/fancybox/3.5.7/jquery.fancybox.min.js',
-    css: 'https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/fancybox/3.5.7/jquery.fancybox.min.css'
-  }
-},
-  isPhotoFigcaption: true,
+  isPhotoFigcaption: false,
   islazyload: false,
   isAnchor: false,
+  percent: {
+    toc: false,
+    rightside: true,
+  },
+  autoDarkmode: false
 }</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
-  title: '我的装备 | Zijian TENG',
+  title: '我的装备',
   isPost: false,
   isHome: false,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2023-10-29 09:17:42',
-  tcolor_mode: 'undefined',
-  tcolor: 'undefined'
-}</script><noscript><style type="text/css">
-  #nav {
-    opacity: 1
-  }
-  .justified-gallery img {
-    opacity: 1
-  }
-
-  #recent-posts time,
-  #post-meta time {
-    display: inline !important
-  }
-</style></noscript><script>(win=>{
-    win.saveToLocal = {
-      set: function setWithExpiry(key, value, ttl) {
-        if (ttl === 0) return
-        const now = new Date()
-        const expiryDay = ttl * 86400000
-        const item = {
-          value: value,
-          expiry: now.getTime() + expiryDay,
+  postUpdate: '2023-10-29 09:17:42'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
         }
-        localStorage.setItem(key, JSON.stringify(item))
-      },
-
-      get: function getWithExpiry(key) {
-        const itemStr = localStorage.getItem(key)
-
-        if (!itemStr) {
-          return undefined
-        }
-        const item = JSON.parse(itemStr)
-        const now = new Date()
-
-        if (now.getTime() > item.expiry) {
-          localStorage.removeItem(key)
-          return undefined
-        }
-        return item.value
       }
-    }
-  
-    win.getScript = url => new Promise((resolve, reject) => {
-      const script = document.createElement('script')
-      script.src = url
-      script.async = true
-      script.onerror = reject
-      script.onload = script.onreadystatechange = function() {
-        const loadState = this.readyState
-        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-        script.onload = script.onreadystatechange = null
-        resolve()
-      }
-      document.head.appendChild(script)
-    })
-  
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
       const asideStatus = saveToLocal.get('aside-status')
       if (asideStatus !== undefined) {
         if (asideStatus === 'hide') {
@@ -115,13 +129,13 @@
         }
       }
     
-    const detectApple = () => {
-      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
-        document.documentElement.classList.add('apple')
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
       }
-    }
-    detectApple()
-    })(window)</script><link rel="stylesheet" href="https://cdn3.codesign.qq.com/icons/X2bzpZvRWkZkAaV/latest/iconfont.css"><link rel="stylesheet" href="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/Swiper/8.0.6/swiper-bundle.min.css"><script>var meting_api = "https://meting.qjqq.cn/?server=:server&type=:type&id=:id&auth=:auth&r=:r";</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="web_bg"></div><div id="console"><div class="close-btn" onclick="heo.hideConsole()" href="javascript:void(0);"><i class="fas fa-circle-xmark"></i></div><div class="console-card-group"><div class="console-card-group-right"><div class="console-card tags" onclick="heo.hideConsole()"><div class="card-content"><div class="author-content-item-tips">标签</div><span class="author-content-item-title">寻找感兴趣的领域</span></div><div class="card-tag-cloud"><a href="/tags/%E9%AA%91%E8%A1%8C/">骑行<sup>1</sup></a><a href="/tags/%E5%8D%83%E5%B2%9B%E6%B9%96/">千岛湖<sup>1</sup></a></div></div><div class="console-card history" onclick="heo.hideConsole()"></div></div></div><div class="button-group"><div class="console-btn-item" id="consoleHideAside" onclick="heo.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="fas fa-arrows-alt-h"></i></a></div><div class="console-btn-item" id="consoleMusic" onclick="heo.musicToggle()" title="音乐开关"><a class="music-switch"><i class="fas fa-music"></i></a></div></div><div class="console-mask" onclick="heo.hideConsole()" href="javascript:void(0);"></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">博客<div class="back-menu-list"><a class="back-menu-item" href="/" title="本站" target="_blank"><img class="back-menu-item-icon entered loading" src="/img/navicon.png" data-ll-status="loading"/><span class="back-menu-item-text">本站</span></a><a class="back-menu-item" href="https://www.cnblogs.com/tengzijian/" title="博客园" target="_blank"><img class="back-menu-item-icon entered loading" src="/img/navicon.png" data-ll-status="loading"/><span class="back-menu-item-text">博客园</span></a><a class="back-menu-item" href="https://500px.com/p/zi-jian" title="500px" target="_blank"><img class="back-menu-item-icon entered loading" src="/img/navicon.png" data-ll-status="loading"/><span class="back-menu-item-text">500px</span></a><a class="back-menu-item" href="https://github.com/zijian-teng" title="GitHub" target="_blank"><img class="back-menu-item-icon entered loading" src="/img/navicon.png" data-ll-status="loading"/><span class="back-menu-item-text">GitHub</span></a></div></div></div></div><div class="menus_items"><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 文库</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-box-archive"></i><span> 所有分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 所有标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-inbox"></i><span> 时间轴</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 珍爱生命</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/C/C-%E6%83%AF%E7%94%A8%E6%B3%95/"><i class="fa-fw fas fa-book"></i><span> C++ 惯用法</span></a></li><li><a class="site-page child" href="/categories/C/C-%E6%A0%B8%E5%BF%83%E6%8C%87%E5%8D%97/"><i class="fa-fw fas fa-book"></i><span> C++ 核心指南</span></a></li><li><a class="site-page child" href="/categories/C/%E7%8E%B0%E4%BB%A3-C/"><i class="fa-fw fas fa-book"></i><span> 现代 C++</span></a></li><li><a class="site-page child" href="/categories/C/"><i class="fa-fw fas fa-folder"></i><span> C++ 合集</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 代码工匠</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"><i class="fa-fw fas fa-compass-drafting"></i><span> 设计模式</span></a></li><li><a class="site-page child" href="/categories/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/"><i class="fa-fw fas fa-compass-drafting"></i><span> 设计原则</span></a></li><li><a class="site-page child" href="/categories/%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84/"><i class="fa-fw fas fa-compass-drafting"></i><span> 软件架构</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 汽车电子</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/SOA/"><i class="fa-fw fas fa-car"></i><span> SOA</span></a></li><li><a class="site-page child" href="/categories/Adaptive%20AUTOSAR/"><i class="fa-fw fa-solid fa-car-side"></i><span> AUTOSAR AP</span></a></li><li><a class="site-page child" href="/categories/DDS/"><i class="fa-fw fa-solid fa-sitemap"></i><span> DDS</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 计算机基础</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/Linux"><i class="fa-fw fas fa-laptop-code"></i><span> Linux</span></a></li><li><a class="site-page child" href="/categories/%E7%BC%96%E8%AF%91%E9%93%BE%E6%8E%A5"><i class="fa-fw fa-solid fa-gears"></i><span> 编译链接</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 我的</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-user-astronaut"></i><span> 关于</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/collect/"><i class="fa-fw fas fa-image"></i><span> 图片</span></a></li><li><a class="site-page child" href="/equipment/"><i class="fa-fw fa-solid fa-gamepad"></i><span> 装备</span></a></li></ul></div></div><span class="sidebar-menu-item-title">标签</span><div class="card-widget card-tags card-archives card-webinfo card-allinfo"><div class="item-headline"><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/%E9%AA%91%E8%A1%8C/">骑行<sup>1</sup></a><a href="/tags/%E5%8D%83%E5%B2%9B%E6%B9%96/">千岛湖<sup>1</sup></a></div></div></div></div><div id="nav-music" onclick="heo.musicToggle()"><div id="nav-music-hoverTips">播放音乐</div><meting-js id="7861823420" server="netease" type="playlist" mutex="true" preload="none" theme="var(--heo-main)" data-lrctype="0" order="random"></meting-js></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav class="show" id="nav"><div id="nav-group"><div id="blog_name"><div class="back-home-button" tabindex="-1"><i class="back-home-button-icon heofont icon-apps-fill"></i><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">博客<div class="back-menu-list"><a class="back-menu-item" href="/" title="本站" target="_blank"><img class="back-menu-item-icon entered loading" src="/img/navicon.png" data-ll-status="loading"/><span class="back-menu-item-text">本站</span></a><a class="back-menu-item" href="https://www.cnblogs.com/tengzijian/" title="博客园" target="_blank"><img class="back-menu-item-icon entered loading" src="/img/navicon.png" data-ll-status="loading"/><span class="back-menu-item-text">博客园</span></a><a class="back-menu-item" href="https://500px.com/p/zi-jian" title="500px" target="_blank"><img class="back-menu-item-icon entered loading" src="/img/navicon.png" data-ll-status="loading"/><span class="back-menu-item-text">500px</span></a><a class="back-menu-item" href="https://github.com/zijian-teng" title="GitHub" target="_blank"><img class="back-menu-item-icon entered loading" src="/img/navicon.png" data-ll-status="loading"/><span class="back-menu-item-text">GitHub</span></a></div></div></div></div></div><a id="site-name" href="/" title="返回博客主页"><i class="fas fa-home"></i></a></div><div id="page-name-mask"><div id="page-name"><a id="page-name-text" onclick="acy.scrollToDest(0, 500)"><span>Zijian's Blog</span></a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 文库</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-box-archive"></i><span> 所有分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 所有标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-inbox"></i><span> 时间轴</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 珍爱生命</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/C/C-%E6%83%AF%E7%94%A8%E6%B3%95/"><i class="fa-fw fas fa-book"></i><span> C++ 惯用法</span></a></li><li><a class="site-page child" href="/categories/C/C-%E6%A0%B8%E5%BF%83%E6%8C%87%E5%8D%97/"><i class="fa-fw fas fa-book"></i><span> C++ 核心指南</span></a></li><li><a class="site-page child" href="/categories/C/%E7%8E%B0%E4%BB%A3-C/"><i class="fa-fw fas fa-book"></i><span> 现代 C++</span></a></li><li><a class="site-page child" href="/categories/C/"><i class="fa-fw fas fa-folder"></i><span> C++ 合集</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 代码工匠</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"><i class="fa-fw fas fa-compass-drafting"></i><span> 设计模式</span></a></li><li><a class="site-page child" href="/categories/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/"><i class="fa-fw fas fa-compass-drafting"></i><span> 设计原则</span></a></li><li><a class="site-page child" href="/categories/%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84/"><i class="fa-fw fas fa-compass-drafting"></i><span> 软件架构</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 汽车电子</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/SOA/"><i class="fa-fw fas fa-car"></i><span> SOA</span></a></li><li><a class="site-page child" href="/categories/Adaptive%20AUTOSAR/"><i class="fa-fw fa-solid fa-car-side"></i><span> AUTOSAR AP</span></a></li><li><a class="site-page child" href="/categories/DDS/"><i class="fa-fw fa-solid fa-sitemap"></i><span> DDS</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 计算机基础</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/Linux"><i class="fa-fw fas fa-laptop-code"></i><span> Linux</span></a></li><li><a class="site-page child" href="/categories/%E7%BC%96%E8%AF%91%E9%93%BE%E6%8E%A5"><i class="fa-fw fa-solid fa-gears"></i><span> 编译链接</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 我的</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-user-astronaut"></i><span> 关于</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/collect/"><i class="fa-fw fas fa-image"></i><span> 图片</span></a></li><li><a class="site-page child" href="/equipment/"><i class="fa-fw fa-solid fa-gamepad"></i><span> 装备</span></a></li></ul></div></div></div><div id="nav-right"><div class="nav-button" id="nav-console"><a class="console_switchbutton" onclick="heo.showConsole()" title="显示中控台" href="javascript:void(0);" rel="external nofollow" data-pjax-state="data-pjax-state"><i class="fa-brands fa-ubuntu"></i></a></div><div class="nav-button" id="nav-totop" onclick="acy.scrollToDest(0, 500)"><a class="totopbtn" data-pjax-state="data-pjax-state"><i class="heofont icon-arrow-up-line"></i><span id="percent"></span></a></div><div id="toggle-menu"><a class="site-page" data-pjax-state="data-pjax-state"><i class="heofont icon-menu-fill"></i></a></div></div></div></nav></header><main class="layout hide-aside" id="content-inner"><div id="page"><div class="author-content author-content-item essayPage single"><div class="card-content"><div class="author-content-item-tips">我的装备</div><span class="author-content-item-title">实物装备推荐</span></div></div><div id="equipment"><div class="equipment-item"><h2 class="equipment-item-title">生产力</h2><div class="equipment-item-description">提升自己生产效率的硬件设备</div><div class="equipment-item-content"><div class="equipment-item-content-item"><div class="equipment-item-content-item-cover"><img class="equipment-item-content-item-image" src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/macbook-air-space-gray-select-201810?wid=904&amp;hei=840&amp;fmt=jpeg&amp;qlt=90&amp;.v=1664472289661" data-lazy-src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/macbook-air-space-gray-select-201810?wid=904&amp;hei=840&amp;fmt=jpeg&amp;qlt=90&amp;.v=1664472289661" onerror="this.onerror=null;this.src='/img/cool-background-trianglify_rotate.png'" alt="MacBook Air (M1, 2020)"></div><div class="equipment-item-content-item-info"><div class="equipment-item-content-item-name">MacBook Air (M1, 2020)</div><div class="equipment-item-content-item-specification">¥6200，8G + 256 GB</div><div class="equipment-item-content-item-description">续航优秀，显示细腻，macOS 开发友好，拼多多 6k 出头入手，真香</div><div class="equipment-item-content-item-toolbar"><a class="equipment-item-content-item-link" href="https://www.apple.com.cn/shop/buy-mac/macbook-air/MGN93CH/A" target="_blank">详情</a></div></div></div><div class="equipment-item-content-item"><div class="equipment-item-content-item-cover"><img class="equipment-item-content-item-image" src="https://cdn.cnbj0.fds.api.mi-img.com/b2c-shopapi-pms/pms_1656916279.23068104.png" data-lazy-src="https://cdn.cnbj0.fds.api.mi-img.com/b2c-shopapi-pms/pms_1656916279.23068104.png" onerror="this.onerror=null;this.src='/img/cool-background-trianglify_rotate.png'" alt="Xiaomi 12S Pro"></div><div class="equipment-item-content-item-info"><div class="equipment-item-content-item-name">Xiaomi 12S Pro</div><div class="equipment-item-content-item-specification">¥5400，黑色 / 12 + 256G</div><div class="equipment-item-content-item-description">120 Hz 高刷 2K 屏，徕卡影调，小爱自动接电话，李跳跳</div><div class="equipment-item-content-item-toolbar"><a class="equipment-item-content-item-link" href="https://www.mi.com/shop/buy/detail?product_id=16176" target="_blank">详情</a></div></div></div><div class="equipment-item-content-item"><div class="equipment-item-content-item-cover"><img class="equipment-item-content-item-image" src="https://cdn.cnbj0.fds.api.mi-img.com/b2c-shopapi-pms/pms_1681707851.4063420.png" data-lazy-src="https://cdn.cnbj0.fds.api.mi-img.com/b2c-shopapi-pms/pms_1681707851.4063420.png" onerror="this.onerror=null;this.src='/img/cool-background-trianglify_rotate.png'" alt="Xiaomi Pad 6"></div><div class="equipment-item-content-item-info"><div class="equipment-item-content-item-name">Xiaomi Pad 6</div><div class="equipment-item-content-item-specification">黑色 / 6 + 128G</div><div class="equipment-item-content-item-description">高刷屏，分辨率也比 5 代有了很大提升。平时看看 PDF、看视频足够</div><div class="equipment-item-content-item-toolbar"><a class="equipment-item-content-item-link" href="https://www.mi.com/shop/buy/detail?product_id=18332" target="_blank">详情</a></div></div></div></div></div><div class="equipment-item"><h2 class="equipment-item-title">键盘</h2><div class="equipment-item-description">吃饭的家伙什</div><div class="equipment-item-content"><div class="equipment-item-content-item"><div class="equipment-item-content-item-cover"><img class="equipment-item-content-item-image" src="/img/filco87.jpg" data-lazy-src="/img/filco87.jpg" onerror="this.onerror=null;this.src='/img/cool-background-trianglify_rotate.png'" alt="Filco 87 奶酪绿"></div><div class="equipment-item-content-item-info"><div class="equipment-item-content-item-name">Filco 87 奶酪绿</div><div class="equipment-item-content-item-specification">¥1300，红轴</div><div class="equipment-item-content-item-description">颜值即生产力！2 绿键版本已绝版，咸鱼收了几套 99 新键帽，还有一套极其罕见的奶酪绿侧刻</div><div class="equipment-item-content-item-toolbar"><a class="equipment-item-content-item-link" href="/" target="_blank">查看文章</a></div></div></div><div class="equipment-item-content-item"><div class="equipment-item-content-item-cover"><img class="equipment-item-content-item-image" src="https://massdrop-s3.imgix.net/product-images/keydous-nj68-bluetooth-hot-swappable-rgb-mechanical-keyboard/FP/sCZYHQjMTqGtLe8eTCrB_1500x1000_MD-93817_02.jpg?auto=format&amp;fm=jpg&amp;fit=fill&amp;w=820&amp;h=547&amp;bg=f0f0f0&amp;dpr=2&amp;chromasub=444&amp;q=35" data-lazy-src="https://massdrop-s3.imgix.net/product-images/keydous-nj68-bluetooth-hot-swappable-rgb-mechanical-keyboard/FP/sCZYHQjMTqGtLe8eTCrB_1500x1000_MD-93817_02.jpg?auto=format&amp;fm=jpg&amp;fit=fill&amp;w=820&amp;h=547&amp;bg=f0f0f0&amp;dpr=2&amp;chromasub=444&amp;q=35" onerror="this.onerror=null;this.src='/img/cool-background-trianglify_rotate.png'" alt="Keydous NJ68"></div><div class="equipment-item-content-item-info"><div class="equipment-item-content-item-name">Keydous NJ68</div><div class="equipment-item-content-item-specification">有线/蓝牙双模，热插拔，蒂芙尼 v2 轴，Filco 黑色无刻键帽</div><div class="equipment-item-content-item-description">目前主力键盘，可以自定义两层按键</div><div class="equipment-item-content-item-toolbar"><a class="equipment-item-content-item-link" href="https://drop.com/buy/keydous-nj68-bluetooth-hot-swappable-rgb-mechanical-keyboard" target="_blank">详情</a></div></div></div><div class="equipment-item-content-item"><div class="equipment-item-content-item-cover"><img class="equipment-item-content-item-image" src="https://www.weistang.com/data/attachment/forum/201703/07/221726talyaplazlkx11al.jpg" data-lazy-src="https://www.weistang.com/data/attachment/forum/201703/07/221726talyaplazlkx11al.jpg" onerror="this.onerror=null;this.src='/img/cool-background-trianglify_rotate.png'" alt="Cherry G80-3494"></div><div class="equipment-item-content-item-info"><div class="equipment-item-content-item-name">Cherry G80-3494</div><div class="equipment-item-content-item-specification">¥900，红轴，大骨复古键帽</div><div class="equipment-item-content-item-description">无钢板的红轴之王，手感一级棒！</div><div class="equipment-item-content-item-toolbar"><a class="equipment-item-content-item-link" href="https://www.weistang.com/article-7110-1.html" target="_blank">详情</a></div></div></div><div class="equipment-item-content-item"><div class="equipment-item-content-item-cover"><img class="equipment-item-content-item-image" src="https://mechanicalkeyboards.com/shop/images/products/large_FC980MEPAPDOE_1.jpg" data-lazy-src="https://mechanicalkeyboards.com/shop/images/products/large_FC980MEPAPDOE_1.jpg" onerror="this.onerror=null;this.src='/img/cool-background-trianglify_rotate.png'" alt="Leopord FC 660M 鹦鹉螺"></div><div class="equipment-item-content-item-info"><div class="equipment-item-content-item-name">Leopord FC 660M 鹦鹉螺</div><div class="equipment-item-content-item-specification">红轴+鹦鹉螺同款配色航插线</div><div class="equipment-item-content-item-description">蓝黄鹦鹉螺配色，大爱</div><div class="equipment-item-content-item-toolbar"><a class="equipment-item-content-item-link" href="https://mechanicalkeyboards.com/shop/index.php?l=product_detail&amp;p=5810" target="_blank">详情</a></div></div></div></div></div><div class="equipment-item"><h2 class="equipment-item-title">其他</h2><div class="equipment-item-description">还没想好的分类</div><div class="equipment-item-content"><div class="equipment-item-content-item"><div class="equipment-item-content-item-cover"><img class="equipment-item-content-item-image" src="https://cdn.cnbj0.fds.api.mi-img.com/b2c-shopapi-pms/39E78B480F86427AC6D1ABE8D706C6B2.png" data-lazy-src="https://cdn.cnbj0.fds.api.mi-img.com/b2c-shopapi-pms/39E78B480F86427AC6D1ABE8D706C6B2.png" onerror="this.onerror=null;this.src='/img/cool-background-trianglify_rotate.png'" alt="小米台灯"></div><div class="equipment-item-content-item-info"><div class="equipment-item-content-item-name">小米台灯</div><div class="equipment-item-content-item-specification">1 代，白色</div><div class="equipment-item-content-item-description">好看！颜值正义，iF金奖外观设计</div><div class="equipment-item-content-item-toolbar"><a class="equipment-item-content-item-link" href="https://www.mi.com/shop/buy/detail?product_id=16018" target="_blank">详情</a></div></div></div><div class="equipment-item-content-item"><div class="equipment-item-content-item-cover"><img class="equipment-item-content-item-image" src="https://www.bose.cn/content/dam/cloudassets/Bose_DAM/Web/consumer_electronics/global/products/speakers/soundlink_mini_ii/product_silo_images/slmiise_silver_EC_01.PNG/jcr:content/renditions/cq5dam.web.1280.1280.png" data-lazy-src="https://www.bose.cn/content/dam/cloudassets/Bose_DAM/Web/consumer_electronics/global/products/speakers/soundlink_mini_ii/product_silo_images/slmiise_silver_EC_01.PNG/jcr:content/renditions/cq5dam.web.1280.1280.png" onerror="this.onerror=null;this.src='/img/cool-background-trianglify_rotate.png'" alt="Bose SoundLink Mini II"></div><div class="equipment-item-content-item-info"><div class="equipment-item-content-item-name">Bose SoundLink Mini II</div><div class="equipment-item-content-item-specification">Special Edition, 银色</div><div class="equipment-item-content-item-description">特别版，Type-C 口，不带充电底座，重了点，不能骑车带着了</div><div class="equipment-item-content-item-toolbar"><a class="equipment-item-content-item-link" href="https://www.bose.cn/zh_cn/products/speakers/portable_speakers/soundlink_mini_ii_special.html#v=soundlink_mini_ii_special_luxe_silver" target="_blank">详情</a></div></div></div><div class="equipment-item-content-item"><div class="equipment-item-content-item-cover"><img class="equipment-item-content-item-image" src="https://www.bose.cn/content/dam/Bose_DAM/Web/consumer_electronics/global/products/headphones/qc30_product_page/product_silo_images/qc30_EC_04.psd/jcr:content/renditions/cq5dam.web.600.600.jpeg" data-lazy-src="https://www.bose.cn/content/dam/Bose_DAM/Web/consumer_electronics/global/products/headphones/qc30_product_page/product_silo_images/qc30_EC_04.psd/jcr:content/renditions/cq5dam.web.600.600.jpeg" onerror="this.onerror=null;this.src='/img/cool-background-trianglify_rotate.png'" alt="Bose QuietControl 30"></div><div class="equipment-item-content-item-info"><div class="equipment-item-content-item-name">Bose QuietControl 30</div><div class="equipment-item-content-item-specification">黑色</div><div class="equipment-item-content-item-description">降噪效果好，佩戴舒适，相较于 TWS 携带不方便</div><div class="equipment-item-content-item-toolbar"><a class="equipment-item-content-item-link" href="https://www.bose.cn/zh_cn/products/headphones/earbuds/quietcontrol-30.html#v=qc30" target="_blank">详情</a></div></div></div></div></div><div class="equipment-item"><h2 class="equipment-item-title">运动</h2><div class="equipment-item-description"></div><div class="equipment-item-content"><div class="equipment-item-content-item"><div class="equipment-item-content-item-cover"><img class="equipment-item-content-item-image" src="https://img.qibuluo.com/merida/1911/131105177.jpg" data-lazy-src="https://img.qibuluo.com/merida/1911/131105177.jpg" onerror="this.onerror=null;this.src='/img/cool-background-trianglify_rotate.png'" alt="MERIDA CHANLLENGER 300"></div><div class="equipment-item-content-item-info"><div class="equipment-item-content-item-name">MERIDA CHANLLENGER 300</div><div class="equipment-item-content-item-specification">¥3400, 2018 款, 白色</div><div class="equipment-item-content-item-description">上班通勤车。Deore M610 3*10 变速，Magura 油碟，MAXXIS 27.5 寸。换过坐垫、链条、光头胎、中轴、飞轮片、后轮……</div><div class="equipment-item-content-item-toolbar"><a class="equipment-item-content-item-link" href="https://www.qibuluo.com/bike/photo_2446.html#2" target="_blank">详情</a></div></div></div><div class="equipment-item-content-item"><div class="equipment-item-content-item-cover"><img class="equipment-item-content-item-image" src="http://www.merida.cn/uploadfile/2022/0331/20220331085244251.jpg" data-lazy-src="http://www.merida.cn/uploadfile/2022/0331/20220331085244251.jpg" onerror="this.onerror=null;this.src='/img/cool-background-trianglify_rotate.png'" alt="MERIDA SCULTURA KING Disc"></div><div class="equipment-item-content-item-info"><div class="equipment-item-content-item-name">MERIDA SCULTURA KING Disc</div><div class="equipment-item-content-item-specification">¥6300, 黑色</div><div class="equipment-item-content-item-description">4700 Tiagra 的线拉碟刹手感比 Magura 油碟差太多，变速也不如 Deore 顺畅，骑了没多久二手出掉了</div><div class="equipment-item-content-item-toolbar"><a class="equipment-item-content-item-link" href="http://www.merida.cn/index.php?m=content&amp;c=index&amp;a=show&amp;catid=365&amp;id=409" target="_blank">详情</a></div></div></div><div class="equipment-item-content-item"><div class="equipment-item-content-item-cover"><img class="equipment-item-content-item-image" src="https://giant-img.oss-cn-shanghai.aliyuncs.com/bike/20220906/166244436929260.jpg@!giantWeb_Vehicle_Big" data-lazy-src="https://giant-img.oss-cn-shanghai.aliyuncs.com/bike/20220906/166244436929260.jpg@!giantWeb_Vehicle_Big" onerror="this.onerror=null;this.src='/img/cool-background-trianglify_rotate.png'" alt="GIANT TCR ADV PRO 1 DISC"></div><div class="equipment-item-content-item-info"><div class="equipment-item-content-item-name">GIANT TCR ADV PRO 1 DISC</div><div class="equipment-item-content-item-specification">¥26800, MY22, 黑色</div><div class="equipment-item-content-item-description">换了 Pro One TT 真空胎，已经爆了 4 条，补胎液补不起来的那种，只能货拉拉 😭</div><div class="equipment-item-content-item-toolbar"><a class="equipment-item-content-item-link" href="https://www.giant.com.cn/index.php/index/bike_view.html?id=446" target="_blank">详情</a></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer_deal"></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div id="footer-bar-tips"></div><a class="footer-bar-link" href="/">Zijian's Blog</a></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" href="https://hexo.io" rel="noopener external nofollow noreferrer">Powered by Hexo & Butterfly</a><a class="footer-bar-link cc" href="/" title="Copyright"><i class="fa-regular fa-copyright"></i><i class="fa-brands fa-creative-commons-by"></i><i class="fa-brands fa-creative-commons-nc"></i><i class="fa-brands fa-creative-commons-nd"></i></a></div></div></div><div id="quit-box" onclick="RemoveRewardMask()" style="display: none"></div><div class="comment-barrage"></div></footer></div><div id="rightside" style="opacity: 1; transform: translateX(-38px);"><div id="rightside-config-hide"></div><div id="rightside-config-show"><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><!-- 右键菜单--><div class="js-pjax"><div id="rightMenu" style="top: 116px; left: 485px;"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="heofont icon-arrow-left-line"></i></div><div class="rightMenu-item" id="menu-forward"><i class="heofont icon-arrow-right-line"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="heofont icon-restart-line" style="font-size: 19px;"></i></div><div class="rightMenu-item" id="menu-top"><i class="heofont icon-arrow-up-line"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-newwindow"><i class="heofont icon-window-fill"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="heofont icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="heofont icon-file-copy-fill"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="heofont icon-play-fill"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="heofont icon-skip-back-fill"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="heofont icon-skip-forward-fill"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open('https://music.163.com/#/playlist?app_version=8.8.36&amp;id=7861823420', '_blank');"><i class="heofont icon-play-list-2-line"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="heofont icon-file-copy-fill"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-Link" id="menu-randomPost" data-pjax-state="data-pjax-state"><i class="heofont icon-signal-tower-fill"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="heofont icon-checkbox-multiple-blank-fill"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="heofont icon-price-tag-3-fill"></i><span>文章标签</span></a></div></div><div id="rightmenu-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script charset="utf-8" data-pjax src="/js/blogex.js"></script><div class="js-pjax"></div><link rel="stylesheet" href="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.js"></script><script src="https://jsd.onmicrosoft.cn/gh/hexo-theme-Acrylic/JS-Acrylic@main/Meting.js"></script><script src="https://jsd.onmicrosoft.cn/npm/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">134</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">17</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-link"></i><span> 专题</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/"><i class="fa-fw fas fa-link"></i><span> C++</span></a></li><li><a class="site-page child" href="/"><i class="fa-fw fas fa-link"></i><span> Linux</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 收藏</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/collect/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/equipment/"><i class="fa-fw fas fa-gamepad"></i><span> 装备</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-top-img fixed" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Zijian's Blog"><span class="site-name">Zijian's Blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-link"></i><span> 专题</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/"><i class="fa-fw fas fa-link"></i><span> C++</span></a></li><li><a class="site-page child" href="/"><i class="fa-fw fas fa-link"></i><span> Linux</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 收藏</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/collect/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/equipment/"><i class="fa-fw fas fa-gamepad"></i><span> 装备</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout hide-aside" id="content-inner"><div id="page"><h1 class="page-title">我的装备</h1><div id="article-container"></div></div></main><footer id="footer"><div id="footer-wrap"><div class="footer_custom_text">Powered by Hexo & Butterfly</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"></div><div id="rightside-config-show"><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><div class="aplayer no-destroy" data-id="60198" data-server="netease" data-type="playlist" data-fixed="true" data-autoplay="true" data-mini="true"> </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
 
 var pjax = new Pjax({
   elements: 'a:not([target="_blank"])',
@@ -133,12 +147,11 @@ var pjax = new Pjax({
 
 document.addEventListener('pjax:send', function () {
 
-  // removeEventListener scroll 
-  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
-  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+  // removeEventListener
+  btf.removeGlobalFnEvent('pjax')
+  btf.removeGlobalFnEvent('themeChange')
 
-  typeof preloader === 'object' && preloader.initLoading()
-  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  document.getElementById('rightside').classList.remove('rightside-show')
   
   if (window.aplayers) {
     for (let i = 0; i < window.aplayers.length; i++) {
@@ -149,6 +162,10 @@ document.addEventListener('pjax:send', function () {
   }
 
   typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
 
   typeof disqusjs === 'object' && disqusjs.destroy()
 })
@@ -166,7 +183,6 @@ document.addEventListener('pjax:complete', function () {
 
   GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
 
-  typeof chatBtnFn === 'function' && chatBtnFn()
   typeof panguInit === 'function' && panguInit()
 
   // google analytics
@@ -179,12 +195,10 @@ document.addEventListener('pjax:complete', function () {
 
   // prismjs
   typeof Prism === 'object' && Prism.highlightAll()
-
-  typeof preloader === 'object' && preloader.endLoading()
 })
 
-document.addEventListener('pjax:error', (e) => {
+document.addEventListener('pjax:error', e => {
   if (e.request.status === 404) {
     pjax.loadUrl('/404.html')
   }
-})</script><script src="/js/rightmenu.js"></script><script data-pjax src="/zhheo/random.js"></script></div></body></html>
+})</script></div></body></html>
